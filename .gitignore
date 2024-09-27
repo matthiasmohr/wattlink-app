@@ -1,4 +1,4 @@
 .angular/
 .idea/
-/infrastructure/.terraform/
+infrastructure/.terraform/
 node_modules
