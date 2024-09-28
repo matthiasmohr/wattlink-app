@@ -1,4 +1,10 @@
-.angular/
+# IDE
 .idea/
+
+# Infrastruktur-Runtimes
 infrastructure/.terraform/
+
+# Installation, Dependencies, Packages, Runtimes
+.angular/
 node_modules
+package-lock.json
