@@ -11,6 +11,12 @@ provider "aws" {
   region = "eu-central-1"
 }
 
+# For cloudfront, the acm has to be created in us-east-1 or it will not work
+provider "aws" {
+  region = "us-east-1"
+  alias  = "aws-us-east-1"
+}
+
 resource "aws_budgets_budget" "aws-budget" {
   name = "monthly-budget"
   budget_type = "COST"
@@ -18,6 +24,21 @@ resource "aws_budgets_budget" "aws-budget" {
   limit_unit = "USD"
   time_unit = "MONTHLY"
   time_period_start = "2024-09-27_00:01"
+}
+
+# create acm and explicitly set it to us-east-1 provider
+module "acm_request_certificate" {
+  source = "cloudposse/acm-request-certificate/aws"
+  providers = {
+    aws = aws.aws-us-east-1
+  }
+
+  # Cloud Posse recommends pinning every module to a specific version
+  # version = "x.x.x"
+  domain_name                       = "hasemato.com"
+  subject_alternative_names         = ["www.hasemato.com", "wattlink.hasemato.com", "wattlink-app.hasemato.com"]
+  process_domain_validation_options = true
+  ttl                               = "300"
 }
 
 module "cdn" {
@@ -28,9 +49,13 @@ module "cdn" {
   namespace         = "wattlink"
   stage             = "test"
   name              = "app"
-  aliases           = ["wattlink-app.hasemato.com"]
+  aliases           = ["wattlink-app.hasemato.com", "wattlink.hasemato.com"]
   dns_alias_enabled = true
   parent_zone_name  = "hasemato.com"
+
+  acm_certificate_arn = module.acm_request_certificate.arn
+
+  depends_on = [module.acm_request_certificate]
 
   deployment_principal_arns = {
     "arn:aws:iam::456004844534:user/lynqtech-macbook-iam" = [""]
