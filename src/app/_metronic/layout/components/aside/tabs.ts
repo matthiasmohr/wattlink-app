@@ -1,6 +1,5 @@
 type Tab = {
   link:
-    | 'projects'
     | 'menu'
     | 'subscription'
     | 'tasks'
@@ -8,7 +7,6 @@ type Tab = {
     | 'authors';
   icon: string;
   tooltip:
-    | 'Projects'
     | 'Menu'
     | 'Subscription'
     | 'Tasks'
@@ -17,11 +15,6 @@ type Tab = {
 };
 
 const tabs: ReadonlyArray<Tab> = [
-  {
-    link: 'projects',
-    icon: './assets/media/icons/duotune/general/gen025.svg',
-    tooltip: 'Projects',
-  },
   {
     link: 'menu',
     icon: './assets/media/icons/duotune/finance/fin006.svg',
