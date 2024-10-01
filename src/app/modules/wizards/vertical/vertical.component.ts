@@ -21,6 +21,7 @@ export class VerticalComponent implements OnInit, OnDestroy {
   ngOnInit(): void {}
 
   updateAccount = (part: Partial<ICreateAccount>, isFormValid: boolean) => {
+    console.log(this.account$) // TODO: Remove later
     const currentAccount = this.account$.value;
     const updatedAccount = { ...currentAccount, ...part };
     this.account$.next(updatedAccount);

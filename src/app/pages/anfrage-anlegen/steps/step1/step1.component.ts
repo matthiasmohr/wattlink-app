@@ -1,19 +1,16 @@
 import { Component, Input, OnDestroy, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Subscription } from 'rxjs';
-import { AnfrageAnlegen } from '../../create-account.helper';
+import { Anfrage } from '../../../../shared/Anfrage';
 
 @Component({
   selector: 'app-step1',
   templateUrl: './step1.component.html',
 })
 export class Step1Component implements OnInit, OnDestroy {
-  @Input('updateParentModel') updateParentModel: (
-    part: Partial<AnfrageAnlegen>,
-    isFormValid: boolean
-  ) => void;
+  @Input('updateParentModel') updateParentModel: (part: Partial<Anfrage>, isFormValid: boolean) => void;
   form: FormGroup;
-  @Input() defaultValues: Partial<AnfrageAnlegen>;
+  @Input() defaultValues: Partial<Anfrage>;
   private unsubscribe: Subscription[] = [];
 
   constructor(private fb: FormBuilder) {}
@@ -25,7 +22,10 @@ export class Step1Component implements OnInit, OnDestroy {
 
   initForm() {
     this.form = this.fb.group({
-      accountType: [this.defaultValues.accountType, [Validators.required]],
+      jahresverbrauchStrom: [this.defaultValues.jahresverbrauchStrom, [Validators.required]],
+      oekostrom: [this.defaultValues.oekostrom, [Validators.required]],
+      jahresverbrauchGas: [this.defaultValues.jahresverbrauchGas, [Validators.required]],
+      biogas: [this.defaultValues.biogas, [Validators.required]],
     });
 
     const formChangesSubscr = this.form.valueChanges.subscribe((val) => {

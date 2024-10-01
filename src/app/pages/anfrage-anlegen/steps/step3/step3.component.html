@@ -1,97 +1,126 @@
 <div class="pb-10 pb-lg-12">
-  <h2 class="fw-bolder text-gray-900">Business Details</h2>
+  <h2 class="fw-bolder text-gray-900">Aktuelle Belieferung</h2>
   <div class="text-gray-500 fw-bold fs-6">
-    If you need more info, please check out
-    <a href="#" class="link-primary fw-bolder">Help Page</a>.
+    Wie ist die aktuelle Versorgungssituation?
+    <a href="#" class="link-primary fw-bolder">Hilfe</a>.
   </div>
 </div>
 <div [formGroup]="form">
-  <div class="fv-row mb-10">
-    <label class="form-label required">Business Name</label
-    ><input
-      name="businessName"
-      class="form-control form-control-lg form-control-solid"
-      formControlName="businessName"
-    />
-    <div
-      class="fv-plugins-message-container invalid-feedback"
-      *ngIf="
-        form.get('businessName')?.hasError('required') &&
-        form.get('businessName')?.touched
-      "
-    >
-      Business Name is required
+
+    <div class="mb-0 fv-row">
+        <label class="d-flex align-items-center form-label mb-5">
+            Aktuelle Liefersituation<i
+                class="fas fa-exclamation-circle ms-2 fs-7"
+                ngbTooltip="Wie ist die (Mehrheit der) Lieferstellen aktuell versorgt?">
+
+        </i>
+        </label>
+        <div class="mb-0">
+            <label class="d-flex flex-stack mb-5 cursor-pointer">
+        <span class="d-flex align-items-center me-2">
+          <span class="symbol symbol-50px me-6">
+            <span class="symbol-label">
+              <app-keenicon name="bank" class="fs-1"></app-keenicon>
+            </span>
+          </span>
+          <span class="d-flex flex-column">
+            <span class="fw-bolder text-gray-800 text-hover-primary fs-5">
+              Grundversorgung
+            </span>
+            <span class="fs-6 fw-bold text-gray-500">
+              Die Mehrheit der Lieferstellen ist in Grund- oder Ersatzversorgung
+            </span>
+          </span>
+        </span>
+                <span class="form-check form-check-custom form-check-solid">
+          <input
+                  formControlName="beliefersituation"
+                  class="form-check-input"
+                  type="radio"
+                  value="1"/></span>
+            </label>
+            <label class="d-flex flex-stack mb-5 cursor-pointer">
+        <span class="d-flex align-items-center me-2">
+          <span class="symbol symbol-50px me-6">
+            <span class="symbol-label">
+              <app-keenicon name="chart" class="fs-1"></app-keenicon>
+            </span>
+          </span>
+          <span class="d-flex flex-column">
+            <span class="fw-bolder text-gray-800 text-hover-primary fs-5">
+              Wettbewerblich
+            </span>
+            <span class="fs-6 fw-bold text-gray-500">
+              Es gibt (mehrheitlich) bestehende Lieferverträge außerhalb der Grundversorgung
+            </span>
+          </span>
+        </span>
+                <span class="form-check form-check-custom form-check-solid">
+          <input
+                  formControlName="beliefersituation"
+                  class="form-check-input"
+                  type="radio"
+                  value="2"/></span>
+            </label>
+            <label class="d-flex flex-stack mb-0 cursor-pointer">
+        <span class="d-flex align-items-center me-2">
+          <span class="symbol symbol-50px me-6">
+            <span class="symbol-label">
+              <app-keenicon name="chart-pie-4" class="fs-1"></app-keenicon>
+            </span>
+          </span>
+          <span class="d-flex flex-column">
+            <span class="fw-bolder text-gray-800 text-hover-primary fs-5">
+              Unbekannt
+            </span>
+            <span class="fs-6 fw-bold text-gray-500">
+              Ich kenne die Versorgungssituation aktuell nicht.
+            </span>
+          </span>
+        </span>
+                <span class="form-check form-check-custom form-check-solid">
+          <input
+                  formControlName="beliefersituation"
+                  class="form-check-input"
+                  type="radio"
+                  value="3"/></span>
+            </label>
+        </div>
     </div>
-  </div>
+
   <div class="fv-row mb-10">
     <label class="d-flex align-items-center form-label"
-      ><span class="required">Shortened Descriptor</span></label
+      ><span class="required">Lieferbeginn</span></label
     ><input
-      name="businessDescriptor"
+      name="lieferbeginn"
       class="form-control form-control-lg form-control-solid"
-      formControlName="businessDescriptor"
+      formControlName="lieferbeginn"
     />
     <div
       class="fv-plugins-message-container invalid-feedback"
       *ngIf="
-        form.get('businessDescriptor')?.hasError('required') &&
-        form.get('businessDescriptor')?.touched
+        form.get('lieferbeginn')?.hasError('required') &&
+        form.get('lieferbeginn')?.touched
       "
     >
-      Shortened Descriptor is required
+      Lieferbeginn ist notwendig
     </div>
     <div class="form-text">
-      Customers will see this shortened version of your statement descriptor
+      Wann soll die Mehrheit der Zählpunkte in Belieferung gehen?
     </div>
   </div>
+
   <div class="fv-row mb-10">
-    <label class="form-label required">Corporation Type</label
-    ><select
-      name="businessType"
-      class="form-select form-select-lg form-select-solid"
-      formControlName="businessType"
-    >
-      <option value="1">S Corporation</option>
-      <option value="1">C Corporation</option>
-      <option value="2">Sole Proprietorship</option>
-      <option value="3">Non-profit</option>
-      <option value="4">Limited Liability</option>
-      <option value="5">General Partnership</option>
-    </select>
-  </div>
-  <div class="fv-row mb-10">
-    <label class="form-label">Business Description</label
+    <label class="form-label">Was ist sonst noch wichtig? (optional)</label
     ><textarea
-      name="businessDescription"
+      name="wasIstWichtig"
       class="form-control form-control-lg form-control-solid"
       rows="3"
-      formControlName="businessDescription"
+      formControlName="wasIstWichtig"
     ></textarea>
+  <div class="form-text">
+     Gibt es Aspekte, die für die neue Versorgungssituation zu beachten sind?
   </div>
-  <div class="fv-row mb-0">
-    <label class="fs-6 fw-bold form-label required">Contact Email</label
-    ><input
-      name="businessEmail"
-      class="form-control form-control-lg form-control-solid"
-      formControlName="businessEmail"
-    />
-    <div
-      class="fv-plugins-message-container invalid-feedback"
-      *ngIf="
-        form.get('businessEmail')?.hasError('required') &&
-        form.get('businessEmail')?.touched
-      "
-    >
-      Contact Email is required
-    </div>
-    <div
-      class="fv-plugins-message-container invalid-feedback"
-      *ngIf="
-        form.get('businessEmail')?.hasError('email') &&
-        form.get('businessEmail')?.touched
-      "
-    >
-      Wrong email format
-    </div>
   </div>
+
 </div>

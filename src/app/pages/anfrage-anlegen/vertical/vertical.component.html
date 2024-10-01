@@ -25,11 +25,11 @@
             <!--begin::Label-->
             <div class="stepper-label">
               <h3 class="stepper-title">
-                Account Type
+                Verbrauchsdaten
               </h3>
 
               <div class="stepper-desc fw-semibold">
-                Setup Your Account Details
+                Woher kommt wie viel Energie?
               </div>
             </div>
             <!--end::Label-->
@@ -57,10 +57,10 @@
             <!--begin::Label-->
             <div class="stepper-label">
               <h3 class="stepper-title">
-                Account Settings
+                Lieferstellen
               </h3>
               <div class="stepper-desc fw-semibold">
-                Setup Your Account Settings
+                Wohin geht die Energie?
               </div>
             </div>
             <!--end::Label-->
@@ -88,10 +88,10 @@
             <!--begin::Label-->
             <div class="stepper-label">
               <h3 class="stepper-title">
-                Business Info
+                Aktuelle Belieferung
               </h3>
               <div class="stepper-desc fw-semibold">
-                Your Business Related Info
+                Wie ist die aktuelle Versorgungssituation?
               </div>
             </div>
             <!--end::Label-->
@@ -119,10 +119,10 @@
             <!--begin::Label-->
             <div class="stepper-label">
               <h3 class="stepper-title">
-                Billing Details
+                Kontakt
               </h3>
               <div class="stepper-desc fw-semibold">
-                Set Your Payment Methods
+                Wer ist Ansprechpartner?
               </div>
             </div>
             <!--end::Label-->
@@ -147,10 +147,10 @@
             <!--begin::Label-->
             <div class="stepper-label">
               <h3 class="stepper-title">
-                Completed
+                Anfrage stellen
               </h3>
               <div class="stepper-desc fw-semibold">
-                Woah, we are here
+                Wie geht es weiter?
               </div>
             </div>
             <!--end::Label-->
@@ -167,19 +167,19 @@
     <form class="py-20 w-100 w-xl-700px px-9" noValidate id="kt_create_account_form">
       <div class="current">
         <ng-container *ngIf="currentStep$.value === 1">
-          <app-step1 class="w-100" [updateParentModel]="updateAccount" [defaultValues]="account$.value"></app-step1>
+          <app-step1 class="w-100" [updateParentModel]="updateAccount" [defaultValues]="anfrage$.value"></app-step1>
         </ng-container>
 
         <ng-container *ngIf="currentStep$.value === 2">
-          <app-step2 class="w-100" [updateParentModel]="updateAccount" [defaultValues]="account$.value"></app-step2>
+          <app-step2 class="w-100" [updateParentModel]="updateAccount" [defaultValues]="anfrage$.value"></app-step2>
         </ng-container>
 
         <ng-container *ngIf="currentStep$.value === 3">
-          <app-step3 class="w-100" [updateParentModel]="updateAccount" [defaultValues]="account$.value"></app-step3>
+          <app-step3 class="w-100" [updateParentModel]="updateAccount" [defaultValues]="anfrage$.value"></app-step3>
         </ng-container>
 
         <ng-container *ngIf="currentStep$.value === 4">
-          <app-step4 class="w-100" [updateParentModel]="updateAccount" [defaultValues]="account$.value"></app-step4>
+          <app-step4 class="w-100" [updateParentModel]="updateAccount" [defaultValues]="anfrage$.value"></app-step4>
         </ng-container>
 
         <ng-container *ngIf="currentStep$.value === 5">

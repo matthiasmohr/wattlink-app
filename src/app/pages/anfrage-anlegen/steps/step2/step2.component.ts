@@ -1,7 +1,7 @@
 import { Component, Input, OnDestroy, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Subscription } from 'rxjs';
-import { AnfrageAnlegen } from '../../create-account.helper';
+import { Anfrage } from '../../../../shared/Anfrage';
 
 @Component({
   selector: 'app-step2',
@@ -9,11 +9,11 @@ import { AnfrageAnlegen } from '../../create-account.helper';
 })
 export class Step2Component implements OnInit, OnDestroy {
   @Input('updateParentModel') updateParentModel: (
-    part: Partial<AnfrageAnlegen>,
+    part: Partial<Anfrage>,
     isFormValid: boolean
   ) => void;
   form: FormGroup;
-  @Input() defaultValues: Partial<AnfrageAnlegen>;
+  @Input() defaultValues: Partial<Anfrage>;
 
   private unsubscribe: Subscription[] = [];
 
@@ -26,12 +26,9 @@ export class Step2Component implements OnInit, OnDestroy {
 
   initForm() {
     this.form = this.fb.group({
-      accountTeamSize: [
-        this.defaultValues.accountTeamSize,
-        [Validators.required],
-      ],
-      accountName: [this.defaultValues.accountName, [Validators.required]],
-      accountPlan: [this.defaultValues.accountPlan, [Validators.required]],
+      anzahlLieferstellen: [this.defaultValues.anzahlLieferstellen, [Validators.required]],
+      anfrageBezeichnung: [this.defaultValues.anfrageBezeichnung, [Validators.required]],
+      informationsergaenzung: [this.defaultValues.informationsergaenzung, [Validators.required]],
     });
 
     const formChangesSubscr = this.form.valueChanges.subscribe((val) => {

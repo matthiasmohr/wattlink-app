@@ -1,6 +1,6 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { BehaviorSubject, Subscription } from 'rxjs';
-import { AnfrageAnlegen, inits } from '../create-account.helper';
+import { Anfrage, inits } from '../../../shared/Anfrage';
 
 @Component({
   selector: 'app-vertical',
@@ -8,23 +8,20 @@ import { AnfrageAnlegen, inits } from '../create-account.helper';
 })
 export class VerticalComponent implements OnInit, OnDestroy {
   formsCount = 5;
-  account$: BehaviorSubject<AnfrageAnlegen> =
-    new BehaviorSubject<AnfrageAnlegen>(inits);
+  anfrage$: BehaviorSubject<Anfrage> = new BehaviorSubject<Anfrage>(inits);
   currentStep$: BehaviorSubject<number> = new BehaviorSubject(1);
-  isCurrentFormValid$: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(
-    false
-  );
+  isCurrentFormValid$: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
   private unsubscribe: Subscription[] = [];
 
   constructor() {}
 
   ngOnInit(): void {}
 
-  updateAccount = (part: Partial<AnfrageAnlegen>, isFormValid: boolean) => {
-    console.log(this.account$)
-    const currentAccount = this.account$.value;
+  updateAccount = (part: Partial<Anfrage>, isFormValid: boolean) => {
+    console.log(this.anfrage$) // TODO: Remove later
+    const currentAccount = this.anfrage$.value;
     const updatedAccount = { ...currentAccount, ...part };
-    this.account$.next(updatedAccount);
+    this.anfrage$.next(updatedAccount);
     this.isCurrentFormValid$.next(isFormValid);
   };
 

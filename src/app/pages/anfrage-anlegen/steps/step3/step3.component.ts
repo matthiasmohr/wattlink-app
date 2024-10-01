@@ -1,7 +1,7 @@
 import { Component, Input, OnDestroy, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Subscription } from 'rxjs';
-import { AnfrageAnlegen } from '../../create-account.helper';
+import { Anfrage } from '../../../../shared/Anfrage';
 
 @Component({
   selector: 'app-step3',
@@ -9,11 +9,11 @@ import { AnfrageAnlegen } from '../../create-account.helper';
 })
 export class Step3Component implements OnInit, OnDestroy {
   @Input('updateParentModel') updateParentModel: (
-    part: Partial<AnfrageAnlegen>,
+    part: Partial<Anfrage>,
     isFormValid: boolean
   ) => void;
   form: FormGroup;
-  @Input() defaultValues: Partial<AnfrageAnlegen>;
+  @Input() defaultValues: Partial<Anfrage>;
 
   private unsubscribe: Subscription[] = [];
 
@@ -26,17 +26,9 @@ export class Step3Component implements OnInit, OnDestroy {
 
   initForm() {
     this.form = this.fb.group({
-      businessName: [this.defaultValues.businessName, [Validators.required]],
-      businessDescriptor: [
-        this.defaultValues.businessDescriptor,
-        [Validators.required],
-      ],
-      businessType: [this.defaultValues.businessType, [Validators.required]],
-      businessDescription: [this.defaultValues.businessDescription],
-      businessEmail: [
-        this.defaultValues.businessEmail,
-        [Validators.required, Validators.email],
-      ],
+      beliefersituation: [this.defaultValues.beliefersituation, [Validators.required]],
+      lieferbeginn: [this.defaultValues.lieferbeginn, [Validators.required]],
+      wasIstWichtig: [this.defaultValues.wasIstWichtig],
     });
 
     const formChangesSubscr = this.form.valueChanges.subscribe((val) => {
