@@ -37,4 +37,4 @@ jobs:
 
       - name: Deploy
         if: success()
-        run: aws s3 sync ./dist/demo7 s3://wattlink-test-app-origin/
+        run: aws s3 sync ./dist/demo7 s3://wattlink-test-portal-origin/

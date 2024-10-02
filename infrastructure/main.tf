@@ -36,7 +36,7 @@ module "acm_request_certificate" {
   # Cloud Posse recommends pinning every module to a specific version
   # version = "x.x.x"
   domain_name                       = "hasemato.com"
-  subject_alternative_names         = ["www.hasemato.com", "wattlink.hasemato.com", "wattlink-app.hasemato.com"]
+  subject_alternative_names         = ["portal.wattlink.hasemato.com", "wattlink-portal.hasemato.com"]
   process_domain_validation_options = true
   ttl                               = "300"
 }
@@ -48,9 +48,10 @@ module "cdn" {
 
   namespace         = "wattlink"
   stage             = "test"
-  name              = "app"
-  aliases           = ["wattlink-app.hasemato.com", "wattlink.hasemato.com"]
+  name              = "portal"
+  aliases           = ["wattlink-portal.hasemato.com", "portal.wattlink.hasemato.com"]
   dns_alias_enabled = true
+  website_enabled   = true
   parent_zone_name  = "hasemato.com"
 
   acm_certificate_arn = module.acm_request_certificate.arn
