@@ -1,20 +1,26 @@
 import { Routes } from '@angular/router';
 import {AnfragenListeComponent} from "./anfragen-liste/anfragen-liste.component";
+import {DashboardComponent} from "./dashboard/dashboard.component";
 
 const Routing: Routes = [
+  {
+    path: 'dashboard',
+    loadChildren: () =>
+        import('./dashboard/dashboard.module').then((m) => m.DashboardModule),
+  },
   {
     path: 'anfragen-liste',
     component: AnfragenListeComponent
   },
   {
+    path: 'anfrage-anzeigen',
+    loadChildren: () =>
+        import('../pages/anfrage-anzeigen/profile.module').then((m) => m.ProfileModule),
+  },
+  {
     path: 'anfrage-anlegen',
     loadChildren: () =>
         import('../pages/anfrage-anlegen/wizards.module').then((m) => m.WizardsModule),
-  },
-  {
-    path: 'dashboard',
-    loadChildren: () =>
-        import('./dashboard/dashboard.module').then((m) => m.DashboardModule),
   },
   {
     path: 'builder',
