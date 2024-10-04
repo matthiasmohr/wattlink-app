@@ -51,8 +51,17 @@ module "cdn" {
   name              = "portal"
   aliases           = ["wattlink-portal.hasemato.com", "portal.wattlink.hasemato.com"]
   dns_alias_enabled = true
-  website_enabled   = true
   parent_zone_name  = "hasemato.com"
+  custom_error_response = [
+    {
+      error_code          = 404
+      response_code       = 200
+      response_page_path  = "/index.html"
+      error_caching_min_ttl = 10
+    }
+  ]
+
+
 
   acm_certificate_arn = module.acm_request_certificate.arn
 
