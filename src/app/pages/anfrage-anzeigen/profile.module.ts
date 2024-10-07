@@ -14,12 +14,14 @@ import {
   WidgetsModule,
 } from '../../_metronic/partials';
 import { SharedModule } from "../../_metronic/shared/shared.module";
+import {LieferstellenCardComponent} from "./lieferstellen/lieferstellen-card/card.component";
 
 @NgModule({
   declarations: [
     ProfileComponent,
     AnfrageparameterComponent,
     LieferstellenComponent,
+    LieferstellenCardComponent,
     AngeboteComponent,
     DokumenteComponent,
     ProzessComponent,
