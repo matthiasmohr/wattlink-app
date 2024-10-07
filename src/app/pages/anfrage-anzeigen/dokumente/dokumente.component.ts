@@ -2,8 +2,8 @@ import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-documents',
-  templateUrl: './documents.component.html',
+  templateUrl: './dokumente.component.html',
 })
-export class DocumentsComponent {
+export class DokumenteComponent {
   constructor() {}
 }

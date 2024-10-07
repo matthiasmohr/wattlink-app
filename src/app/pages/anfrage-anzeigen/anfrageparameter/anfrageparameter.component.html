@@ -1,0 +1,54 @@
+<div class="card mb-5 mb-xl-10" id="kt_profile_details_view">
+    <div class="card-header cursor-pointer">
+        <div class="card-title m-0">
+            <h3 class="fw-bolder m-0">Anfrageparameter</h3>
+        </div>
+
+        <a
+                routerLink="/anfrage-anzeigen/anfrageparameter"
+                class="btn btn-warning align-self-center"
+        >
+            Anfrage zurückziehen
+        </a>
+    </div>
+
+    <div class="card-body p-9">
+        <div class="row mb-7">
+            <label class="col-lg-4 fw-bold text-muted">Stromverbrauch (kWh / Jahr)</label>
+
+            <div class="col-lg-8">
+                <span class="fw-bolder fs-6 text-gray-900">$.stromVerbrauch</span>
+            </div>
+        </div>
+
+        <div class="row mb-7">
+            <label class="col-lg-4 fw-bold text-muted">...</label>
+
+            <div class="col-lg-8 fv-row">
+                <span class="fw-bold fs-6">...</span>
+            </div>
+        </div>
+
+        <div
+                class="
+        notice
+        d-flex
+        bg-light
+        rounded
+        border-warning border border-dashed
+        p-6
+      "
+        >
+            <app-keenicon name="information-5" class="fs-2 text-warning me-4"></app-keenicon>
+            <div class="d-flex flex-stack flex-grow-1">
+                <div class="fw-bold">
+                    <h4 class="text-gray-800 fw-bolder">Hinweis</h4>
+                    <div class="fs-6 text-gray-600">
+                        Die Anfrage befindet sich zur Bearbeitung bei Energieversorgern, aus diesem Grund kann sie nach Anfragestellung nicht mehr verändert werden.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

@@ -2,8 +2,8 @@ import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-overview',
-  templateUrl: './overview.component.html',
+  templateUrl: './anfrageparameter.component.html',
 })
-export class OverviewComponent {
+export class AnfrageparameterComponent {
   constructor() {}
 }

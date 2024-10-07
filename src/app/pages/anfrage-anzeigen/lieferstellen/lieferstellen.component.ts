@@ -3,9 +3,9 @@ import { IconUserModel } from '../../../_metronic/partials';
 
 @Component({
   selector: 'app-projects',
-  templateUrl: './projects.component.html',
+  templateUrl: './lieferstellen.component.html',
 })
-export class ProjectsComponent implements OnInit {
+export class LieferstellenComponent implements OnInit {
   users1: Array<IconUserModel> = [
     { name: 'Emma Smith', avatar: './assets/media/avatars/300-6.jpg' },
     { name: 'Rudy Stone', avatar: './assets/media/avatars/300-1.jpg' },

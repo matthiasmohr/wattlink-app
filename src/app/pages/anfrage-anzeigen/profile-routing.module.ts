@@ -1,11 +1,11 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { OverviewComponent } from './overview/overview.component';
-import { CampaignsComponent } from './campaigns/campaigns.component';
-import { DocumentsComponent } from './documents/documents.component';
-import { ProjectsComponent } from './projects/projects.component';
+import { AnfrageparameterComponent } from './anfrageparameter/anfrageparameter.component';
+import { AngeboteComponent } from './angebote/angebote.component';
+import { DokumenteComponent } from './dokumente/dokumente.component';
+import { LieferstellenComponent } from './lieferstellen/lieferstellen.component';
 import { ProfileComponent } from './profile.component';
-import { ConnectionsComponent } from './connections/connections.component';
+import { ProzessComponent } from './prozess/prozess.component';
 
 const routes: Routes = [
   {
@@ -13,24 +13,24 @@ const routes: Routes = [
     component: ProfileComponent,
     children: [
       {
-        path: 'overview',
-        component: OverviewComponent,
+        path: 'anfrageparameter',
+        component: AnfrageparameterComponent,
       },
       {
-        path: 'projects',
-        component: ProjectsComponent,
+        path: 'lieferstellen',
+        component: LieferstellenComponent,
       },
       {
-        path: 'campaigns',
-        component: CampaignsComponent,
+        path: 'angebote',
+        component: AngeboteComponent,
       },
       {
-        path: 'documents',
-        component: DocumentsComponent,
+        path: 'dokumente',
+        component: DokumenteComponent,
       },
       {
-        path: 'connections',
-        component: ConnectionsComponent,
+        path: 'prozess',
+        component: ProzessComponent,
       },
       { path: '', redirectTo: 'overview', pathMatch: 'full' },
       { path: '**', redirectTo: 'overview', pathMatch: 'full' },
