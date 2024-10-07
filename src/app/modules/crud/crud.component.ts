@@ -165,7 +165,7 @@ export class CrudComponent implements OnInit, AfterViewInit, OnDestroy {
         map(event => {
           const target = event.target as HTMLElement;
           const action = target.getAttribute('data-action');
-          const value = (target as HTMLInputElement).value?.trim().toLowerCase();
+          const value = (target as HTMLInputElement).value?.trim();
 
           return { action, value };
         })

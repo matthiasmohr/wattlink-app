@@ -1,1 +1,5 @@
 <p>anfragen-liste works!</p>
+<tr *ngFor="let anfrage of anfragen">
+    <td>{{anfrage.id}}</td>
+    <td><button (click)="nix()">Nix</button></td>
+</tr>

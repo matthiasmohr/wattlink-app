@@ -1,4 +1,5 @@
 interface Anfrage {
+    id: number;
     user: string;
     anfrageID: string;
     // Step 1
@@ -31,6 +32,7 @@ interface Anfrage {
 }
 
 const inits: Anfrage = {
+    id: 1,
     user: '',
     anfrageID: '',
     // Step 1

@@ -1,6 +1,7 @@
 export class AnfragenTable {
     public static anfragen: any = [
         {
+            id: 1,
             user: '',
             anfrageID: '',
             // Step 1
