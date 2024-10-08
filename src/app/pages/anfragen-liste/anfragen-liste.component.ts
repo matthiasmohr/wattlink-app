@@ -21,9 +21,9 @@ export class AnfragenListeComponent {
   anfragen: Anfrage[];
 
   ngOnInit() {
-    this.getAnfragen2();
+    this.getAnfragen();
   }
-/*
+
   getAnfragen() {
     this.anfragenApiService.getAnfragen().subscribe(anfragen => {
       this.anfragen = anfragen
@@ -31,7 +31,7 @@ export class AnfragenListeComponent {
       console.log(anfragen)
     });
   }
-*/
+
   getAnfragen2() {
     this.anfragenApiService.getAnfragen()
   }

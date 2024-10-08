@@ -24,16 +24,12 @@ export class AnfragenApiService {
       CRUD Methods for consuming RESTful API
     =========================================*/
 
-    getAnfragen() {
-        this.http.get<Anfrage[]>(this.anfragenUrl, { headers }).subscribe(
-             response => console.log(response),
-             error => console.error(error)
-         )
-         /*pipe(
+    getAnfragen(): Observable<Anfrage[]> {
+        return this.http.get<Anfrage[]>(this.anfragenUrl, { headers }).pipe(
             //retry(2),
             tap(data => console.log("AnfragenApiService" + data)), // eyeball results in the console
             catchError(this.handleError)
-            );*/
+            );
     }
 
     getAnfrage(id: number): Observable<Anfrage> {
