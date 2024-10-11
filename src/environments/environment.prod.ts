@@ -159,6 +159,14 @@ export const environment = {
       thumbnail: './assets/media/demos/demo20.png',
     },
   },
+  auth: {
+    CLIENT_ID: 'gdC1lhXJmVTesnHNxOch6DDeMmd5nFyA',
+    CLIENT_DOMAIN: 'mietexplica.eu.auth0.com', // e.g., 'you.auth0.com'
+
+    AUDIENCE: 'https://mietexplica.eu.auth0.com/api/v2/', // unused
+    REDIRECT: 'http://localhost:4200/', // unused
+    LOGOUT_URL: 'http://localhost:4200' // unused
+  }
 };
 
 /*
