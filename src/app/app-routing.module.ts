@@ -4,11 +4,6 @@ import { AuthGuard } from '@auth0/auth0-angular';
 
 export const routes: Routes = [
   {
-    path: 'auth',
-    loadChildren: () =>
-      import('./modules/auth/auth.module').then((m) => m.AuthModule),
-  },
-  {
     path: 'error',
     loadChildren: () =>
       import('./modules/errors/errors.module').then((m) => m.ErrorsModule),

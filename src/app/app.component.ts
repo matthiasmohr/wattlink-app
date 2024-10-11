@@ -35,10 +35,6 @@ export class AppComponent implements OnInit {
     );
   }
 
-  loginWithRedirect() {
-    this.auth.loginWithRedirect();
-  }
-
   ngOnInit() {
     this.modeService.init();
   }

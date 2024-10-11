@@ -1,7 +1,6 @@
 // This file can be replaced during build by using the `fileReplacements` array.
 // `ng build` replaces `environment.ts` with `environment.prod.ts`.
 // The list of file replacements can be found in `angular.json`.
-import config from '../../auth_config.json';
 
 export const environment = {
   production: false,
@@ -160,9 +159,10 @@ export const environment = {
   auth: {
     CLIENT_ID: 'gdC1lhXJmVTesnHNxOch6DDeMmd5nFyA',
     CLIENT_DOMAIN: 'mietexplica.eu.auth0.com', // e.g., 'you.auth0.com'
-    AUDIENCE: 'https://mietexplica.eu.auth0.com/api/v2/',
-    REDIRECT: 'http://localhost:4200/callback',
-    LOGOUT_URL: 'http://localhost:4200'
+
+    AUDIENCE: 'https://mietexplica.eu.auth0.com/api/v2/', // unused
+    REDIRECT: 'http://localhost:4200/', // unused
+    LOGOUT_URL: 'http://localhost:4200' // unused
   }
 };
 
