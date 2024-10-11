@@ -1,10 +1,11 @@
-import { Component } from '@angular/core';
-import {environment} from "../../../environments/environment";
-import {FakeAPIService} from "../../_fake";
+import { Component, OnInit } from '@angular/core';
 import {AnfragenApiService} from "../../shared/anfrage.service";
 import {Anfrage} from "../../shared/Anfrage";
 import {NgForOf} from "@angular/common";
-import {AnfragenTable} from "../../_fake/anfragen.table";
+import {tap} from "rxjs";
+import {catchError} from "rxjs/operators";
+import {HttpClient} from "@angular/common/http";
+
 
 @Component({
   selector: 'app-anfragen-liste',
@@ -15,8 +16,8 @@ import {AnfragenTable} from "../../_fake/anfragen.table";
   templateUrl: './anfragen-liste.component.html',
   styleUrl: './anfragen-liste.component.scss'
 })
-export class AnfragenListeComponent {
-  constructor(public anfragenApiService: AnfragenApiService) {}
+export class AnfragenListeComponent implements OnInit {
+  constructor(public anfragenApiService: AnfragenApiService, public http: HttpClient) {}
 
   anfragen: Anfrage[];
 
@@ -25,20 +26,11 @@ export class AnfragenListeComponent {
   }
 
   getAnfragen() {
-    this.anfragenApiService.getAnfragen().subscribe(anfragen => {
-      this.anfragen = anfragen
-      console.log("Das ist die Anfrage:")
-      console.log(anfragen)
+    this.anfragenApiService.getAnfragen().subscribe(response => {
+      this.anfragen = response
     });
   }
 
-  getAnfragen2() {
-    this.anfragenApiService.getAnfragen()
-  }
-
-  getAnfragenDirectly() {
-    this.anfragen = AnfragenTable.anfragen
-  }
 
   nix() {
     console.log("nix")

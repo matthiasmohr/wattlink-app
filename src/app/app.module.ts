@@ -1,7 +1,7 @@
-import { NgModule, APP_INITIALIZER } from '@angular/core';
+import {NgModule, APP_INITIALIZER, importProvidersFrom} from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { HttpClientModule } from '@angular/common/http';
+import {provideHttpClient, withInterceptorsFromDi, withNoXsrfProtection} from '@angular/common/http';
 import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { ClipboardModule } from 'ngx-clipboard';
 import { TranslateModule } from '@ngx-translate/core';
@@ -21,16 +21,8 @@ import {AuthModule} from '@auth0/auth0-angular'
     BrowserModule,
     BrowserAnimationsModule,
     TranslateModule.forRoot(),
-    HttpClientModule,
     ClipboardModule,
-    // #fake-start#
-    environment.isMockEnabled
-      ? HttpClientInMemoryWebApiModule.forRoot(FakeAPIService, {
-          passThruUnknownUrl: true,
-          dataEncapsulation: false,
-        })
-      : [],
-    // #fake-end#
+
     AppRoutingModule,
     InlineSVGModule.forRoot(),
     NgbModule,
@@ -44,6 +36,17 @@ import {AuthModule} from '@auth0/auth0-angular'
     }),
   ],
   providers: [
+      provideHttpClient(),
+      importProvidersFrom([
+          // #fake-start#
+          environment.isMockEnabled
+              ? HttpClientInMemoryWebApiModule.forRoot(FakeAPIService, {
+                  passThruUnknownUrl: true,
+                  dataEncapsulation: false,
+              })
+              : [],
+          // #fake-end#
+      ])
   ],
   bootstrap: [AppComponent],
 })

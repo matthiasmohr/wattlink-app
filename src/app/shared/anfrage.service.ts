@@ -1,8 +1,9 @@
 import { Anfrage } from './Anfrage';
-import {Observable, retry, tap, throwError} from 'rxjs';
+import {Observable, of, retry, tap, throwError} from 'rxjs';
 import {Injectable} from "@angular/core";
 import {HttpClient, HttpErrorResponse, HttpHeaders} from "@angular/common/http";
 import {catchError} from "rxjs/operators";
+import {AnfragenTable} from "../_fake/anfragen.table";
 
 
 const headers = new HttpHeaders({
@@ -16,18 +17,18 @@ const headers = new HttpHeaders({
 })
 export class AnfragenApiService {
     // Define API
-    anfragenUrl: 'api/anfragen';
+    anfragenUrl = 'api/anfragen';
 
-    constructor(private http: HttpClient) {}
+    constructor(public http: HttpClient) {}
 
     /*========================================
       CRUD Methods for consuming RESTful API
     =========================================*/
 
-    getAnfragen(): Observable<Anfrage[]> {
-        return this.http.get<Anfrage[]>(this.anfragenUrl, { headers }).pipe(
+    getAnfragen(): Observable<any> {
+        return this.http.get<any>(this.anfragenUrl, { headers }).pipe(
             //retry(2),
-            tap(data => console.log("AnfragenApiService" + data)), // eyeball results in the console
+            //tap(data => console.log(data)), // eyeball results in the console
             catchError(this.handleError)
             );
     }
