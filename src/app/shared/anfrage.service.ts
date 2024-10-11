@@ -1,5 +1,5 @@
 import { Anfrage } from './Anfrage';
-import {Observable, of, retry, tap, throwError} from 'rxjs';
+import {Observable, throwError} from 'rxjs';
 import {Injectable} from "@angular/core";
 import {HttpClient, HttpErrorResponse, HttpHeaders} from "@angular/common/http";
 import {catchError} from "rxjs/operators";
@@ -25,12 +25,12 @@ export class AnfragenApiService {
       CRUD Methods for consuming RESTful API
     =========================================*/
 
-    getAnfragen(): Observable<any> {
-        return this.http.get<any>(this.anfragenUrl, { headers }).pipe(
+    getAnfragen(): Observable<Anfrage[]> {
+        return this.http.get<Anfrage[]>(this.anfragenUrl, { headers }).pipe(
             //retry(2),
             //tap(data => console.log(data)), // eyeball results in the console
             catchError(this.handleError)
-            );
+        );
     }
 
     getAnfrage(id: number): Observable<Anfrage> {
