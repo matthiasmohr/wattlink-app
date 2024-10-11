@@ -56,4 +56,6 @@ export class MenuTabComponent implements OnInit, OnDestroy {
   ngOnDestroy() {
     this.unsubscribe.forEach((sb) => sb.unsubscribe());
   }
+
+  protected readonly environment = environment;
 }

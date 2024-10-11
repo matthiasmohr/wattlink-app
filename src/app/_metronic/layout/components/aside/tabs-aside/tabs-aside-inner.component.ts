@@ -1,5 +1,5 @@
 import { Component, ElementRef, Input, OnDestroy, ViewChild } from '@angular/core';
-import { environment } from './../../../../../../environments/environment';
+import { environment } from 'src/environments/environment';
 
 import { Tab, tabs } from '../tabs';
 import { NavigationEnd, Router, NavigationCancel } from '@angular/router';
@@ -47,4 +47,6 @@ export class TabsAsideInnerComponent implements OnDestroy {
   ngOnDestroy() {
     this.unsubscribe.forEach((sb) => sb.unsubscribe());
   }
+
+    protected readonly environment = environment;
 }

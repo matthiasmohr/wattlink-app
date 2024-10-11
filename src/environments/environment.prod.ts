@@ -166,6 +166,9 @@ export const environment = {
     AUDIENCE: 'https://mietexplica.eu.auth0.com/api/v2/', // unused
     REDIRECT: 'http://localhost:4200/', // unused
     LOGOUT_URL: 'http://localhost:4200' // unused
+  },
+  featureFlipper: {
+    metronicMenu: false,
   }
 };
 
