@@ -43,7 +43,7 @@
           </div>
       </div>
 
-    <div *ngIf="environment.featureFlipper.metronicMenu">
+    <ng-container *ngIf="environment.featureFlipper.metronicMenu">
         <!-- Separator -->
         <div class="menu-item">
           <div class="menu-content pt-8 pb-2">
@@ -233,6 +233,6 @@
             <span class="menu-title">Changelog {{ appAngularVersion }}</span>
           </a>
         </div>
-      </div>
+      </ng-container>
     </div>
 </div>
