@@ -164,8 +164,8 @@ export const environment = {
     CLIENT_DOMAIN: 'mietexplica.eu.auth0.com', // e.g., 'you.auth0.com'
 
     AUDIENCE: 'https://mietexplica.eu.auth0.com/api/v2/', // unused
-    REDIRECT: 'http://localhost:4200/', // unused
-    LOGOUT_URL: 'http://localhost:4200' // unused
+    REDIRECT: 'http://portal.wattlink.hasemato.com/', // unused
+    LOGOUT_URL: 'http://wattlink.hasemato.com' // unused
   },
   featureFlipper: {
     metronicMenu: false,
