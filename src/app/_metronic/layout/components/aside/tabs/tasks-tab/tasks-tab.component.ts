@@ -1,13 +1,16 @@
 import { Component, OnInit } from '@angular/core';
+import {AnfragenApiService} from "../../../../../../shared/anfrage.service";
+import {Observable} from "rxjs";
+import {Anfrage} from "../../../../../../shared/Anfrage";
 
-type Task = {
+type xxx = {
   icon: string;
   color: 'success' | 'warning' | 'primary' | 'danger' | 'info';
   title: string;
   description: string;
 };
 
-const tasks: ReadonlyArray<Task> = [
+const anfragen: ReadonlyArray<xxx> = [
   {
     icon: './assets/media/icons/duotune/abstract/abs027.svg',
     color: 'success',
@@ -58,10 +61,13 @@ const tasks: ReadonlyArray<Task> = [
   styleUrls: ['./tasks-tab.component.scss'],
 })
 export class TasksTabComponent implements OnInit {
-  allTasks: ReadonlyArray<Task> = [];
-  constructor() {}
+  constructor(public anfragenApiService: AnfragenApiService) {}
 
-  ngOnInit(): void {
-    this.allTasks = tasks;
+  anfragen$: Observable<Anfrage[]>
+  icon = './assets/media/icons/duotune/abstract/map008.svg';
+  color: 'success'
+
+  ngOnInit() {
+    this.anfragen$ = this.anfragenApiService.getAnfragen()
   }
 }
