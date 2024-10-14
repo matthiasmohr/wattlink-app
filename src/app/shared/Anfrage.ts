@@ -1,7 +1,7 @@
 interface Anfrage {
     id: number;
     user: string;
-    anfrageID: string;
+    anfrageId: string;
     // Step 1
     jahresverbrauchStrom:       number;
     jahresverbrauchGas:         number;
@@ -34,7 +34,7 @@ interface Anfrage {
 const inits: Anfrage = {
     id: 1,
     user: '',
-    anfrageID: '',
+    anfrageId: '1',
     // Step 1
     jahresverbrauchStrom:       150000,
     jahresverbrauchGas:         300000,

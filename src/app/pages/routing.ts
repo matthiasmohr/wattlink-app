@@ -13,7 +13,7 @@ const Routing: Routes = [
     component: AnfragenListeComponent
   },
   {
-    path: 'anfrage-anzeigen',
+    path: 'anfrage-anzeigen/:id',
     loadChildren: () =>
         import('../pages/anfrage-anzeigen/profile.module').then((m) => m.ProfileModule),
   },

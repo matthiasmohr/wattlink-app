@@ -1,54 +1,345 @@
+<ng-container *ngIf="(anfrage$) | async as anfrage; else loading">
 <div class="card mb-5 mb-xl-10" id="kt_profile_details_view">
     <div class="card-header cursor-pointer">
         <div class="card-title m-0">
             <h3 class="fw-bolder m-0">Anfrageparameter</h3>
         </div>
 
-        <a
-                routerLink="/anfrage-anzeigen/anfrageparameter"
-                class="btn btn-warning align-self-center"
-        >
+        <a routerLink="/anfrage-anzeigen/anfrageparameter" class="btn btn-warning align-self-center">
             Anfrage zurückziehen
         </a>
     </div>
 
-    <div class="card-body p-9">
-        <div class="row mb-7">
-            <label class="col-lg-4 fw-bold text-muted">Stromverbrauch (kWh / Jahr)</label>
 
-            <div class="col-lg-8">
-                <span class="fw-bolder fs-6 text-gray-900">$.stromVerbrauch</span>
-            </div>
-        </div>
-
-        <div class="row mb-7">
-            <label class="col-lg-4 fw-bold text-muted">...</label>
-
-            <div class="col-lg-8 fv-row">
-                <span class="fw-bold fs-6">...</span>
-            </div>
-        </div>
-
-        <div
-                class="
-        notice
-        d-flex
-        bg-light
-        rounded
-        border-warning border border-dashed
-        p-6
-      "
-        >
-            <app-keenicon name="information-5" class="fs-2 text-warning me-4"></app-keenicon>
-            <div class="d-flex flex-stack flex-grow-1">
-                <div class="fw-bold">
-                    <h4 class="text-gray-800 fw-bolder">Hinweis</h4>
-                    <div class="fs-6 text-gray-600">
-                        Die Anfrage befindet sich zur Bearbeitung bei Energieversorgern, aus diesem Grund kann sie nach Anfragestellung nicht mehr verändert werden.
-                    </div>
+    <div class="notice d-flex bg-light rounded border-warning border border-dashed p-6 ">
+        <app-keenicon name="information-5" class="fs-2 text-warning me-4"></app-keenicon>
+        <div class="d-flex flex-stack flex-grow-1">
+            <div class="fw-bold">
+                <h4 class="text-gray-800 fw-bolder">Hinweis</h4>
+                <div class="fs-6 text-gray-600">
+                    Die Anfrage befindet sich zur Bearbeitung bei Energieversorgern, aus diesem Grund kann sie nach Anfragestellung nicht mehr verändert werden.
                 </div>
             </div>
         </div>
     </div>
-</div>
 
+    <div class="card-body p-9">
+        <h2 class="fw-bolder d-flex align-items-center text-gray-900">
+            Verbrauchsdaten
+        </h2>
+
+        <div class="row mb-7">
+            <label class="col-lg-4 fw-bold text-muted">Stromverbrauch (kWh / Jahr)</label>
+            <div class="col-lg-8">
+                <span class="fw-bolder fs-6 text-gray-900">{{ anfrage.jahresverbrauchStrom }}</span>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-lg-6">
+                <label [class.active]="anfrage.oekostrom == 'true'" class="btn btn-outline btn-outline-dashed btn-outline-default p-7 d-flex align-items-center mb-10">
+                    <app-keenicon name="abstract-46" class="fs-1 me-5"></app-keenicon>
+                    <span class="d-block fw-bold text-start">
+                      <span class="text-gray-900 fw-bolder d-block fs-4 mb-2">Ökostrom</span>
+                      <span class="text-gray-500 fw-bold fs-6">
+                        Die Versorgung soll über regenerativen Strom erfolgen
+                      </span>
+                    </span>
+                </label>
+            </div>
+            <div class="col-lg-6">
+                <label [class.active]="anfrage.oekostrom == 'false'" class="btn btn-outline btn-outline-dashed btn-outline-default p-7 d-flex align-items-center mb-10">
+                    <app-keenicon name="gear" class="fs-1 me-5"></app-keenicon>
+                    <span class="d-block fw-bold text-start">
+                      <span class="text-gray-900 fw-bolder d-block fs-4 mb-2">Normaler Strom</span>
+                      <span class="text-gray-500 fw-bold fs-6">
+                        Die Versorgung kann über einen flexiblen Strommix erfolgen
+                      </span>
+                    </span>
+                </label>
+            </div>
+        </div>
+
+        <div class="row mb-7">
+            <label class="col-lg-4 fw-bold text-muted">Gasverbrauch (kWh / Jahr)</label>
+            <div class="col-lg-8">
+                <span class="fw-bolder fs-6 text-gray-900">{{ anfrage.jahresverbrauchGas }}</span>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-lg-6">
+                <label [class.active]="anfrage.biogas == 'true'" class="btn btn-outline btn-outline-dashed btn-outline-default p-7 d-flex align-items-center mb-10">
+                    <app-keenicon name="abstract-46" class="fs-1 me-5"></app-keenicon>
+                    <span class="d-block fw-bold text-start">
+                      <span class="text-gray-900 fw-bolder d-block fs-4 mb-2">Biogas</span>
+                      <span class="text-gray-500 fw-bold fs-6">
+                        Die Versorgung soll über klimaneutrales Biogas erfolgen
+                      </span>
+                    </span>
+                </label>
+            </div>
+            <div class="col-lg-6">
+                <label [class.active]="anfrage.biogas == 'false'" class="btn btn-outline btn-outline-dashed btn-outline-default p-7 d-flex align-items-center mb-10">
+                    <app-keenicon name="gear" class="fs-1 me-5"></app-keenicon>
+                    <span class="d-block fw-bold text-start">
+                      <span class="text-gray-900 fw-bolder d-block fs-4 mb-2">Normales Gas</span>
+                      <span class="text-gray-500 fw-bold fs-6">
+                        Die Versorgung kann über fossiles Erdgas erfolgen
+                      </span>
+                    </span>
+                </label>
+            </div>
+        </div>
+
+        <h2 class="fw-bolder d-flex align-items-center text-gray-900">
+            Lieferstellen
+        </h2>
+
+        <div class="row mb-7">
+            <label class="col-lg-4 fw-bold text-muted">Anfragebezeichnung</label>
+            <div class="col-lg-8">
+                <span class="fw-bolder fs-6 text-gray-900">{{ anfrage.anfrageBezeichnung }}</span>
+            </div>
+        </div>
+
+        <div class="mb-10 fv-row">
+            <label class="d-flex align-items-center form-label mb-3 required">
+                Anzahl der Lieferstellen
+            </label>
+            <div class="row mb-2" data-kt-buttons="true">
+                <div class="col">
+                    <label [class.active]="anfrage.anzahlLieferstellen == '1-1'" class="btn btn-outline btn-outline-dashed btn-outline-default w-100 p-4">
+                        <span class="fw-bolder fs-3">1-1</span>
+                    </label>
+                </div>
+                <div class="col">
+                    <label [class.active]="anfrage.anzahlLieferstellen == '2-10'" class="btn btn-outline btn-outline-dashed btn-outline-default w-100 p-4">
+                        <span class="fw-bolder fs-3">2-10</span>
+                    </label>
+                </div>
+                <div class="col">
+                    <label [class.active]="anfrage.anzahlLieferstellen == '11-50'" class="btn btn-outline btn-outline-dashed btn-outline-default w-100 p-4">
+                        <span class="fw-bolder fs-3">11-50</span>
+                    </label>
+                </div>
+                <div class="col">
+                    <label [class.active]="anfrage.anzahlLieferstellen == '51+'" class="btn btn-outline btn-outline-dashed btn-outline-default w-100 p-4">
+                        <span class="fw-bolder fs-3">51+</span>
+                    </label>
+                </div>
+            </div>
+        </div>
+
+        <div class="mb-0 fv-row">
+            <label class="d-flex align-items-center form-label mb-5">
+                Weitere Informationseingabe
+            </label>
+            <div class="mb-0">
+                <label class="d-flex flex-stack mb-5">
+                    <span class="d-flex align-items-center me-2">
+                      <span class="symbol symbol-50px me-6">
+                        <span class="symbol-label">
+                          <app-keenicon name="bank" class="fs-1"></app-keenicon>
+                        </span>
+                      </span>
+                      <span class="d-flex flex-column">
+                        <span [ngClass]="(anfrage.informationsergaenzung == '1' ? 'text-primary' : 'text-gray-800')" class="fw-bolder fs-5">
+                          per Online-Plattform
+                        </span>
+                        <span class="fs-6 fw-bold text-gray-500">
+                          In unserem Online-Portal werden notwendige Informationen ergänzt (Melo, Malo, Adressen, Lastgangdaten)
+                        </span>
+                      </span>
+                    </span>
+                </label>
+                <label class="d-flex flex-stack mb-5">
+                    <span class="d-flex align-items-center me-2">
+                      <span class="symbol symbol-50px me-6">
+                        <span class="symbol-label">
+                          <app-keenicon name="chart" class="fs-1"></app-keenicon>
+                        </span>
+                      </span>
+                      <span class="d-flex flex-column">
+                        <span [ngClass]="(anfrage.informationsergaenzung == '2' ? 'text-primary' : 'text-gray-800')" class="fw-bolder  fs-5">
+                          per letzter Rechnung(en)
+                        </span>
+                        <span class="fs-6 fw-bold text-gray-500">
+                          Informationen werden aus der vergangenen Rechnung extrahiert
+                        </span>
+                      </span>
+                    </span>
+                    <span class="form-check form-check-custom form-check-solid">
+                    </span>
+                </label>
+                <label class="d-flex flex-stack mb-5">
+                    <span class="d-flex align-items-center me-2">
+                      <span class="symbol symbol-50px me-6">
+                        <span class="symbol-label">
+                          <app-keenicon name="chart-pie-4" class="fs-1"></app-keenicon>
+                        </span>
+                      </span>
+                      <span class="d-flex flex-column">
+                        <span [ngClass]="(anfrage.informationsergaenzung == '3' ? 'text-primary' : 'text-gray-800')" class="fw-bolder fs-5">
+                          Per Video-Konferenz
+                        </span>
+                        <span class="fs-6 fw-bold text-gray-500">
+                          Wir sprechen digital über die notwendigen Informationen und nächste Schritte
+                        </span>
+                      </span>
+                    </span>
+                </label>
+            </div>
+        </div>
+
+        <h2 class="fw-bolder d-flex align-items-center text-gray-900">
+            Aktuelle Liefersituation
+        </h2>
+
+
+        <div class="mb-0 fv-row">
+            <label class="d-flex align-items-center form-label mb-5">
+                Aktuelle Liefersituation
+            </label>
+            <div class="mb-0">
+                <label class="d-flex flex-stack mb-5">
+                    <span class="d-flex align-items-center me-2">
+                        <span class="symbol symbol-50px me-6">
+                            <span class="symbol-label">
+                                <app-keenicon name="bank" class="fs-1"></app-keenicon>
+                            </span>
+                        </span>
+                        <span class="d-flex flex-column">
+                            <span [ngClass]="(anfrage.beliefersituation == '1' ? 'text-primary' : 'text-gray-800')" class="fw-bolder fs-5">
+                                Grundversorgung
+                            </span>
+                            <span class="fs-6 fw-bold text-gray-500">
+                                Die Mehrheit der Lieferstellen ist in Grund- oder Ersatzversorgung
+                            </span>
+                        </span>
+                    </span>
+                </label>
+                <label class="d-flex flex-stack mb-5">
+                    <span class="d-flex align-items-center me-2">
+                        <span class="symbol symbol-50px me-6">
+                            <span class="symbol-label">
+                                <app-keenicon name="chart" class="fs-1"></app-keenicon>
+                            </span>
+                        </span>
+                        <span class="d-flex flex-column">
+                            <span [ngClass]="(anfrage.beliefersituation == '2' ? 'text-primary' : 'text-gray-800')" class="fw-bolder fs-5">
+                                Wettbewerblich
+                            </span>
+                            <span class="fs-6 fw-bold text-gray-500">
+                                Es gibt (mehrheitlich) bestehende Lieferverträge außerhalb der Grundversorgung
+                            </span>
+                        </span>
+                    </span>
+                </label>
+                <label class="d-flex flex-stack mb-5">
+                    <span class="d-flex align-items-center me-2">
+                      <span class="symbol symbol-50px me-6">
+                        <span class="symbol-label">
+                          <app-keenicon name="chart-pie-4" class="fs-1"></app-keenicon>
+                        </span>
+                      </span>
+                      <span class="d-flex flex-column">
+                        <span [ngClass]="(anfrage.beliefersituation == '3' ? 'text-primary' : 'text-gray-800')" class="fw-bolder fs-5">
+                          Unbekannt
+                        </span>
+                        <span class="fs-6 fw-bold text-gray-500">
+                          Ich kenne die Versorgungssituation aktuell nicht.
+                        </span>
+                      </span>
+                    </span>
+                </label>
+            </div>
+        </div>
+
+        <div class="row mb-7">
+            <label class="col-lg-4 fw-bold text-muted">Gewünschter Lieferbeginn</label>
+            <div class="col-lg-8">
+                <span class="fw-bolder fs-6 text-gray-900">{{ anfrage.lieferbeginn }}</span>
+            </div>
+        </div>
+
+        <div class="row mb-7">
+            <label class="col-lg-4 fw-bold text-muted">Was ist wichtig?</label>
+            <div class="col-lg-8">
+                <span class="fw-bolder fs-6 text-gray-900">{{ anfrage.wasIstWichtig }}</span>
+            </div>
+        </div>
+
+        <h2 class="fw-bolder d-flex align-items-center text-gray-900">
+            Kontakt
+        </h2>
+
+        <div class="row mb-7">
+            <label class="col-lg-4 fw-bold text-muted">Firma</label>
+            <div class="col-lg-8">
+                <span class="fw-bolder fs-6 text-gray-900">{{ anfrage.firma }}</span>
+            </div>
+        </div>
+
+        <div class="row mb-7">
+            <label class="col-lg-4 fw-bold text-muted">Vorname</label>
+            <div class="col-lg-8">
+                <span class="fw-bolder fs-6 text-gray-900">{{ anfrage.vorname }}</span>
+            </div>
+        </div>
+
+        <div class="row mb-7">
+            <label class="col-lg-4 fw-bold text-muted">Nachname</label>
+            <div class="col-lg-8">
+                <span class="fw-bolder fs-6 text-gray-900">{{ anfrage.nachname }}</span>
+            </div>
+        </div>
+
+        <div class="row mb-7">
+            <label class="col-lg-4 fw-bold text-muted">email</label>
+            <div class="col-lg-8">
+                <span class="fw-bolder fs-6 text-gray-900">{{ anfrage.email }}</span>
+            </div>
+        </div>
+
+        <div class="row mb-7">
+            <label class="col-lg-4 fw-bold text-muted">Telefon</label>
+            <div class="col-lg-8">
+                <span class="fw-bolder fs-6 text-gray-900">{{ anfrage.telefon }}</span>
+            </div>
+        </div>
+
+        <div class="row mb-7">
+            <label class="col-lg-4 fw-bold text-muted">Anfragesteller</label>
+            <div class="col-lg-8">
+                <span class="fw-bolder fs-6 text-gray-900">{{ anfrage.anfragesteller }}</span>
+            </div>
+        </div>
+
+        <div class="row mb-7">
+            <label class="col-lg-4 fw-bold text-muted">Anfragesteller Beschreibung</label>
+            <div class="col-lg-8">
+                <span class="fw-bolder fs-6 text-gray-900">{{ anfrage.anfragestellerBeschreibung }}</span>
+            </div>
+        </div>
+
+        <div class="row mb-7">
+            <label class="col-lg-4 fw-bold text-muted">Anfragezeit</label>
+            <div class="col-lg-8">
+                <span class="fw-bolder fs-6 text-gray-900">{{ anfrage.anfragezeit }}</span>
+            </div>
+        </div>
+
+        <div class="row mb-7">
+            <label class="col-lg-4 fw-bold text-muted">Gesperrt</label>
+            <div class="col-lg-8">
+                <span class="fw-bolder fs-6 text-gray-900">{{ anfrage.gesperrt }}</span>
+            </div>
+        </div>
+    </div>
+</div>
+</ng-container>
+
+<ng-template #loading>
+    <div>Loading...</div>
+</ng-template>

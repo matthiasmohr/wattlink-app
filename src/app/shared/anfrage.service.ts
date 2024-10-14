@@ -33,7 +33,7 @@ export class AnfragenApiService {
         );
     }
 
-    getAnfrage(id: number): Observable<Anfrage> {
+    getAnfrage(id: any): Observable<Anfrage> {
         const url = `${this.anfragenUrl}/${id}`;
         return this.http.get<Anfrage>(url).pipe(
             catchError(this.handleError)
@@ -41,7 +41,7 @@ export class AnfragenApiService {
     }
 
     createAnfrage(anfrage: Anfrage): Observable<Anfrage> {
-        anfrage.anfrageID = "";
+        anfrage.anfrageId = "";
         return this.http.post<Anfrage>(this.anfragenUrl, anfrage).pipe(
             catchError(this.handleError)
         )

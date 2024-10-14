@@ -15,6 +15,8 @@ import {
 } from '../../_metronic/partials';
 import { SharedModule } from "../../_metronic/shared/shared.module";
 import {LieferstellenCardComponent} from "./lieferstellen/lieferstellen-card/card.component";
+import {ReactiveFormsModule} from "@angular/forms";
+import {NgbTooltip} from "@ng-bootstrap/ng-bootstrap";
 
 @NgModule({
   declarations: [
@@ -26,14 +28,16 @@ import {LieferstellenCardComponent} from "./lieferstellen/lieferstellen-card/car
     DokumenteComponent,
     ProzessComponent,
   ],
-  imports: [
-    CommonModule,
-    ProfileRoutingModule,
-    InlineSVGModule,
-    DropdownMenusModule,
-    WidgetsModule,
-    CardsModule,
-    SharedModule
-  ],
+    imports: [
+        CommonModule,
+        ProfileRoutingModule,
+        InlineSVGModule,
+        DropdownMenusModule,
+        WidgetsModule,
+        CardsModule,
+        SharedModule,
+        ReactiveFormsModule,
+        NgbTooltip
+    ],
 })
 export class ProfileModule {}
