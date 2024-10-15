@@ -25,11 +25,6 @@ if (environment.featureFlipper.metronicMenu) {
       tooltip: 'Menu',
     },
     {
-      link: 'subscription',
-      icon: './assets/media/icons/duotune/general/gen032.svg',
-      tooltip: 'Subscription',
-    },
-    {
       link: 'tasks',
       icon: './assets/media/icons/duotune/general/gen048.svg',
       tooltip: 'Tasks',
@@ -49,6 +44,11 @@ if (environment.featureFlipper.metronicMenu) {
   tabs = [
     {
       link: 'menu',
+      icon: './assets/media/icons/duotune/finance/fin006.svg',
+      tooltip: 'Menu',
+    },
+    {
+      link: 'tasks',
       icon: './assets/media/icons/duotune/finance/fin006.svg',
       tooltip: 'Menu',
     },

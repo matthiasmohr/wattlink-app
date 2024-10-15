@@ -19,23 +19,15 @@
               <span class="menu-title" translate="MENU.DASHBOARD"></span></a>
       </div>
 
-      <!-- Anfragen -->
-      <div class="menu-item menu-accordion" data-kt-menu-trigger="click" routerLinkActive="here show">
-          <span class="menu-link"><span class="menu-icon"><span class="svg-icon svg-icon-2"
-                                                            [inlineSVG]="'./assets/media/icons/duotune/communication/com006.svg'"></span></span><span class="menu-title"
-                                                                                                                                                      data-link="/crafted/account">Anfragen</span><span class="menu-arrow"></span></span>
-          <div class="menu-sub menu-sub-accordion" routerLinkActive="menu-active-bg">
-              <div class="menu-item">
-                  <a class="menu-link without-sub" routerLinkActive="active" routerLink="/anfragen-liste"><span
-                      class="menu-bullet"><span class="bullet bullet-dot"></span></span><span
-                      class="menu-title">Übersicht</span></a>
-              </div>
-              <div class="menu-item">
-                  <a class="menu-link without-sub" routerLinkActive="active" routerLink="/anfrage-anlegen"><span
-                      class="menu-bullet"><span class="bullet bullet-dot"></span></span><span
-                      class="menu-title">Anlegen</span></a>
-              </div>
-          </div>
+      <!-- Anfragen (inkl. Anfrage anzeigen, unsichtbar um Menüeintrag zu aktivieren)-->
+      <div class="menu-item">
+          <a class="menu-link without-sub" routerLink="/anfragen-liste" routerLinkActive="active">
+              <span class="menu-icon">
+                <span [inlineSVG]="'./assets/media/icons/duotune/files/fil010.svg'" class="svg-icon svg-icon-2"></span>
+              </span>
+              <span class="menu-title" translate="MENU.ANFRAGEN"></span>
+          <a class="menu-link without-sub" routerLink="/anfrage-anzeigen" routerLinkActive="active" style="display: none"></a>
+          </a>
       </div>
 
     <ng-container *ngIf="environment.featureFlipper.metronicMenu">

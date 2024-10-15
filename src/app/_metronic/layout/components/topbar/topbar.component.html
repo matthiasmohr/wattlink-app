@@ -1,10 +1,9 @@
 <!--begin::Invite user-->
-<div *ngIf="environment.featureFlipper.metronicMenu" class="d-flex ms-3">
-  <a class="btn btn-flex flex-center bg-body btn-color-gray-700 btn-active-color-primary w-40px w-md-auto h-40px px-0 px-md-6"
-    data-bs-toggle="modal" data-bs-target="#kt_modal_invite_friends">
+<div class="d-flex ms-3">
+  <a class="btn btn-flex flex-center bg-body btn-color-gray-700 btn-active-color-primary w-40px w-md-auto h-40px px-0 px-md-6" routerLink="/anfrage-anlegen/">
     <span [inlineSVG]="'./assets/media/icons/duotune/arrows/arr075.svg'"
       class="svg-icon svg-icon-2 svg-icon-primary me-0 me-md-2"></span>
-    <span class="d-none d-md-inline">New Member</span>
+    <span class="d-none d-md-inline">Neue Anfrage</span>
   </a>
 </div>
 <!--end::Invite user-->
@@ -27,7 +26,7 @@
   <!--begin::Menu wrapper-->
   <div class="btn btn-icon btn-primary w-40px h-40px pulse pulse-white" id="kt_drawer_chat_toggle">
     <span [inlineSVG]="'./assets/media/icons/duotune/communication/com012.svg'" class="svg-icon svg-icon-2"></span>
-    <span class="pulse-ring"></span>
+    <span class=""></span>
   </div>
   <!--end::Menu wrapper-->
 </div>

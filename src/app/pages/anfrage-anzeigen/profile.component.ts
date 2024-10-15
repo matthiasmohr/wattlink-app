@@ -11,7 +11,7 @@ import {BehaviorSubject, Observable} from "rxjs";
 export class ProfileComponent implements OnInit {
   constructor(
       public anfragenApiService: AnfragenApiService,
-      private route: ActivatedRoute
+      private route: ActivatedRoute,
   ) {}
 
   anfrage$: Observable<Anfrage>
