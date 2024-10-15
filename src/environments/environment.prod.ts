@@ -160,10 +160,10 @@ export const environment = {
     },
   },
   auth: {
-    CLIENT_ID: 'gdC1lhXJmVTesnHNxOch6DDeMmd5nFyA',
-    CLIENT_DOMAIN: 'mietexplica.eu.auth0.com', // e.g., 'you.auth0.com'
+    CLIENT_ID: 'ZxnpjrIqhSnD1Wr5DyuhA84VmXzMySfb',
+    CLIENT_DOMAIN: 'hasemato.eu.auth0.com', // e.g., 'you.auth0.com'
 
-    AUDIENCE: 'https://mietexplica.eu.auth0.com/api/v2/', // unused
+    AUDIENCE: 'https://hasemato.eu.auth0.com/api/v2/', // unused
     REDIRECT: 'http://portal.wattlink.hasemato.com/', // unused
     LOGOUT_URL: 'http://wattlink.hasemato.com' // unused
   },
