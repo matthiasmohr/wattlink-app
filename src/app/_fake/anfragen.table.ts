@@ -26,8 +26,11 @@ export class AnfragenTable {
             anfragesteller: '4',
             anfragestellerBeschreibung: 'Riesiges Imperium',
 
+            fortschritt: 30,
+            status: "TODO",
+            style: "primary",
             // Techn. Daten
-            anfragezeit: '',
+            anfragezeit: '1.10.2024',
             gesperrt: false,
             erstellt: '',
             bearbeitet: ''
@@ -58,8 +61,11 @@ export class AnfragenTable {
             anfragesteller: '4',
             anfragestellerBeschreibung: 'Riesiges Imperium',
 
+            fortschritt: 80,
+            status: "TODO",
+            style: "info",
             // Techn. Daten
-            anfragezeit: '',
+            anfragezeit: '1.9.2023',
             gesperrt: false,
             erstellt: '',
             bearbeitet: ''

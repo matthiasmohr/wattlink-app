@@ -24,6 +24,9 @@ interface Anfrage {
     anfragesteller:             '1' | '2' | '3' | '4' | '5' | '6';
     anfragestellerBeschreibung: string;
 
+    fortschritt:                number;
+    status:                     string;
+    style:                      string;
     // Techn. Daten
     anfragezeit:                string;
     gesperrt:                   boolean;
@@ -57,6 +60,9 @@ const inits: Anfrage = {
     anfragesteller:             '4',
     anfragestellerBeschreibung: 'Riesiges Imperium',
 
+    fortschritt:                0,
+    status:                     "ToDo",
+    style:                      "primary",
     // Techn. Daten
     anfragezeit:                '',
     gesperrt:                   false,
