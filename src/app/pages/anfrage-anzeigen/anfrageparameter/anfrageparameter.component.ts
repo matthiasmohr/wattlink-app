@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {ProfileComponent} from "../profile.component";
+import {AnfrageAnzeigenComponent} from "../anfrage-anzeigen.component";
 import {AnfragenApiService} from "../../../shared/anfrage.service";
 import {ActivatedRoute} from "@angular/router";
 import {Observable} from "rxjs";

@@ -4,13 +4,13 @@ import { AnfrageparameterComponent } from './anfrageparameter/anfrageparameter.c
 import { AngeboteComponent } from './angebote/angebote.component';
 import { DokumenteComponent } from './dokumente/dokumente.component';
 import { LieferstellenComponent } from './lieferstellen/lieferstellen.component';
-import { ProfileComponent } from './profile.component';
+import { AnfrageAnzeigenComponent } from './anfrage-anzeigen.component';
 import { ProzessComponent } from './prozess/prozess.component';
 
 const routes: Routes = [
   {
     path: '',
-    component: ProfileComponent,
+    component: AnfrageAnzeigenComponent,
     children: [
       {
         path: 'anfrageparameter',
@@ -42,4 +42,4 @@ const routes: Routes = [
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule],
 })
-export class ProfileRoutingModule {}
+export class AnfrageAnzeigenRoutingModule {}

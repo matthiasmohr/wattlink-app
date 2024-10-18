@@ -5,8 +5,8 @@ import { AnfrageparameterComponent } from './anfrageparameter/anfrageparameter.c
 import { LieferstellenComponent } from './lieferstellen/lieferstellen.component';
 import { AngeboteComponent } from './angebote/angebote.component';
 import { DokumenteComponent } from './dokumente/dokumente.component';
-import { ProfileRoutingModule } from './profile-routing.module';
-import { ProfileComponent } from './profile.component';
+import { AnfrageAnzeigenRoutingModule } from './anfrage-anzeigen-routing.module';
+import { AnfrageAnzeigenComponent } from './anfrage-anzeigen.component';
 import { ProzessComponent } from './prozess/prozess.component';
 import {
   CardsModule,
@@ -20,7 +20,7 @@ import {NgbTooltip} from "@ng-bootstrap/ng-bootstrap";
 
 @NgModule({
   declarations: [
-    ProfileComponent,
+    AnfrageAnzeigenComponent,
     AnfrageparameterComponent,
     LieferstellenComponent,
     LieferstellenCardComponent,
@@ -30,7 +30,7 @@ import {NgbTooltip} from "@ng-bootstrap/ng-bootstrap";
   ],
     imports: [
         CommonModule,
-        ProfileRoutingModule,
+        AnfrageAnzeigenRoutingModule,
         InlineSVGModule,
         DropdownMenusModule,
         WidgetsModule,
@@ -40,4 +40,4 @@ import {NgbTooltip} from "@ng-bootstrap/ng-bootstrap";
         NgbTooltip
     ],
 })
-export class ProfileModule {}
+export class AnfrageAnzeigenModule {}

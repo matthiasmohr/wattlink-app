@@ -15,7 +15,7 @@ const Routing: Routes = [
   {
     path: 'anfrage-anzeigen/:id',
     loadChildren: () =>
-        import('../pages/anfrage-anzeigen/profile.module').then((m) => m.ProfileModule),
+        import('./anfrage-anzeigen/anfrage-anzeigen.module').then((m) => m.AnfrageAnzeigenModule),
   },
   {
     path: 'anfrage-anlegen',
