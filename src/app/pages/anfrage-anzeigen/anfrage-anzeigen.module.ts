@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { InlineSVGModule } from 'ng-inline-svg-2';
 import { AnfrageparameterComponent } from './anfrageparameter/anfrageparameter.component';
-import { LieferstellenComponent } from './lieferstellen/lieferstellen.component';
+import { MesslokationenComponent } from './lieferstellen/messlokationen.component';
 import { AngeboteComponent } from './angebote/angebote.component';
 import { DokumenteComponent } from './dokumente/dokumente.component';
 import { AnfrageAnzeigenRoutingModule } from './anfrage-anzeigen-routing.module';
@@ -14,7 +14,7 @@ import {
   WidgetsModule,
 } from '../../_metronic/partials';
 import { SharedModule } from "../../_metronic/shared/shared.module";
-import {LieferstellenCardComponent} from "./lieferstellen/lieferstellen-card/card.component";
+import {LieferstellenCardComponent} from "./lieferstellen/messlokationen-card/card.component";
 import {ReactiveFormsModule} from "@angular/forms";
 import {NgbTooltip} from "@ng-bootstrap/ng-bootstrap";
 
@@ -22,7 +22,7 @@ import {NgbTooltip} from "@ng-bootstrap/ng-bootstrap";
   declarations: [
     AnfrageAnzeigenComponent,
     AnfrageparameterComponent,
-    LieferstellenComponent,
+    MesslokationenComponent,
     LieferstellenCardComponent,
     AngeboteComponent,
     DokumenteComponent,

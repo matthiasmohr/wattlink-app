@@ -1,0 +1,37 @@
+export class MesslokationenTable {
+    public static messlokationen: any = [
+        {
+            id: "5",
+            anfrage: "Anfrage",
+            melo: "DE123456",
+            plz: "22222",
+            stadt: "Hamburg",
+            strasse: "Dagobertstr.",
+            hausnummer: "1a",
+            jahresverbrauch_kWh: 100000,
+            spitzenlast_kW: 200000,
+            profil: "H0",
+            fortschritt: 10,
+            status:"TODO",
+            style:"warning",
+            erstellt: "1.1.1999",
+            bearbeitet: "2.1.1999",
+        },
+        {
+            id: "6",
+            anfrage: "Anfrage",
+            melo: "DE789",
+            plz: "33333",
+            stadt: "Hamburg",
+            strasse: "Durckstr.",
+            hausnummer: "2b",
+            jahresverbrauch_kWh: 200000,
+            spitzenlast_kW: 50000,
+            profil: "G0",
+            fortschritt: 80,
+            status:"TODO",
+            style:"primary",
+            erstellt: "1.1.2009",
+            bearbeitet: "2.1.2009",
+        }]
+}

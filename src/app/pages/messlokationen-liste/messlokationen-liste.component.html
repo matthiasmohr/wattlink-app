@@ -3,8 +3,8 @@
 <div class="card card-xl-stretch- mb-xl-8">
 <div class="card-header border-0 pt-5">
     <h3 class="card-title align-items-start flex-column">
-        <span class="card-label fw-bolder fs-3 mb-1">Anfragenübersicht</span>
-        <span class="text-muted mt-1 fw-bold fs-7">[$. Anzahl Anfragen]</span>
+        <span class="card-label fw-bolder fs-3 mb-1">Messlokationenübersicht</span>
+        <span class="text-muted mt-1 fw-bold fs-7">[$. Anzahl Messlokationen]</span>
     </h3>
     <div
             class="card-toolbar"
@@ -13,9 +13,9 @@
             data-bs-trigger="hover"
             title="Click to add a user"
     >
-        <a class="btn btn-sm btn-light-primary" [routerLink]="['/anfrage-anlegen/']">
+        <a class="btn btn-sm btn-light-primary" [routerLink]="['/messlokation-anlegen/']">
           <span [inlineSVG]="'./assets/media/icons/duotune/arrows/arr075.svg'" class="svg-icon svg-icon-3"></span>
-            Neue Anfrage
+            Neue Messlokation
         </a>
     </div>
 </div>
@@ -29,9 +29,9 @@
             <!-- begin::Table head -->
             <thead>
                 <tr class="fw-bolder text-muted">
-                    <th class="min-w-150px">Anfragebezeichnung</th>
-                    <th class="min-w-140px">Firma</th>
-                    <th class="min-w-120px">Anfragezeitpunkt</th>
+                    <th class="min-w-150px">Messlokation</th>
+                    <th class="min-w-140px">Adresse</th>
+                    <th class="min-w-120px">Verbrauchsdaten</th>
                     <th class="min-w-120px">Status</th>
                     <th class="min-w-100px text-end">Schnellaktion</th>
                 </tr>
@@ -39,24 +39,21 @@
             <!-- end::Table head -->
             <!-- begin::Table body -->
             <tbody>
-            <tr *ngFor="let anfrage of anfragen$ | async">
+            <tr *ngFor="let messlokation of messlokationen$ | async">
                 <td>
-                    <a class="text-gray-900 fw-bolder text-hover-primary d-block fs-6" [routerLink]="['/anfrage-anzeigen/' + anfrage.id + '/anfrageparameter']">
-                        {{ anfrage.anfrageBezeichnung}}
+                    <a class="text-gray-900 fw-bolder text-hover-primary d-block fs-6" [routerLink]="['/messlokation-anzeigen/' + messlokation.id + '/messlokationparameter']">
+                        {{ messlokation.melo}}
                     </a>
                 </td>
 
                 <td>
                     <div class="d-flex align-items-center">
-                        <div class="symbol symbol-45px me-5">
-                            <img src="./assets/media/avatars/300-14.jpg" alt="" />
-                        </div>
                         <div class="d-flex justify-content-start flex-column">
-                            <a class="text-gray-900 fw-bolder text-hover-primary fs-6" [routerLink]="['/anfrage-anzeigen/' + anfrage.id + '/anfrageparameter']">
-                                {{ anfrage.firma }}
+                            <a class="text-gray-900 fw-bolder text-hover-primary fs-6" [routerLink]="['/messlokation-anzeigen/' + messlokation.id + '/messlokationparameter']">
+                                {{ messlokation.strasse }} {{ messlokation.hausnummer }}
                             </a>
                             <span class="text-muted fw-bold text-muted d-block fs-7">
-                                {{ anfrage.anzahlLieferstellen}} Lieferstellen
+                                {{ messlokation.plz}} {{ messlokation.stadt }}
                             </span>
                         </div>
                     </div>
@@ -65,11 +62,11 @@
                 <td>
                     <div class="d-flex align-items-center">
                         <div class="d-flex justify-content-start flex-column">
-                            <a class="text-gray-900 fw-bolder text-hover-primary fs-6" [routerLink]="['/anfrage-anzeigen/' + anfrage.id + '/anfrageparameter']">
-                                {{ anfrage.lieferbeginn }}
+                            <a class="text-gray-900 fw-bolder text-hover-primary fs-6" [routerLink]="['/messlokation-anzeigen/' + messlokation.id + '/messlokationparameter']">
+                                Verbrauch: {{ messlokation.jahresverbrauch_kWh }}
                             </a>
                             <span class="text-muted fw-bold text-muted d-block fs-7">
-                                Angefragt: {{ anfrage.anfragezeit}}
+                                Spitzenlast: {{ messlokation.spitzenlast_kW}}
                             </span>
                         </div>
                     </div>
@@ -78,17 +75,17 @@
                 <td class="text-end">
                     <div class="d-flex flex-column w-100 me-2">
                         <div class="d-flex flex-stack mb-2">
-                            <span class="text-muted me-2 fs-7 fw-bold">50%</span>
+                            <span class="text-muted me-2 fs-7 fw-bold">{{messlokation.fortschritt}}</span>
                         </div>
                         <div class="progress h-6px w-100">
-                            <div class="progress-bar bg-{{anfrage.style}}" role="progressbar" [style.width]="anfrage.fortschritt + '%'"></div>
+                            <div class="progress-bar bg-{{messlokation.style}}" role="progressbar" [style.width]="messlokation.fortschritt + '%'"></div>
                         </div>
                     </div>
                 </td>
 
                 <td>
                     <div class="d-flex justify-content-end flex-shrink-0">
-                        <button type="button" class=" btn btn-icon btn-bg-light btn-active-color-primary btn-sm me-1" [routerLink]="['/anfrage-anzeigen/' + anfrage.id + '/anfrageparameter']" *ngIf="true">
+                        <button type="button" class=" btn btn-icon btn-bg-light btn-active-color-primary btn-sm me-1" [routerLink]="['/messlokation-anzeigen/' + messlokation.id + '/messlokationparameter']" *ngIf="true">
                             <span [inlineSVG]=" './assets/media/icons/duotune/general/gen019.svg' " class="svg-icon svg-icon-3"></span>
                         </button>
                     </div>

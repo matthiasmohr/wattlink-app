@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { InMemoryDbService } from 'angular-in-memory-web-api';
 import { UsersTable } from './users.table';
 import { AnfragenTable } from "./anfragen.table";
+import {MesslokationenTable} from "./messlokationen.table";
 
 
 @Injectable({
@@ -16,6 +17,7 @@ export class FakeAPIService implements InMemoryDbService {
   createDb() {
     return {
       anfragen: AnfragenTable.anfragen,
+      messlokationen: MesslokationenTable.messlokationen,
       users: UsersTable.users
     };
   }

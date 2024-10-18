@@ -1,6 +1,7 @@
 import { Routes } from '@angular/router';
 import {AnfragenListeComponent} from "./anfragen-liste/anfragen-liste.component";
 import {DashboardComponent} from "./dashboard/dashboard.component";
+import {MesslokationenListeComponent} from "./messlokationen-liste/messlokationen-liste.component";
 
 const Routing: Routes = [
   {
@@ -22,6 +23,11 @@ const Routing: Routes = [
     loadChildren: () =>
         import('../pages/anfrage-anlegen/wizards.module').then((m) => m.WizardsModule),
   },
+  {
+    path: 'messlokationen-liste',
+    component: MesslokationenListeComponent
+  },
+
   {
     path: 'crafted/pages/profile',
     loadChildren: () =>

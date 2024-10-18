@@ -30,6 +30,16 @@
           </a>
       </div>
 
+      <!-- Messlokationen -->
+      <div class="menu-item">
+          <a class="menu-link without-sub" routerLink="/messlokationen-liste" routerLinkActive="active">
+              <span class="menu-icon">
+                <span [inlineSVG]="'./assets/media/icons/duotune/maps/map008.svg'" class="svg-icon svg-icon-2"></span>
+              </span>
+              <span class="menu-title" translate="MENU.MESSLOKATIONEN"></span>
+          </a>
+      </div>
+
     <ng-container *ngIf="environment.featureFlipper.metronicMenu">
         <!-- Separator -->
         <div class="menu-item">

@@ -14,6 +14,7 @@ export const locale = {
       APPS: 'Apps',
       DASHBOARD: 'Dashboard',
       ANFRAGEN: 'Lieferanfragen',
+      MESSLOKATIONEN: 'Messlokationen',
     },
     AUTH: {
       GENERAL: {
