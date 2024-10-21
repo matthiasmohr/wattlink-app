@@ -13,15 +13,18 @@ interface Messlokation {
     spitzenlast_kW: number,
     profil: string,
 
+    kommentar: string,
+
     fortschritt:                number;
     status:                     string;
     style:                      string;
 
+    gesperrt: boolean,
     erstellt: string,
     bearbeitet: string,
 }
 
-const inits: Messlokation = {
+const messlokationInit: Messlokation = {
     id: "1",
     anfrage: "Anfrage",
     melo: "DE123456",
@@ -32,11 +35,13 @@ const inits: Messlokation = {
     jahresverbrauch_kWh: 100000,
     spitzenlast_kW: 200000,
     profil: "H0",
+    kommentar: "Kommentar einfügen",
     fortschritt: 33,
     status: "TODO",
     style: "primary",
+    gesperrt: true,
     erstellt: "1.1.1999",
     bearbeitet: "2.1.1999",
 };
 
-export { Messlokation, inits };
+export { Messlokation, messlokationInit };

@@ -64,7 +64,7 @@ export class TasksTabComponent implements OnInit {
   constructor(public anfragenApiService: AnfragenApiService) {}
 
   anfragen$: Observable<Anfrage[]>
-  icon = './assets/media/icons/duotune/abstract/map008.svg';
+  icon = './assets/media/icons/duotune/maps/map008.svg';
   color: 'success'
 
   ngOnInit() {

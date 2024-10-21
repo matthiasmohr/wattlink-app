@@ -2,6 +2,7 @@ import { Routes } from '@angular/router';
 import {AnfragenListeComponent} from "./anfragen-liste/anfragen-liste.component";
 import {DashboardComponent} from "./dashboard/dashboard.component";
 import {MesslokationenListeComponent} from "./messlokationen-liste/messlokationen-liste.component";
+import {MesslokationAnlegenComponent} from "./messlokation-anlegen/messlokation-anlegen.component";
 
 const Routing: Routes = [
   {
@@ -26,6 +27,14 @@ const Routing: Routes = [
   {
     path: 'messlokationen-liste',
     component: MesslokationenListeComponent
+  },
+  {
+    path: 'messlokation-anlegen/:id',
+    component: MesslokationAnlegenComponent
+  },
+  {
+    path: 'messlokation-anlegen',
+    component: MesslokationAnlegenComponent
   },
 
   {

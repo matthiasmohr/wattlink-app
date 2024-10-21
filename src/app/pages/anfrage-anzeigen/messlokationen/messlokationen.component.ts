@@ -4,6 +4,7 @@ import {Observable} from "rxjs";
 import {Messlokation} from "../../../shared/Messlokation";
 import {MesslokationenApiService} from "../../../shared/messlokation.service";
 import {ActivatedRoute} from "@angular/router";
+import {NgbModal} from "@ng-bootstrap/ng-bootstrap";
 
 @Component({
   selector: 'app-projects',
@@ -14,6 +15,7 @@ export class MesslokationenComponent implements OnInit {
   constructor(
       public messlokationenApiService: MesslokationenApiService,
       private route: ActivatedRoute,
+      private modalService: NgbModal
   ) {}
 
   messlokationen$: Observable<Messlokation[]>

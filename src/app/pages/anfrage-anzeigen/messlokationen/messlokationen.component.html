@@ -2,14 +2,13 @@
     <div class="d-flex flex-wrap flex-stack mb-6">
       <h3 class="fw-bolder my-2">
         Messlokationen
-        <span class="fs-6 text-gray-500 fw-bold ms-1">Active</span>
       </h3>
 
       <div class="d-flex flex-wrap my-2">
-        <a class="btn btn-primary btn-sm cursor-pointer" data-bs-toggle="modal" data-bs-target="#kt_modal_create_project">
-          Weitere Lieferstelle hinzufügen
+        <a class="btn btn-primary btn-sm cursor-pointer" routerLink="/messlokation-anlegen">
+          Weitere Messlokation hinzufügen
         </a>
-      <a class="btn btn-secondary btn-sm cursor-pointer" data-bs-toggle="modal" data-bs-target="#kt_modal_create_project">
+      <a class="btn btn-secondary btn-sm cursor-pointer" data-bs-toggle="modal" data-bs-target="#kt_modal_1">
           CSV-Import
       </a>
       </div>
@@ -39,4 +38,10 @@
 
 <ng-template #loading>
     <div>Loading...</div>
+</ng-template>
+
+<ng-template #myModalContent let-modal>
+    <div class="modal-header">
+        Test
+    </div>
 </ng-template>

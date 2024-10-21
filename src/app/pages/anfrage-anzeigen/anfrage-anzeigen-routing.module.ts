@@ -3,7 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { AnfrageparameterComponent } from './anfrageparameter/anfrageparameter.component';
 import { AngeboteComponent } from './angebote/angebote.component';
 import { DokumenteComponent } from './dokumente/dokumente.component';
-import { MesslokationenComponent } from './lieferstellen/messlokationen.component';
+import { MesslokationenComponent } from './messlokationen/messlokationen.component';
 import { AnfrageAnzeigenComponent } from './anfrage-anzeigen.component';
 import { ProzessComponent } from './prozess/prozess.component';
 

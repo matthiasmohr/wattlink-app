@@ -1,0 +1,135 @@
+    <div class="card mb-5 mb-xl-10">
+        <div class="card-header border-0 cursor-pointer" role="button" data-bs-toggle="collapse" data-bs-target="#kt_account_profile_details" aria-expanded="true" aria-controls="kt_account_profile_details">
+            <div class="card-title m-0">
+                <h3 class="fw-bolder m-0">Messlokation</h3>
+            </div>
+        </div>
+        <div id="kt_account_profile_details" class="collapse show">
+            <form novalidate="" class="form" #messlokationForm="ngForm" (ngSubmit)="save()">
+                <div class="card-body border-top p-9">
+                    <div class="row mb-6">
+                        <label class="col-lg-4 col-form-label required fw-bold fs-6">Messlokation</label>
+                        <div class="col-lg-8 fv-row">
+                            <input type="text" class="form-control form-control-lg form-control-solid"
+                                   placeholder="Melo" name="melo" [(ngModel)]="messlokation.melo" required minlength="4"/>
+                            <ng-container *ngIf="messlokationForm.controls.melo && messlokationForm.controls.melo.invalid && (messlokationForm.controls.melo.dirty || !messlokationForm.controls.melo.untouched)">
+                                <div *ngIf="messlokationForm.controls.melo.errors?.['required']" class="text-danger">
+                                    Melo ist erforderlich
+                                </div>
+                                <div *ngIf="messlokationForm.controls.melo.errors?.['minlength']" class="text-danger">
+                                    Die Melo ist zu kurz
+                                </div>
+                            </ng-container>
+                        </div>
+                    </div>
+                    <div class="row mb-6">
+                        <label class="col-lg-4 col-form-label required fw-bold fs-6">Straße & Hausnummer</label>
+                        <div class="col-lg-8">
+                            <div class="row">
+                                <div class="col-lg-6 fv-row">
+                                    <input type="text" class=" form-control form-control-lg form-control-solid mb-3 mb-lg-0" placeholder="Straße" name="strasse" [(ngModel)]="messlokation.strasse" required/>
+                                    <ng-container *ngIf="messlokationForm.controls.strasse && messlokationForm.controls.strasse.invalid && (messlokationForm.controls.strasse.dirty || !messlokationForm.controls.strasse.untouched)">
+                                        <div *ngIf="messlokationForm.controls.strasse.errors?.['required']" class="text-danger">
+                                            Straße ist erforderlich
+                                        </div>
+                                    </ng-container>
+                                </div>
+                                <div class="col-lg-6 fv-row">
+                                    <input type="text" class="form-control form-control-lg form-control-solid" placeholder="Hausnummer" name="hausnummer" [(ngModel)]="messlokation.hausnummer" required/>
+                                    <ng-container *ngIf="messlokationForm.controls.hausnummer && messlokationForm.controls.hausnummer.invalid && (messlokationForm.controls.hausnummer.dirty || !messlokationForm.controls.hausnummer.untouched)">
+                                        <div *ngIf="messlokationForm.controls.hausnummer.errors?.['required']" class="text-danger">
+                                            Hausnummer ist erforderlich
+                                        </div>
+                                    </ng-container>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row mb-6">
+                        <label class="col-lg-4 col-form-label required fw-bold fs-6">PLZ & Ort</label>
+                        <div class="col-lg-8">
+                            <div class="row">
+                                <div class="col-lg-6 fv-row">
+                                    <input type="text" class="form-control form-control-lg form-control-solid mb-3 mb-lg-0" placeholder="PLZ" name="plz" [(ngModel)]="messlokation.plz" required/>
+                                    <ng-container *ngIf="messlokationForm.controls.plz && messlokationForm.controls.plz.invalid && (messlokationForm.controls.plz.dirty || !messlokationForm.controls.plz.untouched)">
+                                        <div *ngIf="messlokationForm.controls.plz.errors?.['required']" class="text-danger">
+                                            PLZ ist erforderlich
+                                        </div>
+                                    </ng-container>
+                                </div>
+                                <div class="col-lg-6 fv-row">
+                                    <input type="text" class="form-control form-control-lg form-control-solid" placeholder="Stadt" name="stadt" [(ngModel)]="messlokation.stadt" required/>
+                                    <ng-container *ngIf="messlokationForm.controls.stadt && messlokationForm.controls.stadt.invalid && messlokationForm.controls.stadt.invalid && (messlokationForm.controls.stadt.dirty || !messlokationForm.controls.stadt.untouched)">
+                                        <div *ngIf="messlokationForm.controls.stadt.errors?.['required']" class="text-danger">
+                                            Stadt ist erforderlich
+                                        </div>
+                                    </ng-container>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row mb-6">
+                        <label class="col-lg-4 col-form-label fw-bold fs-6"><span class="required">Jahresverbrauch in kWh</span></label>
+                        <div class="col-lg-8 fv-row">
+                            <input type="tel" class="form-control form-control-lg form-control-solid" placeholder="Jahresverbrauch in kWh" name="jahresverbrauch_kWh" [(ngModel)]="messlokation.jahresverbrauch_kWh" required/>
+                            <ng-container *ngIf="messlokationForm.controls.jahresverbrauch_kWh && messlokationForm.controls.jahresverbrauch_kWh.invalid && (messlokationForm.controls.jahresverbrauch_kWh.dirty || !messlokationForm.controls.jahresverbrauch_kWh.untouched)">
+                                <div *ngIf="messlokationForm.controls.jahresverbrauch_kWh.errors?.['required']" class="text-danger">
+                                    Jahresverbrauch ist erforderlich
+                                </div>
+                            </ng-container>
+                        </div>
+                    </div>
+                    <div class="row mb-6">
+                        <label class="col-lg-4 col-form-label fw-bold fs-6"><span class="required">Spitzenlast in kW</span></label>
+                        <div class="col-lg-8 fv-row">
+                            <input type="tel" class="form-control form-control-lg form-control-solid" placeholder="Spitzenlast in kW" name="spitzenlast_kW" [(ngModel)]="messlokation.spitzenlast_kW" required/>
+                            <ng-container *ngIf="messlokationForm.controls.spitzenlast_kW && messlokationForm.controls.spitzenlast_kW.invalid && (messlokationForm.controls.spitzenlast_kW.dirty || !messlokationForm.controls.spitzenlast_kW.untouched)">
+                                <div *ngIf="messlokationForm.controls.spitzenlast_kW.errors?.['required']" class="text-danger">
+                                    Spitzenlast ist erforderlich
+                                </div>
+                            </ng-container>
+                        </div>
+                    </div>
+                    <div class="row mb-6">
+                        <label class="col-lg-4 col-form-label fw-bold fs-6"
+                        ><span class="required">Profil</span></label>
+                        <div class="col-lg-8 fv-row">
+                            <select class="form-control form-select form-select-solid form-select-lg" name="profil">
+                                <option value="">Lastprofil auswählen</option>
+                                <option *ngFor="let profil of profile" [value]="profil">{{profil}}</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="row mb-6">
+                        <label class="col-lg-4 col-form-label fw-bold fs-6"><span class="">Kommentar</span></label>
+                        <div class="col-lg-8 fv-row">
+                            <input type="tel" class="form-control form-control-lg form-control-solid" placeholder="Kommentar" name="kommentar" [(ngModel)]="messlokation.kommentar"/>
+                        </div>
+                    </div>
+
+                    <div class="row mb-0">
+                        <label class="col-lg-4 col-form-label fw-bold fs-6">Änderung sperren</label>
+                        <div class="col-lg-8 d-flex align-items-center">
+                            <div class="form-check form-check-solid form-switch fv-row">
+                                <input class="form-check-input w-45px h-30px" type="checkbox" id="gesperrt"/><label class="form-check-label"></label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-footer d-flex justify-content-end py-6 px-9">
+                    <button type="button" class="btn btn-light" [disabled]="isLoading" (click)="cancel()">Abbrechen</button>
+                    <button type="submit" class="btn btn-primary" [disabled]="!messlokationForm.valid || isLoading">
+                        <ng-container *ngIf="!isLoading">Save Changes</ng-container>
+                        <ng-container *ngIf="isLoading">
+                            <span clas="indicator-progress" [style.display]="'block'">
+                              Please wait...{{ " " }}
+                                <span
+                                        class="spinner-border spinner-border-sm align-middle ms-2"
+                                ></span>
+                            </span>
+                        </ng-container>
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
