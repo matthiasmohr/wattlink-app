@@ -3,6 +3,7 @@ import {AnfragenListeComponent} from "./anfragen-liste/anfragen-liste.component"
 import {DashboardComponent} from "./dashboard/dashboard.component";
 import {MesslokationenListeComponent} from "./messlokationen-liste/messlokationen-liste.component";
 import {MesslokationAnlegenComponent} from "./messlokation-anlegen/messlokation-anlegen.component";
+import {AccountComponent} from "./account/account.component";
 
 const Routing: Routes = [
   {
@@ -35,6 +36,11 @@ const Routing: Routes = [
   {
     path: 'messlokation-anlegen',
     component: MesslokationAnlegenComponent
+  },
+  {
+    path: 'account',
+    loadChildren: () =>
+        import('../pages/account/account.module').then((m) => m.AccountModule),
   },
 
   {

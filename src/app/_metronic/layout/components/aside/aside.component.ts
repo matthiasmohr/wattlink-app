@@ -4,6 +4,8 @@ import { Subscription } from 'rxjs';
 import { KTHelpers } from 'src/app/_metronic/kt';
 import { LayoutService } from '../../core/layout.service';
 import { Tab, tabs } from './tabs';
+import { environment } from '../../../../../environments/environment';
+import {AuthService} from "@auth0/auth0-angular";
 
 @Component({
   selector: 'app-aside',
@@ -18,13 +20,20 @@ export class AsideComponent implements OnInit, OnDestroy {
   constructor(
     private layout: LayoutService,
     private cd: ChangeDetectorRef,
-    private router: Router
+    private router: Router,
+    private auth: AuthService,
   ) {}
+
+  userProfile: any
 
   ngOnInit(): void {
     this.asideMenuSecondary = this.layout.getProp(
       'aside.secondaryDisplay'
     ) as boolean;
+    this.auth.user$.subscribe ( profile => (
+            this.userProfile = profile
+        )
+    );
   }
 
   routingChanges() {
@@ -56,4 +65,6 @@ export class AsideComponent implements OnInit, OnDestroy {
   ngOnDestroy() {
     this.unsubscribe.forEach((sb) => sb.unsubscribe());
   }
+
+  protected readonly environment = environment;
 }
