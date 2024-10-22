@@ -1,6 +1,6 @@
 import { Component, OnInit, ChangeDetectorRef, OnDestroy } from '@angular/core';
 import { NavigationCancel, NavigationEnd, Router } from '@angular/router';
-import { Subscription } from 'rxjs';
+import {Observable, Subscription} from 'rxjs';
 import { KTHelpers } from 'src/app/_metronic/kt';
 import { LayoutService } from '../../core/layout.service';
 import { Tab, tabs } from './tabs';
@@ -24,16 +24,13 @@ export class AsideComponent implements OnInit, OnDestroy {
     private auth: AuthService,
   ) {}
 
-  userProfile: any
+  userProfile$: Observable<any>;
 
   ngOnInit(): void {
     this.asideMenuSecondary = this.layout.getProp(
       'aside.secondaryDisplay'
     ) as boolean;
-    this.auth.user$.subscribe ( profile => (
-            this.userProfile = profile
-        )
-    );
+    this.userProfile$ = this.auth.user$
   }
 
   routingChanges() {

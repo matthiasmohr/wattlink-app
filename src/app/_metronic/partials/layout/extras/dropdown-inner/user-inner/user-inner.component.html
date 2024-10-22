@@ -1,4 +1,4 @@
-<ng-container *ngIf="userProfile">
+<ng-container *ngIf="(userProfile$) | async as userProfile">
   <div class="menu-item px-3">
     <div class="menu-content d-flex align-items-center px-3">
       <div class="symbol symbol-50px me-5">

@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '@auth0/auth0-angular';
+import {Observable} from "rxjs";
+import {Anfrage} from "../../shared/Anfrage";
 
 @Component({
   selector: 'app-account',
@@ -10,12 +12,9 @@ export class AccountComponent implements OnInit {
       private auth: AuthService,
   ) {}
 
-  userProfile: any;
+  userProfile$: Observable<any>
 
   ngOnInit(): void {
-    this.auth.user$.subscribe ( profile => (
-            this.userProfile = profile
-        )
-    );
+    this.userProfile$ = this.auth.user$
   }
 }

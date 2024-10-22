@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {AuthService} from "@auth0/auth0-angular";
+import {Observable} from "rxjs";
 
 @Component({
   selector: 'app-overview',
@@ -10,7 +11,7 @@ export class OverviewComponent implements OnInit {
       private auth: AuthService,
   ) {}
 
-  userProfile: any;
+  userProfile$: Observable<any>;
 
   attributes = [
     'name',
@@ -36,9 +37,6 @@ export class OverviewComponent implements OnInit {
   ]
 
   ngOnInit(): void {
-    this.auth.user$.subscribe ( profile => (
-            this.userProfile = profile
-        )
-    );
+    this.userProfile$ = this.auth.user$
   }
 }
