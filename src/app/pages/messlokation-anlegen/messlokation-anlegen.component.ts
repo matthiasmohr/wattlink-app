@@ -4,7 +4,7 @@ import {BehaviorSubject, delay, Observable, of, Subscription, tap} from "rxjs";
 import {catchError} from "rxjs/operators";
 import {HttpClient} from "@angular/common/http";
 import {InlineSVGModule} from "ng-inline-svg-2";
-import {RouterLink} from "@angular/router";
+import {ActivatedRoute, RouterLink} from "@angular/router";
 import {MesslokationenApiService} from "../../shared/messlokation.service";
 import {Messlokation, messlokationInit} from "../../shared/Messlokation";
 import { Location } from '@angular/common'
@@ -32,8 +32,10 @@ export class MesslokationAnlegenComponent implements OnInit {
       public messlokationenApiService: MesslokationenApiService,
       private cdr: ChangeDetectorRef,
       private location: Location,
+      private route: ActivatedRoute,
   ) {}
 
+  id: any = ""
   messlokation: Messlokation = {} as Messlokation;
   profile = ['H0', 'G0', 'G1']
 
@@ -46,7 +48,16 @@ export class MesslokationAnlegenComponent implements OnInit {
         .asObservable()
         .subscribe((res) => (this.isLoading = res));
     this.unsubscribe.push(loadingSubscr);
-    console.log(this.profile)
+    this.route.paramMap.subscribe(params => {
+      this.id = params.get('id')
+      if (params.get('id') != null) {
+        this.messlokationenApiService.getMesslokation(this.id).subscribe(res => {
+          this.messlokation = res
+          this.cdr.detectChanges();
+        })
+      }
+      //this.getAnfrage(params.get('id'));
+    })
   }
 
   save() {
@@ -54,7 +65,7 @@ export class MesslokationAnlegenComponent implements OnInit {
     this.messlokationenApiService.createMesslokation(this.messlokation).subscribe(res => {
       this.isLoading$.next(false);
       this.messlokation = res;
-      this.cdr.detectChanges();
+      //this.cdr.detectChanges();
       this.location.back()
     })
   }

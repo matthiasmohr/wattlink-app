@@ -18,7 +18,8 @@
         <ng-container *ngFor="let messlokation of messlokationen$ | async">
           <div class="col-md-6 col-xl-4">
             <app-lieferstellen-card
-              icon="./assets/media/svg/brand-logos/plurk.svg"
+                id={{messlokation.id}}
+                icon="./assets/media/svg/brand-logos/plurk.svg"
               melo={{messlokation.melo}}
               plz={{messlokation.plz}}
               stadt={{messlokation.stadt}}
@@ -38,10 +39,4 @@
 
 <ng-template #loading>
     <div>Loading...</div>
-</ng-template>
-
-<ng-template #myModalContent let-modal>
-    <div class="modal-header">
-        Test
-    </div>
 </ng-template>

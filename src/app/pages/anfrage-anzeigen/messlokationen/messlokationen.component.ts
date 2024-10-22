@@ -15,7 +15,6 @@ export class MesslokationenComponent implements OnInit {
   constructor(
       public messlokationenApiService: MesslokationenApiService,
       private route: ActivatedRoute,
-      private modalService: NgbModal
   ) {}
 
   messlokationen$: Observable<Messlokation[]>

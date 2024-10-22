@@ -41,7 +41,7 @@
             <tbody>
             <tr *ngFor="let messlokation of messlokationen$ | async">
                 <td>
-                    <a class="text-gray-900 fw-bolder text-hover-primary d-block fs-6" [routerLink]="['/messlokation-anzeigen/' + messlokation.id + '/messlokationparameter']">
+                    <a class="text-gray-900 fw-bolder text-hover-primary d-block fs-6" [routerLink]="['/messlokation-anlegen/' + messlokation.id]">
                         {{ messlokation.melo}}
                     </a>
                 </td>
@@ -49,7 +49,7 @@
                 <td>
                     <div class="d-flex align-items-center">
                         <div class="d-flex justify-content-start flex-column">
-                            <a class="text-gray-900 fw-bolder text-hover-primary fs-6" [routerLink]="['/messlokation-anzeigen/' + messlokation.id + '/messlokationparameter']">
+                            <a class="text-gray-900 fw-bolder text-hover-primary fs-6" [routerLink]="['/messlokation-anlegen/' + messlokation.id]">
                                 {{ messlokation.strasse }} {{ messlokation.hausnummer }}
                             </a>
                             <span class="text-muted fw-bold text-muted d-block fs-7">
@@ -62,7 +62,7 @@
                 <td>
                     <div class="d-flex align-items-center">
                         <div class="d-flex justify-content-start flex-column">
-                            <a class="text-gray-900 fw-bolder text-hover-primary fs-6" [routerLink]="['/messlokation-anzeigen/' + messlokation.id + '/messlokationparameter']">
+                            <a class="text-gray-900 fw-bolder text-hover-primary fs-6" [routerLink]="['/messlokation-anlegen/' + messlokation.id]">
                                 Verbrauch: {{ messlokation.jahresverbrauch_kWh }}
                             </a>
                             <span class="text-muted fw-bold text-muted d-block fs-7">
@@ -85,7 +85,7 @@
 
                 <td>
                     <div class="d-flex justify-content-end flex-shrink-0">
-                        <button type="button" class=" btn btn-icon btn-bg-light btn-active-color-primary btn-sm me-1" [routerLink]="['/messlokation-anzeigen/' + messlokation.id + '/messlokationparameter']" *ngIf="true">
+                        <button type="button" class=" btn btn-icon btn-bg-light btn-active-color-primary btn-sm me-1" [routerLink]="['/messlokation-anlegen/' + messlokation.id]" *ngIf="true">
                             <span [inlineSVG]=" './assets/media/icons/duotune/general/gen019.svg' " class="svg-icon svg-icon-3"></span>
                         </button>
                     </div>

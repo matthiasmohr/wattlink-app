@@ -20,6 +20,7 @@ export class MesslokationenApiService {
 
     constructor(public http: HttpClient) {}
 
+
     /*========================================
       CRUD Methods for consuming RESTful API
     =========================================*/
@@ -40,7 +41,6 @@ export class MesslokationenApiService {
     }
 
     createMesslokation(messlokation: Messlokation): Observable<Messlokation> {
-        messlokation.id = "";
         return this.http.post<Messlokation>(this.messlokationenUrl, messlokation).pipe(
             catchError(this.handleError)
         )

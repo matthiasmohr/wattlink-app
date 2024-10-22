@@ -1,7 +1,7 @@
 export class MesslokationenTable {
     public static messlokationen: any = [
         {
-            id: "5",
+            id: 5,
             anfrage: "Anfrage",
             melo: "DE123456",
             plz: "22222",
@@ -20,7 +20,7 @@ export class MesslokationenTable {
             bearbeitet: "2.1.1999",
         },
         {
-            id: "6",
+            id: 6,
             anfrage: "Anfrage",
             melo: "DE789",
             plz: "33333",

@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import {CommonModule, NgOptimizedImage} from '@angular/common';
 import { InlineSVGModule } from 'ng-inline-svg-2';
 import { RouterModule, Routes } from '@angular/router';
 import {
@@ -74,24 +74,25 @@ const routes: Routes = [
     TasksTabComponent,
     SearchComponent,
   ],
-  imports: [
-    CommonModule,
-    RouterModule.forChild(routes),
-    TranslationModule,
-    InlineSVGModule,
-    NgbDropdownModule,
-    NgbProgressbarModule,
-    ExtrasModule,
-    ModalsModule,
-    DrawersModule,
-    EngagesModule,
-    DropdownMenusModule,
-    NgbTooltipModule,
-    TranslateModule,
-    FormsModule,
-    ThemeModeModule,
-    SharedModule,
-  ],
+    imports: [
+        CommonModule,
+        RouterModule.forChild(routes),
+        TranslationModule,
+        InlineSVGModule,
+        NgbDropdownModule,
+        NgbProgressbarModule,
+        ExtrasModule,
+        ModalsModule,
+        DrawersModule,
+        EngagesModule,
+        DropdownMenusModule,
+        NgbTooltipModule,
+        TranslateModule,
+        FormsModule,
+        ThemeModeModule,
+        SharedModule,
+        NgOptimizedImage,
+    ],
   exports: [RouterModule],
 })
 export class LayoutModule {}

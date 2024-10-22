@@ -5,6 +5,7 @@ import { Component, Input } from '@angular/core';
   templateUrl: './card.component.html',
 })
 export class LieferstellenCardComponent {
+  @Input() id: string = '';
   @Input() icon: string = '';
   @Input() melo: string = '';
   @Input() plz: string = '';

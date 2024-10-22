@@ -1,5 +1,5 @@
 interface Messlokation {
-    id: string,
+    id: number,
     anfrage: string,
 
     melo: string,
@@ -25,7 +25,7 @@ interface Messlokation {
 }
 
 const messlokationInit: Messlokation = {
-    id: "1",
+    id: 1,
     anfrage: "Anfrage",
     melo: "DE123456",
     plz: "22222",
