@@ -1,60 +1,37 @@
-<div class="
-    stepper stepper-pills stepper-column
-    d-flex
-    flex-column flex-xl-row flex-row-fluid
-  " id="kt_create_account_stepper">
+<div class=" stepper stepper-pills stepper-column d-flex flex-column flex-xl-row flex-row-fluid" id="kt_create_account_stepper">
   <!--begin::Aside-->
   <div
     class="card d-flex justify-content-center justify-content-xl-start flex-row-auto w-100 w-xl-300px w-xxl-400px me-9">
     <div class="card-body px-6 px-lg-10 px-xxl-15 py-20">
       <div class="stepper-nav">
-
-        <div class="stepper-item" [ngClass]="{
-            current: currentStep$.value === 1,
-            completed: currentStep$.value > 1
-          }">
-          <!--begin::Wrapper-->
+        <div class="stepper-item" [ngClass]="{ current: currentStep$.value === 1, completed: currentStep$.value > 1 }">
           <div class="stepper-wrapper">
-            <!--begin::Icon-->
             <div class="stepper-icon w-40px h-40px">
               <i class="stepper-check fas fa-check"></i>
-              <span class="stepper-number">1</span>
+              <span class="stepper-number">
+                  1
+              </span>
             </div>
-            <!--end::Icon-->
-
-            <!--begin::Label-->
             <div class="stepper-label">
               <h3 class="stepper-title">
                 Verbrauchsdaten
               </h3>
-
               <div class="stepper-desc fw-semibold">
                 Woher kommt wie viel Energie?
               </div>
             </div>
-            <!--end::Label-->
           </div>
-          <!--end::Wrapper-->
-
-          <!--begin::Line-->
           <div class="stepper-line h-40px"></div>
-          <!--end::Line-->
         </div>
 
-        <div class="stepper-item" [ngClass]="{
-            current: currentStep$.value === 2,
-            completed: currentStep$.value > 2
-          }">
-          <!--begin::Wrapper-->
+        <div class="stepper-item" [ngClass]="{ current: currentStep$.value === 2, completed: currentStep$.value > 2 }">
           <div class="stepper-wrapper">
-            <!--begin::Icon-->
             <div class="stepper-icon w-40px h-40px">
               <i class="stepper-check fas fa-check"></i>
-              <span class="stepper-number">2</span>
+              <span class="stepper-number">
+                  2
+              </span>
             </div>
-            <!--end::Icon-->
-
-            <!--begin::Label-->
             <div class="stepper-label">
               <h3 class="stepper-title">
                 Lieferstellen
@@ -63,29 +40,18 @@
                 Wohin geht die Energie?
               </div>
             </div>
-            <!--end::Label-->
           </div>
-          <!--end::Wrapper-->
-
-          <!--begin::Line-->
           <div class="stepper-line h-40px"></div>
-          <!--end::Line-->
         </div>
 
-        <div class="stepper-item" [ngClass]="{
-            current: currentStep$.value === 3,
-            completed: currentStep$.value > 3
-          }">
-          <!--begin::Wrapper-->
+        <div class="stepper-item" [ngClass]="{ current: currentStep$.value === 3, completed: currentStep$.value > 3 }">
           <div class="stepper-wrapper">
-            <!--begin::Icon-->
             <div class="stepper-icon w-40px h-40px">
               <i class="stepper-check fas fa-check"></i>
-              <span class="stepper-number">3</span>
+              <span class="stepper-number">
+                  3
+              </span>
             </div>
-            <!--end::Icon-->
-
-            <!--begin::Label-->
             <div class="stepper-label">
               <h3 class="stepper-title">
                 Aktuelle Belieferung
@@ -94,29 +60,16 @@
                 Wie ist die aktuelle Versorgungssituation?
               </div>
             </div>
-            <!--end::Label-->
           </div>
-          <!--end::Wrapper-->
-
-          <!--begin::Line-->
           <div class="stepper-line h-40px"></div>
-          <!--end::Line-->
         </div>
 
-        <div class="stepper-item" [ngClass]="{
-            current: currentStep$.value === 4,
-            completed: currentStep$.value > 4
-          }">
-          <!--begin::Wrapper-->
+        <div class="stepper-item" [ngClass]="{ current: currentStep$.value === 4, completed: currentStep$.value > 4 }">
           <div class="stepper-wrapper">
-            <!--begin::Icon-->
             <div class="stepper-icon w-40px h-40px">
               <i class="stepper-check fas fa-check"></i>
               <span class="stepper-number">4</span>
             </div>
-            <!--end::Icon-->
-
-            <!--begin::Label-->
             <div class="stepper-label">
               <h3 class="stepper-title">
                 Kontakt
@@ -125,26 +78,18 @@
                 Wer ist Ansprechpartner?
               </div>
             </div>
-            <!--end::Label-->
           </div>
-          <!--end::Wrapper-->
-
-          <!--begin::Line-->
           <div class="stepper-line h-40px"></div>
-          <!--end::Line-->
         </div>
 
         <div class="stepper-item" [ngClass]="{ current: currentStep$.value === 5 }">
-          <!--begin::Wrapper-->
           <div class="stepper-wrapper">
-            <!--begin::Icon-->
             <div class="stepper-icon w-40px h-40px">
               <i class="stepper-check fas fa-check"></i>
-              <span class="stepper-number">5</span>
+              <span class="stepper-number">
+                  5
+              </span>
             </div>
-            <!--end::Icon-->
-
-            <!--begin::Label-->
             <div class="stepper-label">
               <h3 class="stepper-title">
                 Anfrage stellen
@@ -153,9 +98,7 @@
                 Wie geht es weiter?
               </div>
             </div>
-            <!--end::Label-->
           </div>
-          <!--end::Wrapper-->
         </div>
       </div>
     </div>
@@ -189,28 +132,39 @@
 
       <div class="d-flex flex-stack pt-10">
         <div class="mr-2">
-          <ng-container *ngIf="currentStep$.value !== 1">
-            <button type="button" class="btn btn-lg btn-light-primary me-3" (click)="prevStep()">
+          <ng-container *ngIf="currentStep$.value !== 1 && currentStep$.value !== formsCount">
+            <button type="button" class="btn btn-lg btn-light-primary me-3"  [disabled]="isLoading" (click)="prevStep()">
               <app-keenicon name="arrow-left" class="fs-3 ms-1"></app-keenicon>
-              Back
+              Zurück
             </button>
           </ng-container>
         </div>
 
-        <ng-container *ngIf="currentStep$.value !== formsCount">
+        <ng-container *ngIf="currentStep$.value < formsCount - 1">
           <div>
-            <button type="button" class="btn btn-lg btn-primary me-3" [disabled]="!isCurrentFormValid$.value"
-              (click)="nextStep()">
+            <button type="button" class="btn btn-lg btn-primary me-3" [disabled]="!isCurrentFormValid$.value" (click)="nextStep()">
               <span class="indicator-label">
-                <ng-container *ngIf="currentStep$.value < formsCount - 1">
-                  Continue {{ " " }}
+                  Weiter
                   <app-keenicon name="arrow-right" class="fs-3 ms-2 me-0"></app-keenicon>
-                </ng-container>
-                <ng-container *ngIf="currentStep$.value === formsCount - 1">
-                  Submit
-                </ng-container>
               </span>
             </button>
+          </div>
+        </ng-container>
+        <ng-container *ngIf="currentStep$.value === formsCount - 1">
+          <div>
+              <button type="button" class="btn btn-lg btn-primary me-3" [disabled]="!isCurrentFormValid$.value || isLoading" (click)="submit()">
+                  <span class="indicator-label" *ngIf="!isLoading">
+                      Absenden
+                  </span>
+                  <ng-container *ngIf="isLoading">
+                            <span clas="indicator-progress" [style.display]="'block'">
+                              Bitte warten...{{ " " }}
+                                <span
+                                        class="spinner-border spinner-border-sm align-middle ms-2"
+                                ></span>
+                            </span>
+                  </ng-container>
+              </button>
           </div>
         </ng-container>
       </div>
