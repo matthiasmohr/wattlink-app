@@ -1,8 +1,8 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { OverviewComponent } from './overview/overview.component';
+import { LoginComponent } from './login/login.component';
 import { AccountComponent } from './account.component';
-import { SettingsComponent } from './settings/settings.component';
+import { PartnerprofilComponent } from './partnerprofil/partnerprofil.component';
 
 const routes: Routes = [
   {
@@ -10,12 +10,12 @@ const routes: Routes = [
     component: AccountComponent,
     children: [
       {
-        path: 'overview',
-        component: OverviewComponent,
+        path: 'login',
+        component: LoginComponent,
       },
       {
-        path: 'settings',
-        component: SettingsComponent,
+        path: 'partnerprofil',
+        component: PartnerprofilComponent,
       },
       { path: '', redirectTo: 'overview', pathMatch: 'full' },
       { path: '**', redirectTo: 'overview', pathMatch: 'full' },

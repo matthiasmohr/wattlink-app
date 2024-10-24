@@ -1,8 +1,11 @@
 <ng-container *ngIf="(userProfile$) | async as userProfile; else loading">
-    <div class="card mb-5 mb-xl-10" id="kt_profile_details_view">
+    <app-sign-in-method></app-sign-in-method>
+    <app-deactivate-account></app-deactivate-account>
+
+    <div class="card mt-5 mb-xl-10" id="kt_profile_details_view">
       <div class="card-header cursor-pointer">
         <div class="card-title m-0">
-          <h3 class="fw-bolder m-0">Profil</h3>
+          <h3 class="fw-bolder m-0">Login</h3>
         </div>
 
     <!--
@@ -23,6 +26,8 @@
         </ng-container>
       </div>
     </div>
+
+
 </ng-container>
 
 <ng-template #loading>

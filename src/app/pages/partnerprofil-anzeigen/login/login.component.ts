@@ -3,10 +3,10 @@ import {AuthService} from "@auth0/auth0-angular";
 import {Observable} from "rxjs";
 
 @Component({
-  selector: 'app-overview',
-  templateUrl: './overview.component.html',
+  selector: 'app-login',
+  templateUrl: './login.component.html',
 })
-export class OverviewComponent implements OnInit {
+export class LoginComponent implements OnInit {
   constructor(
       private auth: AuthService,
   ) {}
