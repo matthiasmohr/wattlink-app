@@ -10,10 +10,9 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { environment } from 'src/environments/environment';
-// #fake-start#
 import { FakeAPIService } from './_fake/fake-api.service';
-// #fake-end#
 import {AuthModule} from '@auth0/auth0-angular'
+import { NgxEchartsModule } from 'ngx-echarts';
 
 @NgModule({
   declarations: [AppComponent],
@@ -34,6 +33,9 @@ import {AuthModule} from '@auth0/auth0-angular'
           redirect_uri: window.location.origin,
       },
     }),
+    NgxEchartsModule.forRoot({
+      echarts: () => import('echarts')
+    })
   ],
   providers: [
       provideHttpClient(),

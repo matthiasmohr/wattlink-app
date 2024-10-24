@@ -17,6 +17,7 @@ import { SharedModule } from "../../_metronic/shared/shared.module";
 import {LieferstellenCardComponent} from "./messlokationen/messlokationen-card/card.component";
 import {ReactiveFormsModule} from "@angular/forms";
 import {NgbTooltip} from "@ng-bootstrap/ng-bootstrap";
+import {NgxEchartsDirective} from "ngx-echarts";
 
 @NgModule({
   declarations: [
@@ -37,7 +38,8 @@ import {NgbTooltip} from "@ng-bootstrap/ng-bootstrap";
         CardsModule,
         SharedModule,
         ReactiveFormsModule,
-        NgbTooltip
+        NgbTooltip,
+        NgxEchartsDirective
     ],
 })
 export class AnfrageAnzeigenModule {}
