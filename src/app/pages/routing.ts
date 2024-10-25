@@ -4,6 +4,7 @@ import {DashboardComponent} from "./dashboard/dashboard.component";
 import {MesslokationenListeComponent} from "./messlokationen-liste/messlokationen-liste.component";
 import {MesslokationAnlegenComponent} from "./messlokation-anlegen/messlokation-anlegen.component";
 import {AccountComponent} from "./partnerprofil-anzeigen/account.component";
+import {MesslokationLastkurveComponent} from "./messlokation-lastkurve/messlokation-lastkurve.component";
 
 const Routing: Routes = [
   {
@@ -36,6 +37,10 @@ const Routing: Routes = [
   {
     path: 'messlokation-anlegen',
     component: MesslokationAnlegenComponent
+  },
+  {
+    path: 'messlokation-lastkurve/:id',
+    component: MesslokationLastkurveComponent
   },
   {
     path: 'account',

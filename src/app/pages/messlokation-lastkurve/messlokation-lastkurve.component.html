@@ -1,0 +1,12 @@
+    <div class="card mb-5 mb-xl-10">
+        <div class="card-header border-0 cursor-pointer" role="button" data-bs-toggle="collapse" data-bs-target="#kt_account_profile_details" aria-expanded="true" aria-controls="kt_account_profile_details">
+            <div class="card-title m-0">
+                <button type="button" class="btn btn-light" [disabled]="isLoading" (click)="back()">
+                    <span [inlineSVG]="'./assets/media/icons/duotune/arrows/arr026.svg'" class="svg-icon svg-icon-3"></span>
+                    Zurück
+                </button>
+                <h3 class="fw-bolder m-0">Messlokation</h3>
+            </div>
+        </div>
+        <div echarts [options]="options" class="demo-chart"></div>
+    </div>

@@ -1,13 +1,16 @@
-<a [routerLink]="['/messlokation-anlegen/' + id]" class="card border border-2 border-gray-300 border-hover">
+<div class="card border border-2 border-gray-300 border-hover">
   <div class="card-header border-0 pt-9">
     <div class="card-title m-0 fs-3 fw-bolder text-gray-900">
         Melo: {{ melo }}
     </div>
 
     <div class="card-toolbar">
-      <span class="badge fw-bolder me-auto px-4 py-3" [ngClass]="'badge-light-' + farbe">
-        {{ status }}
-      </span>
+        <a [routerLink]="['/messlokation-lastkurve/' + id]" class="btn btn-sm btn-light cursor-pointer me-2">
+            <span [inlineSVG]="'./assets/media/icons/duotune/graphs/gra003.svg'" class="svg-icon svg-icon-3"></span>
+        </a>
+        <a [routerLink]="['/messlokation-anlegen/' + id]" class="btn btn-sm btn-light cursor-pointer">
+            <span [inlineSVG]="'./assets/media/icons/duotune/coding/cod001.svg'" class="svg-icon svg-icon-3"></span>
+        </a>
     </div>
   </div>
 
@@ -34,16 +37,13 @@
         </div>
     </div>
 
-    <div class="h-4px w-100 bg-light mb-5" ngbTooltip="Lieferstelle">
-      <div
-        class="rounded h-4px"
-        [ngClass]="'bg-' + farbe"
-        role="progressbar"
-        [style.width]="fortschritt + '%'"
-      ></div>
+    <div class="mb-5" ngbTooltip="Status">
+        <span class="badge fw-bolder me-auto px-4 py-3" [ngClass]="'badge-light-' + farbe">
+            {{ status }}
+        </span>
     </div>
-
-      <div echarts [options]="options" class="demo-chart"></div>
-
+    <div class="h-4px w-100 bg-light mb-5" ngbTooltip="Status">
+        <div class="rounded h-4px" [ngClass]="'bg-' + farbe" role="progressbar" [style.width]="fortschritt + '%'"></div>
+    </div>
   </div>
-</a>
+</div>
