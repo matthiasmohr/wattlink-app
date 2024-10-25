@@ -4,6 +4,7 @@ import { UsersTable } from './users.table';
 import { AnfragenTable } from "./anfragen.table";
 import { PartnerprofileTable } from "./partnerprofile.table";
 import {MesslokationenTable} from "./messlokationen.table";
+import {LastkurvenTable} from "./lastkurven.table";
 
 
 @Injectable({
@@ -21,6 +22,7 @@ export class FakeAPIService implements InMemoryDbService {
       messlokationen: MesslokationenTable.messlokationen,
       users: UsersTable.users,
       partnerprofile: PartnerprofileTable.partnerprofile,
+      lastkurven: LastkurvenTable.lastkurven
     };
   }
 }
