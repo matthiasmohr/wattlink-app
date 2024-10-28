@@ -1,14 +1,14 @@
 import { Component } from '@angular/core';
 import {Observable} from "rxjs";
-import {PartnerprofilApiService} from "../../../shared/partnerprofil.service";
+import {PartnerprofileApiService} from "../../../shared/partnerprofil.service";
 
 @Component({
   selector: 'app-settings',
   templateUrl: './partnerprofil.component.html',
 })
-export class PartnerprofilComponent {
+export class PartnerprofilAnzeigenComponent {
   constructor(
-      public partnerprofilApiService: PartnerprofilApiService,
+      public partnerprofileApiService: PartnerprofileApiService,
   ) {}
 
   partnerprofil$: Observable<any>;
@@ -30,6 +30,6 @@ export class PartnerprofilComponent {
 
   ngOnInit(): void {
     //TODO: ID dynamisch machen
-    this.partnerprofil$ = this.partnerprofilApiService.getPartnerprofil(1);
+    this.partnerprofil$ = this.partnerprofileApiService.getPartnerprofil(1);
   }
 }

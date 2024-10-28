@@ -1,0 +1,102 @@
+    <div class="card mb-5 mb-xl-10">
+        <div class="card-header border-0 cursor-pointer" role="button" data-bs-toggle="collapse" data-bs-target="#kt_account_profile_details" aria-expanded="true" aria-controls="kt_account_profile_details">
+            <div class="card-title m-0">
+                <h3 class="fw-bolder m-0">Partnerprofil</h3>
+            </div>
+        </div>
+        <div id="kt_account_profile_details" class="collapse show">
+            <form novalidate="" class="form" #partnerprofilForm="ngForm" (ngSubmit)="save()">
+                <div class="card-body border-top p-9">
+                    <div class="row mb-6">
+                        <label class="col-lg-4 col-form-label required fw-bold fs-6">Email</label>
+                        <div class="col-lg-8 fv-row">
+                            <input type="text" class="form-control form-control-lg form-control-solid" placeholder="Email" name="email" [(ngModel)]="partnerprofil.email" required email/>
+                            <ng-container *ngIf="partnerprofilForm.controls.email && partnerprofilForm.controls.email.invalid && (partnerprofilForm.controls.email.dirty || !partnerprofilForm.controls.email.untouched)">
+                                <div *ngIf="partnerprofilForm.controls.email.errors?.['required']" class="text-danger">
+                                    Email ist erforderlich
+                                </div>
+                                <div *ngIf="partnerprofilForm.controls.email.errors?.['email']" class="text-danger">
+                                    Das Email-Format ist ungültig
+                                </div>
+                            </ng-container>
+                        </div>
+                    </div>
+                    <div class="row mb-6">
+                        <label class="col-lg-4 col-form-label required fw-bold fs-6">Vor- & Nachname</label>
+                        <div class="col-lg-8">
+                            <div class="row">
+                                <div class="col-lg-6 fv-row">
+                                    <input type="text" class=" form-control form-control-lg form-control-solid mb-3 mb-lg-0" placeholder="Vorname" name="vorname" [(ngModel)]="partnerprofil.vorname" required/>
+                                    <ng-container *ngIf="partnerprofilForm.controls.vorname && partnerprofilForm.controls.vorname.invalid && (partnerprofilForm.controls.vorname.dirty || !partnerprofilForm.controls.vorname.untouched)">
+                                        <div *ngIf="partnerprofilForm.controls.vorname.errors?.['required']" class="text-danger">
+                                            Vorname ist erforderlich
+                                        </div>
+                                    </ng-container>
+                                </div>
+                                <div class="col-lg-6 fv-row">
+                                    <input type="text" class="form-control form-control-lg form-control-solid" placeholder="Nachname" name="nachname" [(ngModel)]="partnerprofil.nachname" required/>
+                                    <ng-container *ngIf="partnerprofilForm.controls.nachname && partnerprofilForm.controls.nachname.invalid && (partnerprofilForm.controls.nachname.dirty || !partnerprofilForm.controls.nachname.untouched)">
+                                        <div *ngIf="partnerprofilForm.controls.nachname.errors?.['required']" class="text-danger">
+                                            Nachname ist erforderlich
+                                        </div>
+                                    </ng-container>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card-body border-top p-9">
+                        <div class="notice d-flex bg-light-warning rounded border-warning border border-dashed p-6">
+                            <app-keenicon name="shield-tick" class="fs-2 text-warning me-4"></app-keenicon>
+                            <div class="d-flex flex-stack flex-grow-1 flex-wrap flex-md-nowrap">
+                                <div class="mb-3 mb-md-0 fw-bold">
+                                    <h4 class="text-gray-800 fw-bolder">TODO: Interne Notiz</h4>
+                                    Interne Notiz: Weitere Parameter für ein Partnerprofil sind hier noch nicht abgefragt (z.B. Firma, Position, Telefon, ...)
+                                    Die nachfolgenden Parameter sind zur internen Verwendung.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row mb-0">
+                        <label class="col-lg-4 col-form-label fw-bold fs-6">Kunde</label>
+                        <div class="col-lg-8 d-flex align-items-center">
+                            <div class="form-check form-check-solid form-switch fv-row">
+                                <input class="form-check-input w-45px h-30px" type="checkbox" id="kunde"/><label class="form-check-label"></label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row mb-0">
+                        <label class="col-lg-4 col-form-label fw-bold fs-6">Kunde ist signiert</label>
+                        <div class="col-lg-8 d-flex align-items-center">
+                            <div class="form-check form-check-solid form-switch fv-row">
+                                <input class="form-check-input w-45px h-30px" type="checkbox" id="kundeSigniert"/><label class="form-check-label"></label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row mb-0">
+                        <label class="col-lg-4 col-form-label fw-bold fs-6">Lieferant</label>
+                        <div class="col-lg-8 d-flex align-items-center">
+                            <div class="form-check form-check-solid form-switch fv-row">
+                                <input class="form-check-input w-45px h-30px" type="checkbox" id="lieferant"/><label class="form-check-label"></label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-footer d-flex justify-content-end py-6 px-9">
+                    <button type="button" class="btn btn-light" [disabled]="isLoading" (click)="cancel()">Abbrechen</button>
+                    <button type="submit" class="btn btn-primary" [disabled]="!partnerprofilForm.valid || isLoading">
+                        <ng-container *ngIf="!isLoading">Save Changes</ng-container>
+                        <ng-container *ngIf="isLoading">
+                            <span clas="indicator-progress" [style.display]="'block'">
+                              Please wait...{{ " " }}
+                                <span
+                                        class="spinner-border spinner-border-sm align-middle ms-2"
+                                ></span>
+                            </span>
+                        </ng-container>
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>

@@ -1,0 +1,26 @@
+<ng-container *ngIf="(userProfile$) | async as userProfile; else loading">
+    <div class="card mb-5 mb-xl-10">
+      <div class="card-body pb-0">
+          <div class="d-flex overflow-auto h-55px">
+          <ul class=" nav nav-stretch nav-line-tabs nav-line-tabs-2x border-transparent fs-5 fw-bolder flex-nowrap">
+            <li class="nav-item">
+              <a class="nav-link text-active-primary me-6" routerLink="/account/partnerprofil-anzeigen" routerLinkActive="active">
+                Partnerprofil
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link text-active-primary me-6" routerLink="/account/login" routerLinkActive="active">
+                Login
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <router-outlet></router-outlet>
+</ng-container>
+
+<ng-template #loading>
+    <div>Loading...</div>
+</ng-template>

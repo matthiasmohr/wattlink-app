@@ -13,7 +13,7 @@ const headers = new HttpHeaders({
 @Injectable({
     providedIn: 'root',
 })
-export class PartnerprofilApiService {
+export class PartnerprofileApiService {
     // Define API
     partnerprofileUrl = 'api/partnerprofile';
 
@@ -38,8 +38,10 @@ export class PartnerprofilApiService {
         );
     }
 
-    createPartnerprofil(partnerprofil: Partnerprofil): Observable<Partnerprofil> {
-        return this.http.post<Partnerprofil>(this.partnerprofileUrl, partnerprofil).pipe(
+    editPartnerprofil(partnerprofil: Partnerprofil): Observable<Partnerprofil> {
+        // TODO: ID dynamisch machen
+        partnerprofil.id = 1
+        return this.http.put<Partnerprofil>(this.partnerprofileUrl, partnerprofil).pipe(
             catchError(this.handleError)
         )
     }

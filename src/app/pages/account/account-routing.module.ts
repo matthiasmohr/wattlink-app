@@ -2,7 +2,8 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { LoginComponent } from './login/login.component';
 import { AccountComponent } from './account.component';
-import { PartnerprofilComponent } from './partnerprofil/partnerprofil.component';
+import {PartnerprofilAnzeigenComponent} from './partnerprofil-anzeigen/partnerprofil.component';
+import {PartnerprofilAnlegenComponent} from "./partnerprofil-anlegen/partnerprofil-anlegen.component";
 
 const routes: Routes = [
   {
@@ -14,8 +15,12 @@ const routes: Routes = [
         component: LoginComponent,
       },
       {
-        path: 'partnerprofil',
-        component: PartnerprofilComponent,
+        path: 'partnerprofil-anzeigen',
+        component: PartnerprofilAnzeigenComponent,
+      },
+      {
+        path:'partnerprofil-anlegen',
+        component: PartnerprofilAnlegenComponent
       },
       { path: '', redirectTo: 'overview', pathMatch: 'full' },
       { path: '**', redirectTo: 'overview', pathMatch: 'full' },

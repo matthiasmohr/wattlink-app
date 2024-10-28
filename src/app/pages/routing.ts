@@ -3,7 +3,7 @@ import {AnfragenListeComponent} from "./anfragen-liste/anfragen-liste.component"
 import {DashboardComponent} from "./dashboard/dashboard.component";
 import {MesslokationenListeComponent} from "./messlokationen-liste/messlokationen-liste.component";
 import {MesslokationAnlegenComponent} from "./messlokation-anlegen/messlokation-anlegen.component";
-import {AccountComponent} from "./partnerprofil-anzeigen/account.component";
+import {AccountComponent} from "./account/account.component";
 import {MesslokationLastkurveComponent} from "./messlokation-lastkurve/messlokation-lastkurve.component";
 
 const Routing: Routes = [
@@ -45,7 +45,7 @@ const Routing: Routes = [
   {
     path: 'account',
     loadChildren: () =>
-        import('./partnerprofil-anzeigen/account.module').then((m) => m.AccountModule),
+        import('./account/account.module').then((m) => m.AccountModule),
   },
 
   {
