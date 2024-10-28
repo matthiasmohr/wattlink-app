@@ -52,6 +52,11 @@ if (environment.featureFlipper.metronicMenu) {
       icon: './assets/media/icons/duotune/finance/fin006.svg',
       tooltip: 'Menu',
     },
+    {
+      link: 'notifications',
+      icon: './assets/media/icons/duotune/abstract/abs027.svg',
+      tooltip: 'Notifications',
+    },
   ];
 }
 
