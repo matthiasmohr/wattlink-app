@@ -9,7 +9,7 @@ export class PartnerprofileTable {
             position: '',
             telefon: '',
             kunde: true,
-            kundeSigniert: false,
+            kundeAktiviert: false,
             lieferant: false,
             erstellt: '',
             bearbeitet: ''

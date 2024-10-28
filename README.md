@@ -1,5 +1,8 @@
 # Demo7
 
+## ToDos
+- Hinweis zu "Ihr Account wurde noch nicht aktiviert" im Menü aktualisiert sich noch nicht alleine
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.x.x.
 
 ## Development server

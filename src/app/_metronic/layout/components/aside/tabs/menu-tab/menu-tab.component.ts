@@ -1,4 +1,5 @@
 import {
+  ChangeDetectorRef,
   Component,
   ElementRef,
   OnDestroy,
@@ -6,7 +7,7 @@ import {
   ViewChild,
 } from '@angular/core';
 import { NavigationCancel, NavigationEnd, Router } from '@angular/router';
-import { Subscription } from 'rxjs';
+import {Observable, Subscription} from 'rxjs';
 import {
   DrawerComponent,
   MenuComponent,
@@ -14,6 +15,7 @@ import {
   ToggleComponent,
 } from 'src/app/_metronic/kt/components';
 import { environment } from '../../../../../../../environments/environment';
+import {PartnerprofileApiService} from "../../../../../../shared/partnerprofil.service";
 
 @Component({
   selector: 'app-menu-tab',
@@ -26,10 +28,16 @@ export class MenuTabComponent implements OnInit, OnDestroy {
   @ViewChild('ktAsideScroll', { static: true }) ktAsideScroll: ElementRef;
   private unsubscribe: Subscription[] = [];
 
-  constructor(private router: Router) {}
+  constructor(
+      private router: Router,
+      public partnerprofileApiService: PartnerprofileApiService,
+      ) {}
+
+  partnerprofil$: Observable<any>;
 
   ngOnInit(): void {
     this.routingChanges();
+    this.partnerprofil$ = this.partnerprofileApiService.getPartnerprofil(1);
   }
 
   routingChanges() {

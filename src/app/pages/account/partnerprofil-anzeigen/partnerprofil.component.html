@@ -5,29 +5,31 @@
                 <h3 class="fw-bolder m-0">Profil</h3>
             </div>
 
-            <!--
-                <a routerLink="/crafted/account/settings" class="btn btn-primary align-self-center">
-                  Edit Profile
+            <ng-container *ngIf="partnerprofil.kundeAktiviert">
+                <a routerLink="/account/partnerprofil-anlegen/" class="btn btn-primary align-self-center">
+                  Profil bearbeiten
                 </a>
-            -->
+            </ng-container>
         </div>
 
-        <div class="card-body border-top p-9">
-            <div class="notice d-flex bg-light-warning rounded border-warning border border-dashed p-6">
-                <app-keenicon name="shield-tick" class="fs-2 text-warning me-4"></app-keenicon>
-                <div class="d-flex flex-stack flex-grow-1 flex-wrap flex-md-nowrap">
-                    <div class="mb-3 mb-md-0 fw-bold">
-                        <h4 class="text-gray-800 fw-bolder">Aktivierung des Accounts</h4>
-                        <div class="fs-6 text-gray-600 pe-7">
-                            Um Anfragen abzusenden, müssen Sie ihr Profil aktivieren.
+        <ng-container *ngIf="!partnerprofil.kundeAktiviert">
+            <div class="card-body border-top p-9">
+                <div class="notice d-flex bg-light-warning rounded border-warning border border-dashed p-6">
+                    <app-keenicon name="shield-tick" class="fs-2 text-warning me-4"></app-keenicon>
+                    <div class="d-flex flex-stack flex-grow-1 flex-wrap flex-md-nowrap">
+                        <div class="mb-3 mb-md-0 fw-bold">
+                            <h4 class="text-gray-800 fw-bolder">Aktivierung des Accounts</h4>
+                            <div class="fs-6 text-gray-600 pe-7">
+                                Um Anfragen abzusenden, müssen Sie ihr Profil aktivieren.
+                            </div>
                         </div>
+                        <a [routerLink]="['/account/partnerprofil-anlegen/']" class="btn btn-warning px-6 align-self-center text-nowrap cursor-pointer">
+                            Profil aktivieren
+                        </a>
                     </div>
-                    <a [routerLink]="['/account/partnerprofil-anlegen/']" class="btn btn-warning px-6 align-self-center text-nowrap cursor-pointer">
-                        Profil aktivieren
-                    </a>
                 </div>
             </div>
-        </div>
+        </ng-container>
 
         <div class="card-body p-9">
             <ng-container *ngFor="let attribute of attributes">

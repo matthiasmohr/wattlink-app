@@ -22,7 +22,7 @@ export class PartnerprofilAnzeigenComponent {
     'position',
     'telefon',
     'kunde',
-    'kundeSigniert',
+    'kundeAktiviert',
     'lieferant',
     'erstellt',
     'bearbeitet'

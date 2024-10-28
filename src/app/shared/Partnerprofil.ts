@@ -7,7 +7,7 @@ interface Partnerprofil {
     position: string
     telefon: string
     kunde: boolean
-    kundeSigniert: boolean
+    kundeAktiviert: boolean
     lieferant: boolean
     erstellt: string
     bearbeitet: string
