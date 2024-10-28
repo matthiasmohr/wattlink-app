@@ -8,9 +8,9 @@ export class PartnerprofileTable {
             firma: '',
             position: '',
             telefon: '',
-            kunde: '',
-            kundeSigniert: '',
-            lieferant: '',
+            kunde: true,
+            kundeSigniert: false,
+            lieferant: false,
             erstellt: '',
             bearbeitet: ''
         }]

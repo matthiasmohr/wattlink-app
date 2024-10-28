@@ -62,7 +62,7 @@
                         <label class="col-lg-4 col-form-label fw-bold fs-6">Kunde</label>
                         <div class="col-lg-8 d-flex align-items-center">
                             <div class="form-check form-check-solid form-switch fv-row">
-                                <input class="form-check-input w-45px h-30px" type="checkbox" id="kunde"/><label class="form-check-label"></label>
+                                <input class="form-check-input w-45px h-30px" type="checkbox" id="kunde" name="kunde" [(ngModel)]="partnerprofil.kunde" /><label class="form-check-label"></label>
                             </div>
                         </div>
                     </div>
@@ -70,7 +70,7 @@
                         <label class="col-lg-4 col-form-label fw-bold fs-6">Kunde ist signiert</label>
                         <div class="col-lg-8 d-flex align-items-center">
                             <div class="form-check form-check-solid form-switch fv-row">
-                                <input class="form-check-input w-45px h-30px" type="checkbox" id="kundeSigniert"/><label class="form-check-label"></label>
+                                <input class="form-check-input w-45px h-30px" type="checkbox" id="kundeSigniert" name="kundeSigniert"  [(ngModel)]="partnerprofil.kundeSigniert" /><label class="form-check-label"></label>
                             </div>
                         </div>
                     </div>
@@ -78,7 +78,7 @@
                         <label class="col-lg-4 col-form-label fw-bold fs-6">Lieferant</label>
                         <div class="col-lg-8 d-flex align-items-center">
                             <div class="form-check form-check-solid form-switch fv-row">
-                                <input class="form-check-input w-45px h-30px" type="checkbox" id="lieferant"/><label class="form-check-label"></label>
+                                <input class="form-check-input w-45px h-30px" type="checkbox" id="lieferant" name="lieferant"  [(ngModel)]="partnerprofil.lieferant" /><label class="form-check-label"></label>
                             </div>
                         </div>
                     </div>

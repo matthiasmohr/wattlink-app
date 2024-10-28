@@ -47,16 +47,14 @@ export class PartnerprofilAnlegenComponent implements OnInit {
         .asObservable()
         .subscribe((res) => (this.isLoading = res));
     this.unsubscribe.push(loadingSubscr);
-    this.route.paramMap.subscribe(params => {
-      this.id = params.get('id')
-      if (params.get('id') != null) {
-        this.partnerprofileApiService.getPartnerprofil(this.id).subscribe(res => {
-          this.partnerprofil = res
-          this.cdr.detectChanges();
-        })
-      }
-      //this.getAnfrage(params.get('id'));
+
+    // TODO: Partnerprofil dynamisch machen
+    this.partnerprofileApiService.getPartnerprofil(1).subscribe(res => {
+      this.partnerprofil = res
+      console.log(this.partnerprofil)
+      this.cdr.detectChanges();
     })
+
   }
 
   save() {
