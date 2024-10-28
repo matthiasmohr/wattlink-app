@@ -3,8 +3,8 @@ export class PartnerprofileTable {
         {
             id: 1,
             email: 'mail@mohr-matthias.de',
-            vorname: '',
-            nachname: '',
+            vorname: 'Matthias',
+            nachname: 'Mohr',
             firma: '',
             position: '',
             telefon: '',

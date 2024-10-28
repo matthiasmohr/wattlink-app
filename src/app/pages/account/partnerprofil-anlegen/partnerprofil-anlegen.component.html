@@ -4,7 +4,7 @@
                 <h3 class="fw-bolder m-0">Partnerprofil</h3>
             </div>
         </div>
-        <div id="kt_account_profile_details" class="collapse show">
+        <div *ngIf="showForm" id="partnerprofil_form" class="collapse show">
             <form novalidate="" class="form" #partnerprofilForm="ngForm" (ngSubmit)="save()">
                 <div class="card-body border-top p-9">
                     <div class="row mb-6">

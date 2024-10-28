@@ -32,7 +32,6 @@ export class PartnerprofilAnlegenComponent implements OnInit {
       public partnerprofileApiService: PartnerprofileApiService,
       private cdr: ChangeDetectorRef,
       private location: Location,
-      private route: ActivatedRoute,
   ) {}
 
   id: any = ""
@@ -40,6 +39,8 @@ export class PartnerprofilAnlegenComponent implements OnInit {
 
   isLoading$: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
   isLoading: boolean;
+  showForm = false;
+
   private unsubscribe: Subscription[] = [];
 
   ngOnInit() {
@@ -51,7 +52,7 @@ export class PartnerprofilAnlegenComponent implements OnInit {
     // TODO: Partnerprofil dynamisch machen
     this.partnerprofileApiService.getPartnerprofil(1).subscribe(res => {
       this.partnerprofil = res
-      console.log(this.partnerprofil)
+      this.showForm = true;
       this.cdr.detectChanges();
     })
 
@@ -62,8 +63,8 @@ export class PartnerprofilAnlegenComponent implements OnInit {
     this.partnerprofileApiService.editPartnerprofil(this.partnerprofil).subscribe(res => {
       this.isLoading$.next(false);
       this.partnerprofil = res;
-      //this.cdr.detectChanges();
       this.location.back()
+      location.reload()
     })
   }
 
