@@ -7,7 +7,7 @@ import { AngeboteComponent } from './angebote/angebote.component';
 import { DokumenteComponent } from './dokumente/dokumente.component';
 import { AnfrageAnzeigenRoutingModule } from './anfrage-anzeigen-routing.module';
 import { AnfrageAnzeigenComponent } from './anfrage-anzeigen.component';
-import { ProzessComponent } from './prozess/prozess.component';
+import { NachrichtenComponent } from './nachrichten/nachrichten.component';
 import {
   CardsModule,
   DropdownMenusModule,
@@ -27,7 +27,7 @@ import {NgxEchartsDirective} from "ngx-echarts";
     LieferstellenCardComponent,
     AngeboteComponent,
     DokumenteComponent,
-    ProzessComponent,
+    NachrichtenComponent,
   ],
     imports: [
         CommonModule,

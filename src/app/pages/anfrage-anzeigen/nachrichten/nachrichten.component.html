@@ -1,0 +1,62 @@
+<ng-container *ngIf="(nachrichten$) | async; else loading">
+<div>
+    <div class="card shadow-none rounded-0">
+        <div class="card-header" id="kt_activities_header">
+            <h3 class="card-title fw-bolder text-gray-900">Nachrichtenübersicht</h3>
+        </div>
+        <div class="card-body position-relative" id="kt_activities_body">
+                <div class="timeline">
+                    <!-- Item Dynamic -->
+                    <ng-container *ngFor="let nachricht of nachrichten$ | async">
+                    <div class="timeline-item">
+                        <div class="timeline-line w-40px"></div>
+
+                        <div class="timeline-icon symbol symbol-circle symbol-40px me-4">
+                            <div class="symbol-label bg-light">
+                                <span [inlineSVG]="'./assets/media/icons/duotune/' + nachricht.icon" class="svg-icon svg-icon-2 svg-icon-gray-500"></span>
+                            </div>
+                        </div>
+
+                        <div class="timeline-content mb-10 mt-n1">
+                            <div class="pe-3 mb-5">
+                                <div class="fs-5 fw-bold mb-2">
+                                    {{nachricht.nachrichtTitel}}
+                                </div>
+
+                                <div class="d-flex align-items-center mt-1 fs-6">
+                                    <div class="text-muted me-2 fs-7">Erzeugt {{nachricht.erstellt}} von {{nachricht.erzeuger}}</div>
+                                </div>
+                            </div>
+
+                            <div class="overflow-auto pb-5">
+                                <div class=" notice d-flex bg-light-{{nachricht.stil}} rounded border-{{nachricht.stil}} border border-dashed min-w-lg-600px flex-shrink-0 p-3">
+                                    <div class=" d-flex flex-stack flex-grow-1 flex-wrap flex-md-nowrap">
+                                        <div class="mb-3 mb-md-0 fw-bold">
+                                            <!--
+                                            <h4 class="text-gray-800 fw-bolder">
+                                                Database Backup Process Completed!
+                                            </h4>
+                                            -->
+                                            <div class="fs-6 text-gray-600 pe-7">
+                                                {{nachricht.nachrichtInhalt}}
+                                            </div>
+                                        </div>
+                                        <ng-container *ngIf="nachricht.link && nachricht.linkText">
+                                            <a routerLink="{{nachricht.link}}" class="btn btn-sm btn-{{nachricht.stil}} align-self-center text-nowrap cursor-pointer">
+                                                {{nachricht.linkText}}
+                                            </a>
+                                        </ng-container>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    </ng-container>
+                </div>
+        </div>
+    </div>
+</div>
+</ng-container>
+<ng-template #loading>
+    <div>Loading...</div>
+</ng-template>

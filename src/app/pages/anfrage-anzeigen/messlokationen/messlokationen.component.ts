@@ -24,7 +24,6 @@ export class MesslokationenComponent implements OnInit {
     this.route.paramMap.subscribe(params => {
       this.getMesslokation(params.get('id'));
     })
-
   }
 
   getMesslokation(anfrageId: any) {

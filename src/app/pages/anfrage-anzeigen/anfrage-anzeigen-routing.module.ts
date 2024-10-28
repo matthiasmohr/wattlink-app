@@ -5,7 +5,7 @@ import { AngeboteComponent } from './angebote/angebote.component';
 import { DokumenteComponent } from './dokumente/dokumente.component';
 import { MesslokationenComponent } from './messlokationen/messlokationen.component';
 import { AnfrageAnzeigenComponent } from './anfrage-anzeigen.component';
-import { ProzessComponent } from './prozess/prozess.component';
+import { NachrichtenComponent } from './nachrichten/nachrichten.component';
 
 const routes: Routes = [
   {
@@ -29,8 +29,8 @@ const routes: Routes = [
         component: DokumenteComponent,
       },
       {
-        path: 'prozess',
-        component: ProzessComponent,
+        path: 'nachrichten',
+        component: NachrichtenComponent,
       },
       { path: '', redirectTo: 'overview', pathMatch: 'full' },
       { path: '**', redirectTo: 'overview', pathMatch: 'full' },
