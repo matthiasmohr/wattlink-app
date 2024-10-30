@@ -94,7 +94,7 @@
                         <label class="col-lg-4 col-form-label fw-bold fs-6"
                         ><span class="required">Profil</span></label>
                         <div class="col-lg-8 fv-row">
-                            <select class="form-control form-select form-select-solid form-select-lg" name="profil">
+                            <select class="form-control form-select form-select-solid form-select-lg" name="profil" id="profil" [(ngModel)]="messlokation.profil">
                                 <option value="">Lastprofil auswählen</option>
                                 <option *ngFor="let profil of profile" [value]="profil">{{profil}}</option>
                             </select>
@@ -109,9 +109,10 @@
 
                     <div class="row mb-0">
                         <label class="col-lg-4 col-form-label fw-bold fs-6">Änderung sperren</label>
+
                         <div class="col-lg-8 d-flex align-items-center">
                             <div class="form-check form-check-solid form-switch fv-row">
-                                <input class="form-check-input w-45px h-30px" type="checkbox" id="gesperrt"/><label class="form-check-label"></label>
+                                <input class="form-check-input w-45px h-30px" type="checkbox" id="gesperrt" name="gesperrt" [(ngModel)]="messlokation.gesperrt" /><label class="form-check-label"></label>
                             </div>
                         </div>
                     </div>

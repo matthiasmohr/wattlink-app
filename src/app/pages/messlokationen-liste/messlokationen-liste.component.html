@@ -79,9 +79,14 @@
 
                 <td>
                     <div class="d-flex justify-content-end flex-shrink-0">
+                        <button type="button" class=" btn btn-icon btn-bg-light btn-active-color-primary btn-sm me-1" [routerLink]="['/messlokation-lastkurve/' + messlokation.id]" *ngIf="true">
+                            <span [inlineSVG]=" './assets/media/icons/duotune/graphs/gra003.svg' " class="svg-icon svg-icon-3"></span>
+                        </button>
+                    <div class="d-flex justify-content-end flex-shrink-0">
                         <button type="button" class=" btn btn-icon btn-bg-light btn-active-color-primary btn-sm me-1" [routerLink]="['/messlokation-anlegen/' + messlokation.id]" *ngIf="true">
                             <span [inlineSVG]=" './assets/media/icons/duotune/general/gen019.svg' " class="svg-icon svg-icon-3"></span>
                         </button>
+                    </div>
                     </div>
                 </td>
             </tr>
