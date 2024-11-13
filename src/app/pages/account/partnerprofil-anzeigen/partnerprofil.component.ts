@@ -30,6 +30,6 @@ export class PartnerprofilAnzeigenComponent {
 
   ngOnInit(): void {
     //TODO: ID dynamisch machen
-    this.partnerprofil$ = this.partnerprofileApiService.getPartnerprofil(1);
+    this.partnerprofil$ = this.partnerprofileApiService.getPartnerprofil();
   }
 }

@@ -1,8 +1,9 @@
 import {Observable, throwError} from 'rxjs';
 import {Injectable} from "@angular/core";
 import {HttpClient, HttpErrorResponse, HttpHeaders} from "@angular/common/http";
-import {catchError} from "rxjs/operators";
+import {catchError, map} from "rxjs/operators";
 import {Partnerprofil} from "./Partnerprofil";
+import {environment} from "../../environments/environment";
 
 const headers = new HttpHeaders({
         'Content-Type': 'application/json',
@@ -14,34 +15,26 @@ const headers = new HttpHeaders({
     providedIn: 'root',
 })
 export class PartnerprofileApiService {
-    // Define API
-    partnerprofileUrl = 'api/partnerprofile';
+    //partnerprofileUrl = 'api/partnerprofile';
+    partnerprofilUrl = environment.backendApi + '/v1/partnerprofil';
 
     constructor(public http: HttpClient) {}
 
     /*========================================
       CRUD Methods for consuming RESTful API
     =========================================*/
-
-    getPartnerprofile(): Observable<Partnerprofil[]> {
-        return this.http.get<Partnerprofil[]>(this.partnerprofileUrl, { headers }).pipe(
+    getPartnerprofil(): Observable<Partnerprofil> {
+        return this.http.get<any>(this.partnerprofilUrl, { headers }).pipe(
             //retry(2),
-            //tap(data => console.log(data)), // eyeball results in the console
-            catchError(this.handleError)
-        );
-    }
-
-    getPartnerprofil(id: any): Observable<Partnerprofil> {
-        const url = `${this.partnerprofileUrl}/${id}`;
-        return this.http.get<Partnerprofil>(url).pipe(
+            //tap(data => console.log(data)),// eyeball results in the console
+            map(response => response['partnerprofil']),
             catchError(this.handleError)
         );
     }
 
     editPartnerprofil(partnerprofil: Partnerprofil): Observable<Partnerprofil> {
-        // TODO: ID dynamisch machen
-        partnerprofil.id = 1
-        return this.http.put<Partnerprofil>(this.partnerprofileUrl, partnerprofil).pipe(
+        // TODO
+        return this.http.put<Partnerprofil>(this.partnerprofilUrl, partnerprofil).pipe(
             catchError(this.handleError)
         )
     }

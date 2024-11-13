@@ -1,9 +1,10 @@
 import {Observable, throwError} from 'rxjs';
 import {Injectable} from "@angular/core";
 import {HttpClient, HttpErrorResponse, HttpHeaders} from "@angular/common/http";
-import {catchError} from "rxjs/operators";
+import {catchError, map} from "rxjs/operators";
 import {Partnerprofil} from "./Partnerprofil";
 import {Nachricht} from "./Nachricht";
+import {environment} from "../../environments/environment";
 
 const headers = new HttpHeaders({
         'Content-Type': 'application/json',
@@ -16,7 +17,8 @@ const headers = new HttpHeaders({
 })
 export class NachrichtenApiService {
     // Define API
-    nachrichtenUrl = 'api/nachrichten';
+    //nachrichtenUrl = 'api/nachrichten';
+    nachrichtenUrl = environment.backendApi + '/v1/nachricht';
 
     constructor(public http: HttpClient) {}
 
@@ -25,19 +27,12 @@ export class NachrichtenApiService {
     =========================================*/
 
     getNachrichten(): Observable<Nachricht[]> {
-        return this.http.get<Nachricht[]>(this.nachrichtenUrl, { headers }).pipe(
+        return this.http.get<any>(this.nachrichtenUrl, { headers }).pipe(
             //retry(2),
             //tap(data => console.log(data)), // eyeball results in the console
+            map(response => response['nachricht']),
             catchError(this.handleError)
         );
-    }
-
-    createNachricht(nachricht: Nachricht): Observable<Nachricht> {
-        // TODO: ID dynamisch machen
-        //nachricht.id = 2
-        return this.http.post<Nachricht>(this.nachrichtenUrl, nachricht).pipe(
-            catchError(this.handleError)
-        )
     }
 
     private handleError (error: HttpErrorResponse) {

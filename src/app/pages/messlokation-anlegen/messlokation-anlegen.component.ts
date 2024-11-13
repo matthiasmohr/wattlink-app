@@ -9,7 +9,7 @@ import {MesslokationenApiService} from "../../shared/messlokation.service";
 import {Messlokation, messlokationInit} from "../../shared/Messlokation";
 import { Location } from '@angular/common'
 import {MesslokationenComponent} from "../anfrage-anzeigen/messlokationen/messlokationen.component";
-import {Anfrage} from "../../shared/Anfrage";
+import {Anfrage, inits} from "../../shared/Anfrage";
 import {FormsModule} from "@angular/forms";
 
 
@@ -36,7 +36,8 @@ export class MesslokationAnlegenComponent implements OnInit {
   ) {}
 
   id: any = ""
-  messlokation: Messlokation = {} as Messlokation;
+  //messlokation: Messlokation = {} as Messlokation; // TODO: Clean Melo
+  messlokation = messlokationInit // TODO: REMOVE
   profile = ['H0', 'G0', 'G1']
 
   isLoading$: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);

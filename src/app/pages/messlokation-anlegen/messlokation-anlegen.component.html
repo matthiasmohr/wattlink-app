@@ -11,12 +11,12 @@
                         <label class="col-lg-4 col-form-label required fw-bold fs-6">Messlokation</label>
                         <div class="col-lg-8 fv-row">
                             <input type="text" class="form-control form-control-lg form-control-solid"
-                                   placeholder="Melo" name="melo" [(ngModel)]="messlokation.melo" required minlength="4"/>
-                            <ng-container *ngIf="messlokationForm.controls.melo && messlokationForm.controls.melo.invalid && (messlokationForm.controls.melo.dirty || !messlokationForm.controls.melo.untouched)">
-                                <div *ngIf="messlokationForm.controls.melo.errors?.['required']" class="text-danger">
+                                   placeholder="Melo" name="messlokationID" [(ngModel)]="messlokation.messlokationID" required minlength="4"/>
+                            <ng-container *ngIf="messlokationForm.controls.messlokationID && messlokationForm.controls.messlokationID.invalid && (messlokationForm.controls.messlokationID.dirty || !messlokationForm.controls.messlokationID.untouched)">
+                                <div *ngIf="messlokationForm.controls.messlokationID.errors?.['required']" class="text-danger">
                                     Melo ist erforderlich
                                 </div>
-                                <div *ngIf="messlokationForm.controls.melo.errors?.['minlength']" class="text-danger">
+                                <div *ngIf="messlokationForm.controls.messlokationID.errors?.['minlength']" class="text-danger">
                                     Die Melo ist zu kurz
                                 </div>
                             </ng-container>

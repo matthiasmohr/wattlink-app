@@ -1,8 +1,7 @@
 interface Messlokation {
     id: number,
-    anfrage: string,
-
-    melo: string,
+    anfrageID: string,
+    messlokationID: string,
 
     plz: string,
     stadt: string,
@@ -12,7 +11,6 @@ interface Messlokation {
     jahresverbrauch_kWh: number,
     spitzenlast_kW: number,
     profil: string,
-
     kommentar: string,
 
     fortschritt:                number;
@@ -20,14 +18,14 @@ interface Messlokation {
     style:                      string;
 
     gesperrt: boolean,
-    erstellt: string,
     bearbeitet: string,
+    erstellt: string,
 }
 
 const messlokationInit: Messlokation = {
     id: 1,
-    anfrage: "Anfrage",
-    melo: "DE123456",
+    anfrageID: "123",
+    messlokationID: "DE123456",
     plz: "22222",
     stadt: "Hamburg",
     strasse: "Dagobertstr.",

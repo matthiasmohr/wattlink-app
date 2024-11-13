@@ -9,6 +9,7 @@ interface Partnerprofil {
     kunde: boolean
     kundeAktiviert: boolean
     lieferant: boolean
+    lieferantAktiviert: boolean
     erstellt: string
     bearbeitet: string
 }

@@ -166,7 +166,9 @@ export const environment = {
   },
   featureFlipper: {
     metronicMenu: true,
-  }
+  },
+  localApiMock: false,
+  backendApi: 'http://127.0.0.1:8080'
 };
 
 /*

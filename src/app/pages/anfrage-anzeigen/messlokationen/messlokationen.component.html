@@ -19,9 +19,9 @@
         <ng-container *ngFor="let messlokation of messlokationen$ | async">
           <div class="col-md-6 col-xl-4">
             <app-lieferstellen-card
-                id={{messlokation.id}}
+                id={{messlokation.messlokationID}}
                 icon="./assets/media/svg/brand-logos/plurk.svg"
-              melo={{messlokation.melo}}
+                messlokationID={{messlokation.messlokationID}}
               plz={{messlokation.plz}}
               stadt={{messlokation.stadt}}
               strasse={{messlokation.strasse}}

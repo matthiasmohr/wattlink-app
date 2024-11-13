@@ -3,7 +3,7 @@ export class AnfragenTable {
         {
             id: 2,
             user: '',
-            anfrageId: '2',
+            anfrageID: '2',
             // Step 1
             jahresverbrauchStrom: 150000,
             jahresverbrauchGas: 300000,
@@ -38,7 +38,7 @@ export class AnfragenTable {
         {
             id: 4,
             user: '',
-            anfrageId: '4',
+            anfrageID: '4',
             // Step 1
             jahresverbrauchStrom: 300000,
             jahresverbrauchGas: 500000,

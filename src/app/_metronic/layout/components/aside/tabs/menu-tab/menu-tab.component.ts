@@ -37,7 +37,7 @@ export class MenuTabComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     this.routingChanges();
-    this.partnerprofil$ = this.partnerprofileApiService.getPartnerprofil(1);
+    this.partnerprofil$ = this.partnerprofileApiService.getPartnerprofil();
   }
 
   routingChanges() {

@@ -8,7 +8,7 @@ import type { EChartsOption } from 'echarts';
 export class LieferstellenCardComponent implements OnInit {
   @Input() id: string = '';
   @Input() icon: string = '';
-  @Input() melo: string = '';
+  @Input() messlokationID: string = '';
   @Input() plz: string = '';
   @Input() stadt: string = '';
   @Input() strasse: string = '';

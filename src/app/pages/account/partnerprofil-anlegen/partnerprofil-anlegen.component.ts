@@ -50,7 +50,7 @@ export class PartnerprofilAnlegenComponent implements OnInit {
     this.unsubscribe.push(loadingSubscr);
 
     // TODO: Partnerprofil dynamisch machen
-    this.partnerprofileApiService.getPartnerprofil(1).subscribe(res => {
+    this.partnerprofileApiService.getPartnerprofil().subscribe(res => {
       this.partnerprofil = res
       this.showForm = true;
       this.cdr.detectChanges();

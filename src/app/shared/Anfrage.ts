@@ -1,12 +1,12 @@
 interface Anfrage {
     id: number;
     user: string;
-    anfrageId: string;
+    anfrageID: string;
     // Step 1
     jahresverbrauchStrom:       number;
     jahresverbrauchGas:         number;
-    oekostrom:                  string;
-    biogas:                     string;
+    oekostrom:                  boolean;
+    biogas:                     boolean;
     // Step 2
     anzahlLieferstellen:        '1-1' | '2-10' | '11-50' | '51+';
     informationsergaenzung:     '1' | '2' | '3';
@@ -37,12 +37,12 @@ interface Anfrage {
 const inits: Anfrage = {
     id: 1,
     user: '',
-    anfrageId: '1',
+    anfrageID: '1',
     // Step 1
     jahresverbrauchStrom:       150000,
     jahresverbrauchGas:         300000,
-    oekostrom:                  "true",
-    biogas:                     "false",
+    oekostrom:                  true,
+    biogas:                     false,
     // Step 2
     anzahlLieferstellen:        '2-10',
     informationsergaenzung:     '2',
