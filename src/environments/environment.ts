@@ -157,10 +157,9 @@ export const environment = {
     },
   },
   auth: {
-    CLIENT_ID: 'ZxnpjrIqhSnD1Wr5DyuhA84VmXzMySfb',
-    CLIENT_DOMAIN: 'hasemato.eu.auth0.com', // e.g., 'you.auth0.com'
-
-    AUDIENCE: 'https://hasemato.eu.auth0.com/api/v2/', // unused
+    AUTH0_CLIENT_ID: 'ZxnpjrIqhSnD1Wr5DyuhA84VmXzMySfb',
+    AUTH0_DOMAIN: 'hasemato.eu.auth0.com',
+    AUTH0_AUDIENCE: 'https://wattlink.hasemato.com/',
     REDIRECT: 'http://localhost:4200/', // unused
     LOGOUT_URL: 'http://localhost:4200' // unused
   },

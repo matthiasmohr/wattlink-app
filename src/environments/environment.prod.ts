@@ -159,17 +159,18 @@ export const environment = {
       thumbnail: './assets/media/demos/demo20.png',
     },
   },
-  auth: {
-    CLIENT_ID: 'ZxnpjrIqhSnD1Wr5DyuhA84VmXzMySfb',
-    CLIENT_DOMAIN: 'hasemato.eu.auth0.com', // e.g., 'you.auth0.com'
-
-    AUDIENCE: 'https://hasemato.eu.auth0.com/api/v2/', // unused
-    REDIRECT: 'http://portal.wattlink.hasemato.com/', // unused
-    LOGOUT_URL: 'http://wattlink.hasemato.com' // unused
-  },
+    auth: {
+      AUTH0_CLIENT_ID: 'ZxnpjrIqhSnD1Wr5DyuhA84VmXzMySfb',
+      AUTH0_DOMAIN: 'hasemato.eu.auth0.com', // e.g., 'you.auth0.com'
+      AUTH0_AUDIENCE: 'https://wattlink.hasemato.com/',
+      REDIRECT: 'http://portal.wattlink.hasemato.com/',
+      LOGOUT_URL: 'http://wattlink.hasemato.com'
+    },
   featureFlipper: {
     metronicMenu: false,
-  }
+  },
+  localApiMock: false,
+  backendApi: 'http://127.0.0.1:8080'
 };
 
 /*

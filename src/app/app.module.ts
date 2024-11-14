@@ -1,7 +1,7 @@
 import {NgModule, APP_INITIALIZER, importProvidersFrom} from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import {provideHttpClient, withInterceptorsFromDi, withNoXsrfProtection} from '@angular/common/http';
+import { provideHttpClient, withInterceptors} from '@angular/common/http';
 import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { ClipboardModule } from 'ngx-clipboard';
 import { TranslateModule } from '@ngx-translate/core';
@@ -11,8 +11,9 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { environment } from 'src/environments/environment';
 import { FakeAPIService } from './_fake/fake-api.service';
-import {AuthModule} from '@auth0/auth0-angular'
+import {authHttpInterceptorFn, AuthModule, provideAuth0} from '@auth0/auth0-angular'
 import { NgxEchartsModule } from 'ngx-echarts';
+
 
 @NgModule({
   declarations: [AppComponent],
@@ -21,24 +22,29 @@ import { NgxEchartsModule } from 'ngx-echarts';
     BrowserAnimationsModule,
     TranslateModule.forRoot(),
     ClipboardModule,
-
     AppRoutingModule,
     InlineSVGModule.forRoot(),
     NgbModule,
-    // # Auth0 Auth module
-    AuthModule.forRoot({
-      domain: environment.auth.CLIENT_DOMAIN,
-      clientId: environment.auth.CLIENT_ID,
-      authorizationParams: {
-          redirect_uri: window.location.origin,
-      },
-    }),
     NgxEchartsModule.forRoot({
       echarts: () => import('echarts')
     })
   ],
   providers: [
-      provideHttpClient(),
+      provideHttpClient(withInterceptors([authHttpInterceptorFn])),
+      // # Auth0 Auth module
+      provideAuth0({
+          domain: environment.auth.AUTH0_DOMAIN,
+          clientId: environment.auth.AUTH0_CLIENT_ID,
+          authorizationParams: {
+              redirect_uri: window.location.origin,
+              //audience: environment.auth.AUTH0_AUDIENCE,
+              audience: environment.auth.AUTH0_AUDIENCE,
+          },
+          httpInterceptor: {
+              allowedList: [
+                  'http://127.0.0.1:8080/*',
+              ]}
+      }),
       importProvidersFrom([
           // #fake-start#
           environment.isMockEnabled
@@ -48,7 +54,7 @@ import { NgxEchartsModule } from 'ngx-echarts';
               })
               : [],
           // #fake-end#
-      ])
+      ]),
   ],
   bootstrap: [AppComponent],
 })
