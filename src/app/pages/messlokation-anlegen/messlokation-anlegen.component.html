@@ -11,7 +11,12 @@
                         <label class="col-lg-4 col-form-label required fw-bold fs-6">Messlokation</label>
                         <div class="col-lg-8 fv-row">
                             <input type="text" class="form-control form-control-lg form-control-solid"
-                                   placeholder="Melo" name="messlokationID" [(ngModel)]="messlokation.messlokationID" required minlength="4"/>
+                                   placeholder="Melo" name="messlokationID"
+                                   [(ngModel)]="messlokation.messlokationID"
+                                   required
+                                   minlength="4"
+                                   [disabled]="lockForEdit"
+                            />
                             <ng-container *ngIf="messlokationForm.controls.messlokationID && messlokationForm.controls.messlokationID.invalid && (messlokationForm.controls.messlokationID.dirty || !messlokationForm.controls.messlokationID.untouched)">
                                 <div *ngIf="messlokationForm.controls.messlokationID.errors?.['required']" class="text-danger">
                                     Melo ist erforderlich
@@ -120,7 +125,7 @@
                 <div class="card-footer d-flex justify-content-end py-6 px-9">
                     <button type="button" class="btn btn-light" [disabled]="isLoading" (click)="cancel()">Abbrechen</button>
                     <button type="submit" class="btn btn-primary" [disabled]="!messlokationForm.valid || isLoading">
-                        <ng-container *ngIf="!isLoading">Save Changes</ng-container>
+                        <ng-container *ngIf="!isLoading">Speichern</ng-container>
                         <ng-container *ngIf="isLoading">
                             <span clas="indicator-progress" [style.display]="'block'">
                               Please wait...{{ " " }}

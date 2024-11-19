@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { LayoutService } from '../../core/layout.service';
+import {environment} from "../../../../../environments/environment";
 
 @Component({
   selector: 'app-footer',
@@ -15,4 +16,6 @@ export class FooterComponent implements OnInit {
     this.footerContainerCssClasses =
       this.layout.getStringCSSClasses('footerContainer');
   }
+
+    protected readonly environment = environment;
 }

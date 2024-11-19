@@ -64,13 +64,13 @@ interface LanguageFlag {
 
 const languages = [
   {
+    lang: 'de',
+    name: 'Deutsch',
+    flag: './assets/media/flags/germany.svg',
+  },
+  {
     lang: 'en',
     name: 'English',
     flag: './assets/media/flags/united-states.svg',
-  },
-  {
-    lang: 'de',
-    name: 'German',
-    flag: './assets/media/flags/germany.svg',
   },
 ];

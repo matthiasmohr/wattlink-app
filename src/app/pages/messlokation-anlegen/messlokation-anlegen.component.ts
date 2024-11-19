@@ -42,6 +42,8 @@ export class MesslokationAnlegenComponent implements OnInit {
 
   isLoading$: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
   isLoading: boolean;
+  lockForEdit: boolean;
+
   private unsubscribe: Subscription[] = [];
 
   ngOnInit() {
@@ -54,6 +56,7 @@ export class MesslokationAnlegenComponent implements OnInit {
       if (params.get('id') != null) {
         this.messlokationenApiService.getMesslokation(this.id).subscribe(res => {
           this.messlokation = res
+          this.lockForEdit = true
           this.cdr.detectChanges();
         })
       }

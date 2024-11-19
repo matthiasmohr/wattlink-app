@@ -156,6 +156,7 @@ export const environment = {
       'thumbnail': './assets/media/demos/demo20.png'
     },
   },
+  environment: 'dev',
   auth: {
     AUTH0_CLIENT_ID: 'ZxnpjrIqhSnD1Wr5DyuhA84VmXzMySfb',
     AUTH0_DOMAIN: 'hasemato.eu.auth0.com',

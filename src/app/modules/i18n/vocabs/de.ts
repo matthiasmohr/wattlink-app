@@ -12,7 +12,7 @@ export const locale = {
       PAGES: 'Pages',
       FEATURES: 'Eigenschaften',
       APPS: 'Apps',
-      DASHBOARD: 'Instrumententafel',
+      DASHBOARD: 'Dashboard',
       ANFRAGEN: 'Lieferanfragen',
       MESSLOKATIONEN: 'Messlokationen',
     },
