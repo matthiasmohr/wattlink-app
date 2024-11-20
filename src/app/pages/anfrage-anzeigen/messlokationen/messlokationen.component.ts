@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {ChangeDetectorRef, Component, OnInit} from '@angular/core';
 import { IconUserModel } from '../../../_metronic/partials';
 import {Observable} from "rxjs";
 import {Messlokation} from "../../../shared/Messlokation";
@@ -16,13 +16,17 @@ export class MesslokationenComponent implements OnInit {
   constructor(
       public messlokationenApiService: MesslokationenApiService,
       private route: ActivatedRoute,
+      private cdr: ChangeDetectorRef,
   ) {}
 
   messlokationen$: Observable<Messlokation[]>
+  isLoading: boolean
 
   ngOnInit(): void {
+    this.isLoading = true
     this.route.paramMap.subscribe(params => {
       this.getMesslokation(params.get('id'));
+      this.isLoading = false
     })
   }
 

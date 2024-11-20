@@ -1,5 +1,5 @@
 import { Component, OnInit, Inject } from '@angular/core';
-import { MAT_DIALOG_DATA } from '@angular/material/dialog';
+import {NgbActiveModal} from "@ng-bootstrap/ng-bootstrap";
 
 @Component({
   selector: 'app-error-dialog',
@@ -7,8 +7,11 @@ import { MAT_DIALOG_DATA } from '@angular/material/dialog';
   styleUrls: ['./error-dialog.component.scss'],
 })
 export class ErrorDialogComponent {
+  title: String;
+  text: String;
+  buttonTitle: String;
+
   constructor(
-    @Inject(MAT_DIALOG_DATA)
-    public data: { message: string; status?: number }
-  ) {}
+      public activeModal: NgbActiveModal
+  ) { }
 }

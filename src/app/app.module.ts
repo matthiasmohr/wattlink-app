@@ -1,4 +1,4 @@
-import {NgModule, APP_INITIALIZER, importProvidersFrom} from '@angular/core';
+import {NgModule, APP_INITIALIZER, importProvidersFrom, ErrorHandler, provideZoneChangeDetection} from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { provideHttpClient, withInterceptors} from '@angular/common/http';
@@ -13,6 +13,10 @@ import { environment } from 'src/environments/environment';
 import { FakeAPIService } from './_fake/fake-api.service';
 import {authHttpInterceptorFn, AuthModule, provideAuth0} from '@auth0/auth0-angular'
 import { NgxEchartsModule } from 'ngx-echarts';
+import {SharedModule} from "./modules/shared/shared.module";
+import {GlobalErrorHandlerService} from "./core/errors/global-error-handler.service";
+import {ErrorDialogService} from "./modules/shared/errors/error-dialog.service";
+import {CoreModule} from "./core/core.module";
 
 
 @NgModule({
@@ -27,7 +31,9 @@ import { NgxEchartsModule } from 'ngx-echarts';
     NgbModule,
     NgxEchartsModule.forRoot({
       echarts: () => import('echarts')
-    })
+    }),
+    SharedModule,
+    CoreModule,
   ],
   providers: [
       provideHttpClient(withInterceptors([authHttpInterceptorFn])),

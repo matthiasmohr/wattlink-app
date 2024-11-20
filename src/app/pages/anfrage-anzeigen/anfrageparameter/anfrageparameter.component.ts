@@ -18,13 +18,13 @@ export class AnfrageparameterComponent implements OnInit {
   anfrage$: Observable<Anfrage | undefined>
 
   ngOnInit() {
-    this.anfrage$ = this.anfrageAnzeigenComponent.anfrage$; // TODO: So oder wie unten
+    this.anfrage$ = this.anfrageAnzeigenComponent.anfrage$;
     this.route.parent?.paramMap.subscribe(params => {
       this.getAnfrage(params.get('id'));
     })
   }
 
   getAnfrage(id: any) {
-    //this.anfrage$ = this.anfragenApiService.getAnfrage(id);
+    //this.anfrage$ = this.anfragenApiService.getAnfrage(id); // Ersetzt durch Rückgriff auf Parent
   }
 }

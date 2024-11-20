@@ -1,4 +1,4 @@
-<ng-container *ngIf="(nachrichten$) | async; else loading">
+<ng-container *ngIf="(!this.isLoading) ; else loading">
 <div>
     <div class="card shadow-none rounded-0">
         <div class="card-header" id="kt_activities_header">
