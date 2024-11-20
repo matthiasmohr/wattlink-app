@@ -164,14 +164,14 @@ export const environment = {
       AUTH0_CLIENT_ID: 'ZxnpjrIqhSnD1Wr5DyuhA84VmXzMySfb',
       AUTH0_DOMAIN: 'hasemato.eu.auth0.com', // e.g., 'you.auth0.com'
       AUTH0_AUDIENCE: 'https://wattlink.hasemato.com/',
-      REDIRECT: 'http://portal.wattlink.hasemato.com/',
+      REDIRECT: 'https://portal.wattlink.hasemato.com/',
       LOGOUT_URL: 'http://wattlink.hasemato.com'
     },
   featureFlipper: {
     metronicMenu: false,
   },
   localApiMock: false,
-  backendApi: 'http://stage.backend.wattlink.hasemato.com'
+  backendApi: 'https://stage.backend.wattlink.hasemato.com'
 };
 
 /*

@@ -171,7 +171,7 @@ export const environment = {
     metronicMenu: false,
   },
   localApiMock: false,
-  backendApi: 'http://stage.backend.wattlink.hasemato.com'
+  backendApi: 'https://stage.backend.wattlink.hasemato.com'
 };
 
 /*
