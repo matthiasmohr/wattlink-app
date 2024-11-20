@@ -44,7 +44,8 @@ import { NgxEchartsModule } from 'ngx-echarts';
               allowedList: [
                   'http://127.0.0.1:8080/*',
                   'https://127.0.0.1:8080/*',
-                  'https://wattlink.hasemato.com/*',
+                  'https://stage.backend.wattlink.hasemato.com/*',
+                  'https://backend.wattlink.hasemato.com/*',
               ]}
       }),
       importProvidersFrom([
