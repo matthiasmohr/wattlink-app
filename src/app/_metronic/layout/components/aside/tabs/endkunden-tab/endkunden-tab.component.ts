@@ -18,11 +18,11 @@ import { environment } from '../../../../../../../environments/environment';
 import {PartnerprofileApiService} from "../../../../../../shared/partnerprofil.service";
 
 @Component({
-  selector: 'app-menu-tab',
-  templateUrl: './menu-tab.component.html',
-  styleUrls: ['./menu-tab.component.scss'],
+  selector: 'app-endkunden-tab',
+  templateUrl: './endkunden-tab.component.html',
+  styleUrls: ['./endkunden-tab.component.scss'],
 })
-export class MenuTabComponent implements OnInit, OnDestroy {
+export class EndkundenTabComponent implements OnInit, OnDestroy {
   appAngularVersion: string = environment.appVersion;
   appPreviewChangelogUrl: string = environment.appPreviewChangelogUrl;
   @ViewChild('ktAsideScroll', { static: true }) ktAsideScroll: ElementRef;

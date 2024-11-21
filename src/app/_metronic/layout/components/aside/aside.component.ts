@@ -44,12 +44,9 @@ export class AsideComponent implements OnInit, OnDestroy {
 
   setActiveTab = (
     activeTabLink:
-      | 'projects'
-      | 'menu'
-      | 'subscription'
-      | 'tasks'
-      | 'notifications'
-      | 'authors'
+      | 'endkunden'
+      | 'versorger'
+      | 'admin'
   ) => {
     const tab = tabs.find((t) => t.link === activeTabLink);
     if (tab) {

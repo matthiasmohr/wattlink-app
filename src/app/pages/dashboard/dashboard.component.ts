@@ -14,14 +14,4 @@ export class DashboardComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {}
-
-  test() {
-    this.errorDialogService.showMessage("A", "B")
-  }
-  test2() {
-    throw Error('The app component has thrown an error!');
-  }
-  test3() {
-    this.http.get('https://httpstat.us/404?sleep=2000').toPromise();
-  }
 }

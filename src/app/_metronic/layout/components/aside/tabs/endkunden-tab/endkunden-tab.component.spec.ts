@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { NotificationsTabComponent } from './notifications-tab.component';
+import { EndkundenTabComponent } from './endkunden-tab.component';
 
-describe('NotificationsTabComponent', () => {
-  let component: NotificationsTabComponent;
-  let fixture: ComponentFixture<NotificationsTabComponent>;
+describe('EndkundenTabComponent', () => {
+  let component: EndkundenTabComponent;
+  let fixture: ComponentFixture<EndkundenTabComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ NotificationsTabComponent ]
+      declarations: [ EndkundenTabComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(NotificationsTabComponent);
+    fixture = TestBed.createComponent(EndkundenTabComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

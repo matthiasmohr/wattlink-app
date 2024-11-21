@@ -31,13 +31,9 @@ import {
   EngagesModule,
 } from '../partials';
 import { EngagesComponent } from '../partials/layout/engages/engages.component';
-import { AuthorsTabComponent } from './components/aside/tabs/authors-tab/authors-tab.component';
-import { MenuTabComponent } from './components/aside/tabs/menu-tab/menu-tab.component';
-import { NotificationsTabComponent } from './components/aside/tabs/notifications-tab/notifications-tab.component';
-import { ProjectsTabComponent } from './components/aside/tabs/projects-tab/projects-tab.component';
-import { SubscriptionsTabComponent } from './components/aside/tabs/subscriptions-tab/subscriptions-tab.component';
-import { TasksTabComponent } from './components/aside/tabs/tasks-tab/tasks-tab.component';
-import { SearchComponent } from './components/aside/tabs/projects-tab/search/search.component';
+import { EndkundenTabComponent } from './components/aside/tabs/endkunden-tab/endkunden-tab.component';
+import { AdminTabComponent } from './components/aside/tabs/admin-tab/admin-tab.component';
+import { VersorgerTabComponent } from './components/aside/tabs/versorger-tab/versorger-tab.component';
 import { FormsModule } from '@angular/forms';
 import { ThemeModeModule } from '../partials/layout/theme-mode-switcher/theme-mode.module';
 import { SharedModule } from '../shared/shared.module';
@@ -66,13 +62,9 @@ const routes: Routes = [
     EngagesComponent,
     TabsAsideComponent,
     TabsAsideInnerComponent,
-    AuthorsTabComponent,
-    MenuTabComponent,
-    NotificationsTabComponent,
-    ProjectsTabComponent,
-    SubscriptionsTabComponent,
-    TasksTabComponent,
-    SearchComponent,
+    EndkundenTabComponent,
+    AdminTabComponent,
+    VersorgerTabComponent,
   ],
     imports: [
         CommonModule,

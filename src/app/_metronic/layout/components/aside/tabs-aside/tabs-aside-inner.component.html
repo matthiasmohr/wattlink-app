@@ -4,23 +4,18 @@
   data-kt-scroll-dependencies="#kt_aside_secondary_footer" data-kt-scroll-offset="0px">
   <div class="tab-content">
 
-    <app-menu-tab class="tab-pane fade" id="kt_aside_nav_tab_menu" role="tabpanel"
-      [ngClass]="{'active show': activeTab.link === 'menu'}"></app-menu-tab>
+    <app-endkunden-tab class="tab-pane fade" id="kt_aside_nav_tab_menu" role="tabpanel"
+      [ngClass]="{'active show': activeTab.link === 'endkunden'}">
+    </app-endkunden-tab>
 
-    <app-subscriptions-tab class="tab-pane fade" id="kt_aside_nav_tab_subscription" role="tabpanel"
-      [ngClass]="{'active show': activeTab.link === 'subscription'}">
-    </app-subscriptions-tab>
+    <app-versorger-tab class="tab-pane fade  active show" id="kt_aside_nav_tab_tasks" role="tabpanel"
+      [ngClass]="{'active show': activeTab.link === 'versorger'}">
+    </app-versorger-tab>
 
-    <app-tasks-tab class="tab-pane fade  active show" id="kt_aside_nav_tab_tasks" role="tabpanel"
-      [ngClass]="{'active show': activeTab.link === 'tasks'}"></app-tasks-tab>
+    <app-admin-tab class="tab-pane fade  active show" id="kt_aside_nav_tab_notifications" role="tabpanel"
+      [ngClass]="{'active show': activeTab.link === 'admin'}">
+    </app-admin-tab>
 
-    <app-notifications-tab class="tab-pane fade  active show" id="kt_aside_nav_tab_notifications" role="tabpanel"
-      [ngClass]="{'active show': activeTab.link === 'notifications'}">
-    </app-notifications-tab>
-
-    <app-authors-tab class="tab-pane fade  active show" id="kt_aside_nav_tab_authors" role="tabpanel"
-      [ngClass]="{'active show': activeTab.link === 'authors'}">
-    </app-authors-tab>
   </div>
 </div>
 <!--end::Wrapper-->
