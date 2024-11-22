@@ -23,11 +23,24 @@ import {RouterLink} from "@angular/router";
   styleUrl: './anfragen-liste.component.scss',
 })
 export class AnfragenListeComponent implements OnInit {
-  constructor(public anfragenApiService: AnfragenApiService) {}
+  constructor(
+      public anfragenApiService: AnfragenApiService,
+      private cdr: ChangeDetectorRef,) {}
 
   anfragen$: Observable<Anfrage[]>
+  anfragenAnzahl: number
+  showEmptyIntro = false
 
   ngOnInit() {
     this.anfragen$ = this.anfragenApiService.getAnfragen()
+
+    this.anfragenApiService.getAnfragenAnzahl().subscribe(res => {
+      this.anfragenAnzahl = res
+      if (res == 0) {
+        this.showEmptyIntro = true
+      }
+      this.cdr.detectChanges();
+    })
   }
+
 }

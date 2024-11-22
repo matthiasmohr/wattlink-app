@@ -1,5 +1,5 @@
 import { Anfrage } from './Anfrage';
-import {find, Observable, tap, throwError} from 'rxjs';
+import {find, flatMap, Observable, tap, throwError} from 'rxjs';
 import {Injectable} from "@angular/core";
 import {HttpClient, HttpErrorResponse, HttpHeaders} from "@angular/common/http";
 import {catchError, filter, map} from "rxjs/operators";
@@ -31,6 +31,15 @@ export class AnfragenApiService {
             //retry(2),
             //tap(data => console.log(data)),// eyeball results in the console
             map(response => response['anfragen']),
+            catchError(this.handleError)
+        );
+    }
+
+    getAnfragenAnzahl(): Observable<number> {
+        return this.http.get<any>(this.anfragenUrl, { headers }).pipe(
+            //retry(2),
+            //tap(data => console.log(data)),// eyeball results in the console
+            map(response => response['anzahl']),
             catchError(this.handleError)
         );
     }

@@ -4,7 +4,7 @@
 <div class="card-header border-0 pt-5">
     <h3 class="card-title align-items-start flex-column">
         <span class="card-label fw-bolder fs-3 mb-1">Anfragenübersicht</span>
-        <span class="text-muted mt-1 fw-bold fs-7">[$. Anzahl Anfragen]</span>
+        <span class="text-muted mt-1 fw-bold fs-7">{{ this.anfragenAnzahl }} Anfragen</span>
     </h3>
     <div class="card-toolbar" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-trigger="hover" title="Click to add a user">
         <a class="btn btn-sm btn-light-primary" [routerLink]="['/anfrage-anlegen/']"><span [inlineSVG]="'./assets/media/icons/duotune/arrows/arr075.svg'" class="svg-icon svg-icon-3"></span>
@@ -93,6 +93,49 @@
         <!-- end::Table -->
     </div>
     <!-- end::Table container -->
+
+    <!-- Empty Intro -->
+    <ng-container *ngIf="showEmptyIntro">
+    <div class="row g-5 g-xl-10">
+        <!--begin::Col-->
+        <div class="col-xl-2">
+        </div>
+        <div class="col-xl-8">
+            <!--begin::Engage widget 1-->
+            <div class="card h-md-100" dir="ltr">
+                <!--begin::Body-->
+                <div class="card-body d-flex flex-column flex-center">
+                    <!--begin::Heading-->
+                    <div class="mb-2">
+                        <!--begin::Title-->
+                        <h1 class="fw-semibold text-gray-800 text-center lh-lg">Hier ist es noch leer. Legen Sie
+                            <br />Ihre erste
+                            <span class="fw-bolder">Belieferungsanfrage an</span></h1>
+                        <!--end::Title-->
+                        <!--begin::Illustration-->
+                        <div class="py-10 text-center">
+                            <img src="assets/media/svg/illustrations/easy/2.svg" class="theme-light-show w-200px" alt="" />
+                            <img src="assets/media/svg/illustrations/easy/2-dark.svg" class="theme-dark-show w-200px" alt="" />
+                        </div>
+                        <!--end::Illustration-->
+                    </div>
+                    <!--end::Heading-->
+                    <!--begin::Links-->
+                    <div class="text-center mb-1">
+                        <!--begin::Link-->
+                        <a class="btn btn-xl btn-primary me-2" [routerLink]="['/anfrage-anlegen/']">Hier Lieferanfrage anlegen</a>
+                        <!--end::Link-->
+                    </div>
+                    <!--end::Links-->
+                </div>
+                <!--end::Body-->
+            </div>
+            <!--end::Engage widget 1-->
+        </div>
+    </div>
+    </ng-container>
+
+
 </div>
 <!-- begin::Body -->
 </div>
