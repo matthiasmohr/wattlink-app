@@ -5,6 +5,7 @@ import {HttpClient, HttpErrorResponse, HttpHeaders} from "@angular/common/http";
 import {catchError, filter, map} from "rxjs/operators";
 import {AnfragenTable} from "../_fake/anfragen.table";
 import {environment} from "../../environments/environment";
+import {Partnerprofil} from "./Partnerprofil";
 
 
 const headers = new HttpHeaders({

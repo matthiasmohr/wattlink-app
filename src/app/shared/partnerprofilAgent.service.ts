@@ -15,30 +15,24 @@ const headers = new HttpHeaders({
 @Injectable({
     providedIn: 'root',
 })
-export class PartnerprofileApiService {
+export class PartnerprofileAgentApiService {
     //partnerprofileUrl = 'api/partnerprofile';
-    partnerprofilUrl = environment.backendApi + '/v1/partnerprofil';
+    partnerprofilAgentUrl = environment.backendApi + '/agent-v1/partnerprofil';
 
     constructor(public http: HttpClient) {}
 
     /*========================================
-      CRUD Methods for consuming RESTful API
+      AGENT Endpoints
     =========================================*/
-    getPartnerprofil(): Observable<Partnerprofil> {
-        return this.http.get<any>(this.partnerprofilUrl, { headers }).pipe(
+    getPartnerprofileAgent(): Observable<Partnerprofil[]> {
+        return this.http.get<any>(this.partnerprofilAgentUrl, { headers }).pipe(
             //retry(2),
-            //tap(data => console.log(data)),// eyeball results in the console
-            map(response => response['partnerprofil']),
+            //tap(data => console.log(data)), // eyeball results in the console
+            map(response => response['partnerprofile']),
             catchError(this.handleError)
         );
     }
 
-    editPartnerprofil(partnerprofil: Partnerprofil): Observable<Partnerprofil> {
-        console.log(partnerprofil)
-        return this.http.post<Partnerprofil>(this.partnerprofilUrl, partnerprofil).pipe(
-            catchError(this.handleError)
-        )
-    }
 
     /*========================================
       HELPERS

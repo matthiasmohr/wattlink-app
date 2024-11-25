@@ -4,12 +4,12 @@ type Tab = {
   link:
       | 'endkunden'
       | 'versorger'
-      | 'admin';
+      | 'agent';
   icon: string;
   tooltip:
       | 'Endkunden'
       | 'Versorger'
-      | 'Admin';
+      | 'Agent';
 };
 
 let tabs: Array<Tab> = []
@@ -26,9 +26,9 @@ tabs = [
     tooltip: 'Versorger',
   },
   {
-    link: 'admin',
+    link: 'agent',
     icon: './assets/media/icons/duotune/abstract/abs027.svg',
-    tooltip: 'Admin',
+    tooltip: 'Agent',
   },
 ];
 

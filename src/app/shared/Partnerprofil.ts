@@ -1,5 +1,5 @@
 interface Partnerprofil {
-    id: number,
+    partnerprofilID: string,
     email: string
     vorname: string
     nachname: string

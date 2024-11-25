@@ -12,7 +12,7 @@ export class TabsAsideComponent implements OnInit {
     activeTabLink:
       | 'endkunden'
       | 'versorger'
-      | 'admin'
+      | 'agent'
   ) => void;
   allTabs: ReadonlyArray<Tab> = [];
   constructor() {}

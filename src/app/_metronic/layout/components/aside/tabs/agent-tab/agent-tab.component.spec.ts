@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { AdminTabComponent } from './admin-tab.component';
+import { AgentTabComponent } from './agent-tab.component';
 
 describe('NotificationsTabComponent', () => {
-  let component: AdminTabComponent;
-  let fixture: ComponentFixture<AdminTabComponent>;
+  let component: AgentTabComponent;
+  let fixture: ComponentFixture<AgentTabComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ AdminTabComponent ]
+      declarations: [ AgentTabComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(AdminTabComponent);
+    fixture = TestBed.createComponent(AgentTabComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

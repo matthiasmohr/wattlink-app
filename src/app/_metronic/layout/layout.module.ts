@@ -32,7 +32,7 @@ import {
 } from '../partials';
 import { EngagesComponent } from '../partials/layout/engages/engages.component';
 import { EndkundenTabComponent } from './components/aside/tabs/endkunden-tab/endkunden-tab.component';
-import { AdminTabComponent } from './components/aside/tabs/admin-tab/admin-tab.component';
+import { AgentTabComponent } from './components/aside/tabs/agent-tab/agent-tab.component';
 import { VersorgerTabComponent } from './components/aside/tabs/versorger-tab/versorger-tab.component';
 import { FormsModule } from '@angular/forms';
 import { ThemeModeModule } from '../partials/layout/theme-mode-switcher/theme-mode.module';
@@ -63,7 +63,7 @@ const routes: Routes = [
     TabsAsideComponent,
     TabsAsideInnerComponent,
     EndkundenTabComponent,
-    AdminTabComponent,
+    AgentTabComponent,
     VersorgerTabComponent,
   ],
     imports: [

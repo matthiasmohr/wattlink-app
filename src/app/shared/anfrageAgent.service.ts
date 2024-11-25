@@ -1,0 +1,44 @@
+import { Anfrage } from './Anfrage';
+import {find, flatMap, Observable, tap, throwError} from 'rxjs';
+import {Injectable} from "@angular/core";
+import {HttpClient, HttpErrorResponse, HttpHeaders} from "@angular/common/http";
+import {catchError, filter, map} from "rxjs/operators";
+import {AnfragenTable} from "../_fake/anfragen.table";
+import {environment} from "../../environments/environment";
+import {Partnerprofil} from "./Partnerprofil";
+
+
+const headers = new HttpHeaders({
+        'Content-Type': 'application/json',
+        'Access-Control-Allow-Origin': '*',
+        'X-Skip-XSRF-TOKEN': 'true',
+});
+
+@Injectable({
+    providedIn: 'root',
+})
+export class AnfragenAgentApiService {
+    //anfragenUrl = 'api/anfragen'; // this is for local testing
+    anfragenAgentUrl = environment.backendApi + '/agent-v1/anfrage';
+
+    constructor(public http: HttpClient) {}
+
+    /*========================================
+        AGENT Endpoints
+    =========================================*/
+    getAnfragen(partnerprofilID: any): Observable<Anfrage[]> {
+        return this.http.get<any>(this.anfragenAgentUrl + '?partnerprofilID=' + partnerprofilID, { headers }).pipe(
+            //retry(2),
+            //tap(data => console.log(data)), // eyeball results in the console
+            map(response => response['anfragen']),
+            catchError(this.handleError)
+        );
+    }
+
+    private handleError (error: HttpErrorResponse) {
+        // In a real world app, we might send the error to remote logging infrastructure
+        // and reformat for user consumption
+        console.error(error); // log to console instead
+        return throwError(error);
+    }
+}

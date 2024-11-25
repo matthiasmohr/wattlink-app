@@ -5,6 +5,8 @@ import {MesslokationenListeComponent} from "./messlokationen-liste/messlokatione
 import {MesslokationAnlegenComponent} from "./messlokation-anlegen/messlokation-anlegen.component";
 import {AccountComponent} from "./account/account.component";
 import {MesslokationLastkurveComponent} from "./messlokation-lastkurve/messlokation-lastkurve.component";
+import {PartnerprofileListeAgentComponent} from "./agent/partnerprofile-liste-agent/partnerprofile-liste-agent.component";
+import {AnfragenListeAgentComponent} from "./agent/anfragen-liste-agent/anfragen-liste-agent.component";
 
 const Routing: Routes = [
   {
@@ -42,6 +44,17 @@ const Routing: Routes = [
     path: 'messlokation-lastkurve/:id',
     component: MesslokationLastkurveComponent
   },
+
+  // AGENT: TODO: IN MODUL AUSLAGERN
+  {
+    path: 'agent/partnerprofile-liste',
+    component: PartnerprofileListeAgentComponent
+  },
+  {
+    path: 'agent/partnerprofil/:id',
+    component: AnfragenListeAgentComponent
+  },
+
   {
     path: 'account',
     loadChildren: () =>
