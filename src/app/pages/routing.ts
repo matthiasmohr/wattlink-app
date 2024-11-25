@@ -77,7 +77,7 @@ const Routing: Routes = [
   },
   {
     path: '',
-    redirectTo: '/dashboard',
+    redirectTo: '/anfragen-liste',
     pathMatch: 'full',
   },
   {
