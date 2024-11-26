@@ -51,7 +51,7 @@ const Routing: Routes = [
     component: PartnerprofileListeAgentComponent
   },
   {
-    path: 'agent/partnerprofil/:id',
+    path: 'agent/partnerprofil/:id/anfragen-liste',
     component: AnfragenListeAgentComponent
   },
 

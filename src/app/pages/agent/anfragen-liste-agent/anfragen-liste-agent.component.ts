@@ -34,7 +34,7 @@ export class AnfragenListeAgentComponent implements OnInit {
   showEmptyIntro = false
 
   ngOnInit() {
-    this.route.parent?.paramMap.subscribe(params => {
+    this.route.paramMap.subscribe(params => {
       console.log(params.get('id'))
       this.getAnfragen(params.get('id'));
     })
