@@ -50,8 +50,8 @@ import {CoreModule} from "./core/core.module";
               allowedList: [
                   'http://127.0.0.1:8080/*',
                   'https://127.0.0.1:8080/*',
-                  'https://stage.backend.wattlink.hasemato.com/*',
-                  'https://backend.wattlink.hasemato.com/*',
+                  'https://stage.backend.stromify.de/*',
+                  'https://backend.stromify.de/*',
               ]}
       }),
       importProvidersFrom([
