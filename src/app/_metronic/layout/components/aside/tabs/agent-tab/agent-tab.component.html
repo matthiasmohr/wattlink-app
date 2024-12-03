@@ -12,7 +12,7 @@
         </div>
 
         <!-- Dashboard -->
-        <div class="menu-item">
+        <div class="menu-item" *ngIf="environment.featureFlipper.dashboardMenuItem">
             <a class="menu-link without-sub" routerLink="/dashboard" routerLinkActive="active"><span class="menu-icon">
           <span [inlineSVG]="'./assets/media/icons/duotune/general/gen025.svg'" class="svg-icon svg-icon-2"></span>
         </span>

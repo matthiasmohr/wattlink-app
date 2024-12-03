@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {environment} from "../../../../../../../environments/environment";
 
 @Component({
   selector: 'app-agent-tab',
@@ -10,4 +11,6 @@ export class AgentTabComponent implements OnInit {
 
   ngOnInit(): void {
   }
+
+    protected readonly environment = environment;
 }

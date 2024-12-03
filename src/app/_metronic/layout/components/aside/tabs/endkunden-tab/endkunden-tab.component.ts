@@ -24,7 +24,6 @@ import {PartnerprofileApiService} from "../../../../../../shared/partnerprofil.s
 })
 export class EndkundenTabComponent implements OnInit, OnDestroy {
   appAngularVersion: string = environment.appVersion;
-  appPreviewChangelogUrl: string = environment.appPreviewChangelogUrl;
   @ViewChild('ktAsideScroll', { static: true }) ktAsideScroll: ElementRef;
   private unsubscribe: Subscription[] = [];
 

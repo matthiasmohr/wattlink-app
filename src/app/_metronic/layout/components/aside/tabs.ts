@@ -20,11 +20,13 @@ tabs = [
     icon: './assets/media/icons/duotune/graphs/gra003.svg',
     tooltip: 'Endkunden',
   },
-  {
-    link: 'versorger',
-    icon: './assets/media/icons/duotune/general/gen048.svg',
-    tooltip: 'Versorger',
-  },
+
+  // {
+  //   link: 'versorger',
+  //   icon: './assets/media/icons/duotune/general/gen048.svg',
+  //   tooltip: 'Versorger',
+  // },
+
   {
     link: 'agent',
     icon: './assets/media/icons/duotune/abstract/abs027.svg',

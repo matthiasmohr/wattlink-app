@@ -28,9 +28,7 @@ import {
   DrawersModule,
   DropdownMenusModule,
   ModalsModule,
-  EngagesModule,
 } from '../partials';
-import { EngagesComponent } from '../partials/layout/engages/engages.component';
 import { EndkundenTabComponent } from './components/aside/tabs/endkunden-tab/endkunden-tab.component';
 import { AgentTabComponent } from './components/aside/tabs/agent-tab/agent-tab.component';
 import { VersorgerTabComponent } from './components/aside/tabs/versorger-tab/versorger-tab.component';
@@ -59,7 +57,6 @@ const routes: Routes = [
     TopbarComponent,
     PageTitleComponent,
     HeaderMenuComponent,
-    EngagesComponent,
     TabsAsideComponent,
     TabsAsideInnerComponent,
     EndkundenTabComponent,
@@ -76,7 +73,6 @@ const routes: Routes = [
         ExtrasModule,
         ModalsModule,
         DrawersModule,
-        EngagesModule,
         DropdownMenusModule,
         NgbTooltipModule,
         TranslateModule,
