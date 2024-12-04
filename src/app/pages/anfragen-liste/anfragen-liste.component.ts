@@ -22,6 +22,7 @@ import {RouterLink} from "@angular/router";
   templateUrl: './anfragen-liste.component.html',
   styleUrl: './anfragen-liste.component.scss',
 })
+
 export class AnfragenListeComponent implements OnInit {
   constructor(
       public anfragenApiService: AnfragenApiService,
@@ -30,6 +31,8 @@ export class AnfragenListeComponent implements OnInit {
   anfragen$: Observable<Anfrage[]>
   anfragenAnzahl: number
   showEmptyIntro = false
+
+  baseLink = '/anfrage-anzeigen/'
 
   ngOnInit() {
     this.anfragen$ = this.anfragenApiService.getAnfragen()

@@ -23,6 +23,7 @@ import {AnfragenAgentApiService} from "../../../shared/anfrageAgent.service";
   templateUrl: '../../anfragen-liste/anfragen-liste.component.html',
   styleUrl: '../../anfragen-liste/anfragen-liste.component.scss',
 })
+
 export class AnfragenListeAgentComponent implements OnInit {
   constructor(
       public anfragenAgentApiService: AnfragenAgentApiService,
@@ -32,11 +33,12 @@ export class AnfragenListeAgentComponent implements OnInit {
   anfragen$: Observable<Anfrage[]>
   anfragenAnzahl: number
   showEmptyIntro = false
+  baseLink = ""
 
   ngOnInit() {
-    this.route.paramMap.subscribe(params => {
-      console.log(params.get('id'))
-      this.getAnfragen(params.get('id'));
+    this.route.paramMap.subscribe(partnerprofil => {
+      this.getAnfragen(partnerprofil.get('id'));
+      this.baseLink = '/agent/partnerprofil/' + partnerprofil.get('id') + "/anfrage-anzeigen/"
     })
   }
 

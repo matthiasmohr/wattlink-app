@@ -7,6 +7,8 @@ import {AccountComponent} from "./account/account.component";
 import {MesslokationLastkurveComponent} from "./messlokation-lastkurve/messlokation-lastkurve.component";
 import {PartnerprofileListeAgentComponent} from "./agent/partnerprofile-liste-agent/partnerprofile-liste-agent.component";
 import {AnfragenListeAgentComponent} from "./agent/anfragen-liste-agent/anfragen-liste-agent.component";
+import {AnfrageAnzeigenAgentComponent} from "./agent/anfrage-anzeigen/anfrage-anzeigen.component";
+import {AnfrageAnzeigenAgentModule} from "./agent/anfrage-anzeigen/anfrage-anzeigen.module";
 
 const Routing: Routes = [
   {
@@ -54,6 +56,12 @@ const Routing: Routes = [
     path: 'agent/partnerprofil/:id/anfragen-liste',
     component: AnfragenListeAgentComponent
   },
+  {
+    path: 'agent/partnerprofil/:partnerprofilid/anfrage-anzeigen/:anfrageid',
+    loadChildren: () =>
+        import('./agent/anfrage-anzeigen/anfrage-anzeigen.module').then((m) => m.AnfrageAnzeigenAgentModule),
+  },
+  // AGENT END
 
   {
     path: 'account',

@@ -35,6 +35,19 @@ export class AnfragenAgentApiService {
         );
     }
 
+    // Deprecated (soll ersetzt werden durch serverseitige Filterung)
+    getAnfrage(partnerprofilID: any, id: any): Observable<Anfrage> {
+        const url = `${this.anfragenAgentUrl}`;
+        return this.http.get<any>(this.anfragenAgentUrl + '?partnerprofilID=' + partnerprofilID, { headers }).pipe(
+            map(response => response['anfragen']),
+            //find(anfrage=> anfrage.anfrageID == "07d3a60c-2f58-4623-8a7e-defe314ceb78"),
+            map(anfragen => anfragen.filter(
+                (anfrage: any) => anfrage.anfrageID == id
+            )[0]),
+            catchError(this.handleError)
+        );
+    }
+
     private handleError (error: HttpErrorResponse) {
         // In a real world app, we might send the error to remote logging infrastructure
         // and reformat for user consumption
