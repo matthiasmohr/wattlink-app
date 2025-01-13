@@ -36,9 +36,13 @@ export class Step2Component implements OnInit, OnDestroy {
     });
     this.unsubscribe.push(formChangesSubscr);
   }
-
+  
   checkForm() {
-    return !this.form.get('accountName')?.hasError('required');
+    return !(
+        this.form.get('anzahlLieferstellen')?.hasError('required') ||
+        this.form.get('anfrageBezeichnung')?.hasError('required') ||
+        this.form.get('informationsergaenzung')?.hasError('required')
+    );
   }
 
   ngOnDestroy() {

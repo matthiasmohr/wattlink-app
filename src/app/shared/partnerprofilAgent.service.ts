@@ -5,6 +5,7 @@ import {catchError, map} from "rxjs/operators";
 import {Partnerprofil} from "./Partnerprofil";
 import {environment} from "../../environments/environment";
 import {Nachricht} from "./Nachricht";
+import {Anfrage} from "./Anfrage";
 
 const headers = new HttpHeaders({
         'Content-Type': 'application/json',
@@ -31,6 +32,24 @@ export class PartnerprofileAgentApiService {
             map(response => response['partnerprofile']),
             catchError(this.handleError)
         );
+    }
+
+    // Deprecated (soll ersetzt werden durch serverseitige Filterung)
+    getPartnerprofilAgent(partnerprofilID: any): Observable<Partnerprofil> {
+        return this.http.get<any>(this.partnerprofilAgentUrl + '?partnerprofilID=' + partnerprofilID, { headers }).pipe(
+            map(response => response['partnerprofile']),
+            //find(anfrage=> anfrage.anfrageID == "07d3a60c-2f58-4623-8a7e-defe314ceb78"),
+            map(partnerprofile => partnerprofile.filter(
+                (partnerprofil: any) => partnerprofil.partnerprofilID == partnerprofilID
+            )[0]),
+            catchError(this.handleError)
+        );
+    }
+
+    editPartnerprofilAgent(partnerprofil: Partnerprofil): Observable<Partnerprofil> {
+        return this.http.post<Partnerprofil>(this.partnerprofilAgentUrl, partnerprofil).pipe(
+            catchError(this.handleError)
+        )
     }
 
 

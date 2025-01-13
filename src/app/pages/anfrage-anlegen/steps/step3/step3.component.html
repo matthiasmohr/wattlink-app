@@ -1,5 +1,5 @@
 <div class="pb-10 pb-lg-12">
-  <h2 class="fw-bolder text-gray-900">Aktuelle Belieferung</h2>
+  <h2 class="fw-bolder text-gray-900">Belieferung</h2>
   <div class="text-gray-500 fw-bold fs-6">
     Wie ist die aktuelle Versorgungssituation?
     <a href="#" class="link-primary fw-bolder">Hilfe</a>.
@@ -7,102 +7,152 @@
 </div>
 <div [formGroup]="form">
 
-    <div class="mb-0 fv-row">
-        <label class="d-flex align-items-center form-label mb-5">
-            Aktuelle Liefersituation<i
-                class="fas fa-exclamation-circle ms-2 fs-7"
-                ngbTooltip="Wie ist die (Mehrheit der) Lieferstellen aktuell versorgt?">
-
-        </i>
+    <div class="mb-10 fv-row">
+        <label class="fs-4 fw-bold d-flex align-items-center form-label mb-5">
+            Was ist Ihnen wichtig?
+            <i class="fas fa-exclamation-circle ms-2 fs-7" ngbTooltip="ToDo"></i>
         </label>
         <div class="mb-0">
             <label class="d-flex flex-stack mb-5 cursor-pointer">
-        <span class="d-flex align-items-center me-2">
-          <span class="symbol symbol-50px me-6">
-            <span class="symbol-label">
-              <app-keenicon name="bank" class="fs-1"></app-keenicon>
-            </span>
-          </span>
-          <span class="d-flex flex-column">
-            <span class="fw-bolder text-gray-800 text-hover-primary fs-5">
-              Grundversorgung
-            </span>
-            <span class="fs-6 fw-bold text-gray-500">
-              Die Mehrheit der Lieferstellen ist in Grund- oder Ersatzversorgung
-            </span>
-          </span>
-        </span>
+                <span class="d-flex align-items-center me-2">
+                  <span class="symbol symbol-50px me-6">
+                    <span class="symbol-label">
+                      <app-keenicon name="bank" class="fs-1"></app-keenicon>
+                    </span>
+                  </span>
+                  <span class="d-flex flex-column">
+                    <span class="fw-bolder text-gray-800 text-hover-primary fs-5">
+                      Planbare, günstige Energie
+                    </span>
+                    <span class="fs-6 fw-bold text-gray-500">
+                      ToDo
+                    </span>
+                  </span>
+                </span>
                 <span class="form-check form-check-custom form-check-solid">
-          <input
-                  formControlName="beliefersituation"
-                  class="form-check-input"
-                  type="radio"
-                  value="1"/></span>
+                    <input formControlName="beschaffungsstrategie" class="form-check-input" type="radio" value="planbar"/>
+                </span>
             </label>
             <label class="d-flex flex-stack mb-5 cursor-pointer">
-        <span class="d-flex align-items-center me-2">
-          <span class="symbol symbol-50px me-6">
-            <span class="symbol-label">
-              <app-keenicon name="chart" class="fs-1"></app-keenicon>
-            </span>
-          </span>
-          <span class="d-flex flex-column">
-            <span class="fw-bolder text-gray-800 text-hover-primary fs-5">
-              Wettbewerblich
-            </span>
-            <span class="fs-6 fw-bold text-gray-500">
-              Es gibt (mehrheitlich) bestehende Lieferverträge außerhalb der Grundversorgung
-            </span>
-          </span>
-        </span>
+                <span class="d-flex align-items-center me-2">
+                  <span class="symbol symbol-50px me-6">
+                    <span class="symbol-label">
+                      <app-keenicon name="chart" class="fs-1"></app-keenicon>
+                    </span>
+                  </span>
+                  <span class="d-flex flex-column">
+                    <span class="fw-bolder text-gray-800 text-hover-primary fs-5">
+                      Gleichstellung zum Markt mit Chancen und Risiken
+                    </span>
+                    <span class="fs-6 fw-bold text-gray-500">
+                      ToDo
+                    </span>
+                  </span>
+                </span>
                 <span class="form-check form-check-custom form-check-solid">
-          <input
-                  formControlName="beliefersituation"
-                  class="form-check-input"
-                  type="radio"
-                  value="2"/></span>
+                    <input formControlName="beschaffungsstrategie" class="form-check-input" type="radio" value="markt"/>
+                </span>
             </label>
             <label class="d-flex flex-stack mb-0 cursor-pointer">
-        <span class="d-flex align-items-center me-2">
-          <span class="symbol symbol-50px me-6">
-            <span class="symbol-label">
-              <app-keenicon name="chart-pie-4" class="fs-1"></app-keenicon>
-            </span>
-          </span>
-          <span class="d-flex flex-column">
-            <span class="fw-bolder text-gray-800 text-hover-primary fs-5">
-              Unbekannt
-            </span>
-            <span class="fs-6 fw-bold text-gray-500">
-              Ich kenne die Versorgungssituation aktuell nicht.
-            </span>
-          </span>
-        </span>
+                <span class="d-flex align-items-center me-2">
+                  <span class="symbol symbol-50px me-6">
+                    <span class="symbol-label">
+                      <app-keenicon name="chart-pie-4" class="fs-1"></app-keenicon>
+                    </span>
+                  </span>
+                  <span class="d-flex flex-column">
+                    <span class="fw-bolder text-gray-800 text-hover-primary fs-5">
+                      Ohne Präferenz
+                    </span>
+                    <span class="fs-6 fw-bold text-gray-500">
+                      ToDo
+                    </span>
+                  </span>
+                </span>
                 <span class="form-check form-check-custom form-check-solid">
-          <input
-                  formControlName="beliefersituation"
-                  class="form-check-input"
-                  type="radio"
-                  value="3"/></span>
+                    <input formControlName="beschaffungsstrategie" class="form-check-input" type="radio" value="egal"/>
+                </span>
             </label>
         </div>
     </div>
 
+    <div class="mb-10 fv-row">
+        <label class="fs-4 fw-bold d-flex align-items-center form-label mb-3 required">
+            Welche Mengenflexibilität benötigen Sie für Strom?
+            <i class="fas fa-exclamation-circle ms-2 fs-7" ngbTooltip="Je nachdem wie variabel ihr Verbrauch ist, sollten Sie sich von Anfang an eine gewisse Flexibilität sichern. Aber bedenken Sie: je höher die Flexibilität, desto höher die Risikoaufschläge der Versorger"></i>
+        </label>
+        <div class="row mb-2" data-kt-buttons="true">
+            <div class="col">
+                <input formControlName="mengenflexibilitaetStrom" type="radio" class="btn-check" id="mengenflexibilitaetStrom_1" value="80-120"/>
+                <label class=" btn btn-outline btn-outline-dashed btn-outline-default w-100 p-4" for="mengenflexibilitaetStrom_1">
+                    <span class="fw-bolder fs-3">80% - 120%</span>
+                </label>
+            </div>
+            <div class="col">
+                <input formControlName="mengenflexibilitaetStrom" type="radio" class="btn-check" id="mengenflexibilitaetStrom_2" value="90-110"/>
+                <label class=" btn btn-outline btn-outline-dashed btn-outline-default w-100 p-4" for="mengenflexibilitaetStrom_2">
+                    <span class="fw-bolder fs-3">90% - 110%</span>
+                </label>
+            </div>
+            <div class="col">
+                <input formControlName="mengenflexibilitaetStrom" type="radio" class="btn-check" id="mengenflexibilitaetStrom_3" value="unbekannt"/>
+                <label class=" btn btn-outline btn-outline-dashed btn-outline-default w-100 p-4" for="mengenflexibilitaetStrom_3">
+                    <span class="fw-bolder fs-3">unbekannt</span>
+                </label>
+            </div>
+        </div>
+        <div class="form-text">
+            ToDo
+        </div>
+    </div>
+
+    <div class="mb-10 fv-row">
+        <label class="fs-4 fw-bold d-flex align-items-center form-label mb-3 required">
+            Welche Mengenflexibilität benötigen Sie für Gas?
+            <i class="fas fa-exclamation-circle ms-2 fs-7" ngbTooltip="Je nachdem wie variabel ihr Verbrauch ist, sollten Sie sich von Anfang an eine gewisse Flexibilität sichern. Aber bedenken Sie: je höher die Flexibilität, desto höher die Risikoaufschläge der Versorger"></i>
+        </label>
+        <div class="row mb-2" data-kt-buttons="true">
+            <div class="col">
+                <input formControlName="mengenflexibilitaetGas" type="radio" class="btn-check" id="mengenflexibilitaetGas_1" value="80-120"/>
+                <label class=" btn btn-outline btn-outline-dashed btn-outline-default w-100 p-4" for="mengenflexibilitaetGas_1">
+                    <span class="fw-bolder fs-3">80% - 120%</span>
+                </label>
+            </div>
+            <div class="col">
+                <input formControlName="mengenflexibilitaetGas" type="radio" class="btn-check" id="mengenflexibilitaetGas_2" value="90-110"/>
+                <label class=" btn btn-outline btn-outline-dashed btn-outline-default w-100 p-4" for="mengenflexibilitaetGas_2">
+                    <span class="fw-bolder fs-3">90% - 110%</span>
+                </label>
+            </div>
+            <div class="col">
+                <input formControlName="mengenflexibilitaetGas" type="radio" class="btn-check" id="mengenflexibilitaetGas_3" value="unbekannt"/>
+                <label class=" btn btn-outline btn-outline-dashed btn-outline-default w-100 p-4" for="mengenflexibilitaetGas_3">
+                    <span class="fw-bolder fs-3">unbekannt</span>
+                </label>
+            </div>
+        </div>
+        <div class="form-text">
+            ToDo
+        </div>
+    </div>
+
   <div class="fv-row mb-10">
-    <label class="d-flex align-items-center form-label"
-      ><span class="required">Lieferbeginn</span></label
-    ><input
-      name="lieferbeginn"
-      class="form-control form-control-lg form-control-solid"
-      formControlName="lieferbeginn"
-    />
-    <div
-      class="fv-plugins-message-container invalid-feedback"
-      *ngIf="
-        form.get('lieferbeginn')?.hasError('required') &&
-        form.get('lieferbeginn')?.touched
-      "
-    >
+    <label class="fs-4 fw-bold d-flex align-items-center form-label">
+        <span class="required">Wann soll der neue Vertrag starten</span>
+    </label>
+
+      <div class="input-group">
+          <input class="form-control form-control-lg form-control-solid"
+                 formControlName="lieferbeginn"
+                 (dateSelect)="form.get('lieferbeginn')?.setValue($event)"
+                 ngbDatepicker #d="ngbDatepicker"
+                 placeholder="TT.MM.JJJJ" />
+          <button class="btn btn-outline-secondary" (click)="d.toggle()" type="button">
+              📅
+          </button>
+      </div>
+
+    <div class="fv-plugins-message-container invalid-feedback" *ngIf=" form.get('lieferbeginn')?.hasError('required') && form.get('lieferbeginn')?.touched">
       Lieferbeginn ist notwendig
     </div>
     <div class="form-text">
@@ -111,7 +161,7 @@
   </div>
 
   <div class="fv-row mb-10">
-    <label class="form-label">Was ist sonst noch wichtig? (optional)</label
+    <label class="fs-4 fw-bold form-label">Welche Präferenz haben Sie zusätzlich noch? (optional)</label
     ><textarea
       name="wasIstWichtig"
       class="form-control form-control-lg form-control-solid"

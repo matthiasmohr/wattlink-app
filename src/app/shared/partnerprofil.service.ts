@@ -34,7 +34,6 @@ export class PartnerprofileApiService {
     }
 
     editPartnerprofil(partnerprofil: Partnerprofil): Observable<Partnerprofil> {
-        console.log(partnerprofil)
         return this.http.post<Partnerprofil>(this.partnerprofilUrl, partnerprofil).pipe(
             catchError(this.handleError)
         )

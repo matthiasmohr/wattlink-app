@@ -16,7 +16,7 @@
 
 <div class="fv-row" [formGroup]="form">
     <div class="d-flex flex-column mb-7 fv-row">
-        <label class="required fs-6 fw-bold form-label mb-2">Stromverbrauch (kWh per Jahr)</label>
+        <label class="required fs-4 fw-bold form-label mb-2">Stromverbrauch (kWh per Jahr)</label>
         <div class="position-relative">
             <input
                     formControlName="jahresverbrauchStrom"
@@ -24,13 +24,8 @@
                     class="form-control form-control-solid"
                     placeholder="Stromverbrauch pro Jahr in kWh (Verbrauchsstellen summiert)"
             />
-            <div
-                    class="fv-plugins-message-container invalid-feedback"
-                    *ngIf="
-          form.get('jahresverbrauchStrom')?.hasError('required') &&
-          form.get('jahresverbrauchStrom')?.touched
-        "
-            >
+            <div class="fv-plugins-message-container invalid-feedback"
+                 *ngIf=" form.get('jahresverbrauchStrom')?.hasError('required') && form.get('jahresverbrauchStrom')?.touched">
                 Stromverbrauch ist nicht angegeben
             </div>
         </div>
@@ -38,68 +33,32 @@
 
     <div class="row">
         <div class="col-lg-6">
-            <input
-                    formControlName="oekostrom"
-                    name="oekostrom"
-                    type="radio"
-                    class="btn-check"
-                    id="oekostrom-ja"
-                    value="true"
-            />
-            <label
-                    class="
-          btn btn-outline btn-outline-dashed btn-outline-default
-          p-7
-          d-flex
-          align-items-center
-          mb-10
-        "
-                    for="oekostrom-ja"
-            >
+            <input formControlName="oekostrom" name="oekostrom" type="radio" class="btn-check" id="oekostrom-ja" [value]="true"/>
+            <label class=" btn btn-outline btn-outline-dashed btn-outline-default p-7 d-flex align-items-center mb-10" for="oekostrom-ja">
                 <app-keenicon name="abstract-46" class="fs-1 me-5"></app-keenicon>
                 <span class="d-block fw-bold text-start">
-          <span class="text-gray-900 fw-bolder d-block fs-4 mb-2"
-          >Ökostrom</span
-          >
-          <span class="text-gray-500 fw-bold fs-6">
-            Die Versorgung soll über regenerativen Strom erfolgen
-          </span>
-        </span>
+                  <span class="text-gray-900 fw-bolder d-block fs-4 mb-2">Grünstrom</span>
+                  <span class="text-gray-500 fw-bold fs-6">
+                    Wollen Sie 100% Grünstrom mit Zertifikat?
+                  </span>
+                </span>
             </label>
         </div>
-
         <div class="col-lg-6">
-            <input
-                    formControlName="oekostrom"
-                    name="oekostrom"
-                    type="radio"
-                    class="btn-check"
-                    id="oekostrom-nein"
-                    value="false"
-            />
-            <label
-                    class="
-          btn btn-outline btn-outline-dashed btn-outline-default
-          p-7
-          d-flex
-          align-items-center
-        "
-                    for="oekostrom-nein"
-            >
+            <input formControlName="oekostrom" name="oekostrom" type="radio" class="btn-check" id="oekostrom-nein" [value]="false"/>
+            <label class=" btn btn-outline btn-outline-dashed btn-outline-default p-7 d-flex align-items-center" for="oekostrom-nein">
                 <app-keenicon name="gear" class="fs-1 me-5"></app-keenicon>
                 <span class="d-block fw-bold text-start">
-          <span class="text-gray-900 fw-bolder d-block fs-4 mb-2"
-          >Normaler Strom</span
-          >
-          <span class="text-gray-500 fw-bold fs-6">
-            Die Versorgung kann über einen flexiblen Strommix erfolgen
-          </span>
-        </span>
+                    <span class="text-gray-900 fw-bolder d-block fs-4 mb-2">Graustrom</span>
+                  <span class="text-gray-500 fw-bold fs-6">
+                    Wollen Sie Strom ohne 100% Grünstrom Garantie?
+                  </span>
+                </span>
             </label>
         </div>
 
     <div class="d-flex flex-column mb-7 fv-row">
-        <label class="required fs-6 fw-bold form-label mb-2"> (kWh per Jahr)</label>
+        <label class="required fs-4 fw-bold form-label mb-2"> Gasverbrauch (in kWh per Jahr)</label>
         <div class="position-relative">
             <input
                     formControlName="jahresverbrauchGas"
@@ -107,13 +66,8 @@
                     class="form-control form-control-solid"
                     placeholder="Gasverbrauch pro Jahr in kWh (Verbrauchsstellen summiert)"
             />
-            <div
-                    class="fv-plugins-message-container invalid-feedback"
-                    *ngIf="
-          form.get('jahresverbrauchGas')?.hasError('required') &&
-          form.get('jahresverbrauchGas')?.touched
-        "
-            >
+            <div class="fv-plugins-message-container invalid-feedback"
+                 *ngIf=" form.get('jahresverbrauchGas')?.hasError('required') && form.get('jahresverbrauchGas')?.touched">
                 Gasverbrauch ist nicht angegeben
             </div>
         </div>
@@ -121,59 +75,24 @@
 
     <div class="row">
     <div class="col-lg-6">
-      <input
-        formControlName="biogas"
-        name="biogas"
-        type="radio"
-        class="btn-check"
-        id="biogas-ja"
-        value="true"
-      />
-      <label
-        class="
-          btn btn-outline btn-outline-dashed btn-outline-default
-          p-7
-          d-flex
-          align-items-center
-          mb-10
-        "
-        for="biogas-ja"
-      >
+      <input formControlName="biogas" name="biogas" type="radio" class="btn-check" id="biogas-ja" [value]="true"/>
+      <label class=" btn btn-outline btn-outline-dashed btn-outline-default p-7 d-flex align-items-center mb-10" for="biogas-ja">
         <app-keenicon name="abstract-46" class="fs-1 me-5"></app-keenicon>
         <span class="d-block fw-bold text-start">
-          <span class="text-gray-900 fw-bolder d-block fs-4 mb-2"
-            >Biogas</span
-          >
+          <span class="text-gray-900 fw-bolder d-block fs-4 mb-2">Klimagas</span>
           <span class="text-gray-500 fw-bold fs-6">
-            Die Versorgung soll über klimaneutrales Biogas erfolgen
+            Für CO2 Emissionen werden Zertifikate über Klimaprojekte gekauft.
           </span>
         </span>
       </label>
     </div>
 
     <div class="col-lg-6">
-      <input
-        formControlName="biogas"
-        name="biogas"
-        type="radio"
-        class="btn-check"
-        id="biogas-nein"
-        value="false"
-      />
-      <label
-        class="
-          btn btn-outline btn-outline-dashed btn-outline-default
-          p-7
-          d-flex
-          align-items-center
-        "
-        for="biogas-nein"
-      >
+      <input formControlName="biogas" name="biogas" type="radio" class="btn-check" id="biogas-nein" [value]="false"/>
+      <label class=" btn btn-outline btn-outline-dashed btn-outline-default p-7 d-flex align-items-center" for="biogas-nein">
         <app-keenicon name="gear" class="fs-1 me-5"></app-keenicon>
         <span class="d-block fw-bold text-start">
-          <span class="text-gray-900 fw-bolder d-block fs-4 mb-2"
-            >Normales Gas</span
-          >
+          <span class="text-gray-900 fw-bolder d-block fs-4 mb-2">Normales Gas</span>
           <span class="text-gray-500 fw-bold fs-6">
             Die Versorgung kann über fossiles Erdgas erfolgen
           </span>

@@ -29,9 +29,16 @@ export class Step1Component implements OnInit, OnDestroy {
     });
 
     const formChangesSubscr = this.form.valueChanges.subscribe((val) => {
-      this.updateParentModel(val, true);
+      this.updateParentModel(val, this.checkForm());
     });
     this.unsubscribe.push(formChangesSubscr);
+  }
+
+  checkForm() {
+    return !(
+        this.form.get('jahresverbrauchStrom')?.hasError('required') ||
+        this.form.get('jahresverbrauchGas')?.hasError('required')
+    );
   }
 
   ngOnDestroy() {

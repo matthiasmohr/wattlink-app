@@ -43,11 +43,11 @@ export class Step4Component implements OnInit, OnDestroy {
 
   checkForm() {
     return !(
-        this.form.get('businessName')?.hasError('required') ||
-        this.form.get('businessDescriptor')?.hasError('required') ||
-        this.form.get('businessType')?.hasError('required') ||
-        this.form.get('businessEmail')?.hasError('required') ||
-        this.form.get('businessEmail')?.hasError('email')
+        this.form.get('firma')?.hasError('required') ||
+        this.form.get('vorname')?.hasError('required') ||
+        this.form.get('nachname')?.hasError('required') ||
+        this.form.get('email')?.hasError('required') ||
+        this.form.get('anfragesteller')?.hasError('email')
     );
   }
 

@@ -1,7 +1,8 @@
-import { Component, Input, OnDestroy, OnInit } from '@angular/core';
+import {Component, Input, OnDestroy, OnInit, SimpleChanges} from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Subscription } from 'rxjs';
 import { Anfrage } from '../../../../shared/Anfrage';
+import {NgbDateStruct} from "@ng-bootstrap/ng-bootstrap";
 
 @Component({
   selector: 'app-step3',
@@ -26,7 +27,9 @@ export class Step3Component implements OnInit, OnDestroy {
 
   initForm() {
     this.form = this.fb.group({
-      beliefersituation: [this.defaultValues.beliefersituation, [Validators.required]],
+      beschaffungsstrategie: [this.defaultValues.beschaffungsstrategie, [Validators.required]],
+      mengenflexibilitaetStrom: [this.defaultValues.mengenflexibilitaetStrom, [Validators.required]],
+      mengenflexibilitaetGas: [this.defaultValues.mengenflexibilitaetGas, [Validators.required]],
       lieferbeginn: [this.defaultValues.lieferbeginn, [Validators.required]],
       wasIstWichtig: [this.defaultValues.wasIstWichtig],
     });
@@ -39,12 +42,16 @@ export class Step3Component implements OnInit, OnDestroy {
 
   checkForm() {
     return !(
-      this.form.get('businessName')?.hasError('required') ||
-      this.form.get('businessDescriptor')?.hasError('required') ||
-      this.form.get('businessType')?.hasError('required') ||
-      this.form.get('businessEmail')?.hasError('required') ||
-      this.form.get('businessEmail')?.hasError('email')
+      this.form.get('beschaffungsstrategie')?.hasError('required') ||
+      this.form.get('mengenflexibilitaetStrom')?.hasError('required') ||
+      this.form.get('mengenflexibilitaetGas')?.hasError('required') ||
+      this.form.get('lieferbeginn')?.hasError('required')
     );
+  }
+  
+  // 🛠 Konvertiere NgbDateStruct in YYYY-MM-DD Format
+  onDateSelect(event: any) {
+    this.form.get('lieferbeginn')?.setValue(event);
   }
 
   ngOnDestroy() {

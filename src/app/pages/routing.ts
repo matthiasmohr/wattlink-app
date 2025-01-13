@@ -9,6 +9,7 @@ import {PartnerprofileListeAgentComponent} from "./agent/partnerprofile-liste-ag
 import {AnfragenListeAgentComponent} from "./agent/anfragen-liste-agent/anfragen-liste-agent.component";
 import {AnfrageAnzeigenAgentComponent} from "./agent/anfrage-anzeigen/anfrage-anzeigen.component";
 import {AnfrageAnzeigenAgentModule} from "./agent/anfrage-anzeigen/anfrage-anzeigen.module";
+import {ImpressumComponent} from "./static/impressum/impressum.component";
 
 const Routing: Routes = [
   {
@@ -67,6 +68,12 @@ const Routing: Routes = [
     path: 'account',
     loadChildren: () =>
         import('./account/account.module').then((m) => m.AccountModule),
+  },
+
+  // STATIC PAGES
+  {
+    path: 'impressum',
+    component: ImpressumComponent
   },
 
   {

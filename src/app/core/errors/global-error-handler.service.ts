@@ -14,16 +14,19 @@ export class GlobalErrorHandlerService implements ErrorHandler {
         // Load the errorDialog crazily -> Otherwise we would get circular references
         const errorDialogService = this.injector.get(ErrorDialogService)
 
+        console.error('Error from global error handler:', error);
         // Check if it's an error from an HTTP response
         if (!(error instanceof HttpErrorResponse)) {
             error = error.rejection; // get the error object
         }
 
-        errorDialogService.showMessage(
-            error?.status || 'Undefined client error',
-            error?.message || 'Undefined client error',
-        )
-
-        console.error('Error from global error handler: ', error);
+        if (error instanceof Error) {
+            console.error('Error message:', error.message);
+            console.error('Stack trace:', error.stack);
+            errorDialogService.showMessage(
+                error.name || 'Undefined client error',
+                error.message || 'Undefined client error',
+            )
+        }
     }
 }

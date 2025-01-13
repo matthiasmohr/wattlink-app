@@ -144,7 +144,7 @@
                         </span>
                       </span>
                       <span class="d-flex flex-column">
-                        <span [ngClass]="(anfrage.informationsergaenzung == '1' ? 'text-primary' : 'text-gray-800')" class="fw-bolder fs-5">
+                        <span [ngClass]="(anfrage.informationsergaenzung == 'online' ? 'text-primary' : 'text-gray-800')" class="fw-bolder fs-5">
                           per Online-Plattform
                         </span>
                         <span class="fs-6 fw-bold text-gray-500">
@@ -161,7 +161,7 @@
                         </span>
                       </span>
                       <span class="d-flex flex-column">
-                        <span [ngClass]="(anfrage.informationsergaenzung == '2' ? 'text-primary' : 'text-gray-800')" class="fw-bolder  fs-5">
+                        <span [ngClass]="(anfrage.informationsergaenzung == 'rechnung' ? 'text-primary' : 'text-gray-800')" class="fw-bolder  fs-5">
                           per letzter Rechnung(en)
                         </span>
                         <span class="fs-6 fw-bold text-gray-500">
@@ -180,7 +180,7 @@
                         </span>
                       </span>
                       <span class="d-flex flex-column">
-                        <span [ngClass]="(anfrage.informationsergaenzung == '3' ? 'text-primary' : 'text-gray-800')" class="fw-bolder fs-5">
+                        <span [ngClass]="(anfrage.informationsergaenzung == 'video' ? 'text-primary' : 'text-gray-800')" class="fw-bolder fs-5">
                           Per Video-Konferenz
                         </span>
                         <span class="fs-6 fw-bold text-gray-500">
@@ -193,13 +193,12 @@
         </div>
 
         <h2 class="fw-bolder d-flex align-items-center text-gray-900">
-            Aktuelle Liefersituation
+            Liefersituation
         </h2>
-
 
         <div class="mb-0 fv-row">
             <label class="d-flex align-items-center form-label mb-5">
-                Aktuelle Liefersituation
+                Was ist Ihnen wichtig?
             </label>
             <div class="mb-0">
                 <label class="d-flex flex-stack mb-5">
@@ -210,11 +209,11 @@
                             </span>
                         </span>
                         <span class="d-flex flex-column">
-                            <span [ngClass]="(anfrage.beliefersituation == '1' ? 'text-primary' : 'text-gray-800')" class="fw-bolder fs-5">
-                                Grundversorgung
+                            <span [ngClass]="(anfrage.beschaffungsstrategie == 'planbar' ? 'text-primary' : 'text-gray-800')" class="fw-bolder fs-5">
+                                Planbare, günstige Energie
                             </span>
                             <span class="fs-6 fw-bold text-gray-500">
-                                Die Mehrheit der Lieferstellen ist in Grund- oder Ersatzversorgung
+                                ToDo
                             </span>
                         </span>
                     </span>
@@ -227,11 +226,11 @@
                             </span>
                         </span>
                         <span class="d-flex flex-column">
-                            <span [ngClass]="(anfrage.beliefersituation == '2' ? 'text-primary' : 'text-gray-800')" class="fw-bolder fs-5">
-                                Wettbewerblich
+                            <span [ngClass]="(anfrage.beschaffungsstrategie == 'markt' ? 'text-primary' : 'text-gray-800')" class="fw-bolder fs-5">
+                                Gleichstellung zum Markt mit Chancen und Risiken
                             </span>
                             <span class="fs-6 fw-bold text-gray-500">
-                                Es gibt (mehrheitlich) bestehende Lieferverträge außerhalb der Grundversorgung
+                                ToDo
                             </span>
                         </span>
                     </span>
@@ -244,15 +243,68 @@
                         </span>
                       </span>
                       <span class="d-flex flex-column">
-                        <span [ngClass]="(anfrage.beliefersituation == '3' ? 'text-primary' : 'text-gray-800')" class="fw-bolder fs-5">
-                          Unbekannt
+                        <span [ngClass]="(anfrage.beschaffungsstrategie == 'egal' ? 'text-primary' : 'text-gray-800')" class="fw-bolder fs-5">
+                          Ohne Präferenz
                         </span>
                         <span class="fs-6 fw-bold text-gray-500">
-                          Ich kenne die Versorgungssituation aktuell nicht.
+                          ToDo
                         </span>
                       </span>
                     </span>
                 </label>
+            </div>
+        </div>
+
+
+        <div class="mb-10 fv-row">
+            <label class="d-flex align-items-center form-label mb-3 required">
+                Welche Mengenflexibilität benötigen Sie für Strom?
+            </label>
+            <div class="row mb-2">
+                <div class="col">
+                    <label [class.active]="anfrage.mengenflexibilitaetStrom == '80-120'" class="btn btn-outline btn-outline-dashed btn-outline-default w-100 p-4">
+                        <span class="fw-bolder fs-3">80% - 120%</span>
+                    </label>
+                </div>
+                <div class="col">
+                    <label [class.active]="anfrage.mengenflexibilitaetStrom == '90-110'" class=" btn btn-outline btn-outline-dashed btn-outline-default w-100 p-4">
+                        <span class="fw-bolder fs-3">90% - 110%</span>
+                    </label>
+                </div>
+                <div class="col">
+                    <label [class.active]="anfrage.mengenflexibilitaetStrom == 'unbekannt'" class=" btn btn-outline btn-outline-dashed btn-outline-default w-100 p-4">
+                        <span class="fw-bolder fs-3">unbekannt</span>
+                    </label>
+                </div>
+            </div>
+            <div class="form-text">
+                ToDo
+            </div>
+        </div>
+
+        <div class="mb-10 fv-row">
+            <label class="d-flex align-items-center form-label mb-3 required">
+                Welche Mengenflexibilität benötigen Sie für Gas?
+            </label>
+            <div class="row mb-2" data-kt-buttons="true">
+                <div class="col">
+                    <label [class.active]="anfrage.mengenflexibilitaetGas == '80-120'" class="btn btn-outline btn-outline-dashed btn-outline-default w-100 p-4">
+                        <span class="fw-bolder fs-3">80% - 120%</span>
+                    </label>
+                </div>
+                <div class="col">
+                    <label [class.active]="anfrage.mengenflexibilitaetGas == '90-110'" class=" btn btn-outline btn-outline-dashed btn-outline-default w-100 p-4">
+                        <span class="fw-bolder fs-3">90% - 110%</span>
+                    </label>
+                </div>
+                <div class="col">
+                    <label [class.active]="anfrage.mengenflexibilitaetGas == 'unbekannt'" class=" btn btn-outline btn-outline-dashed btn-outline-default w-100 p-4">
+                        <span class="fw-bolder fs-3">unbekannt</span>
+                    </label>
+                </div>
+            </div>
+            <div class="form-text">
+                ToDo
             </div>
         </div>
 

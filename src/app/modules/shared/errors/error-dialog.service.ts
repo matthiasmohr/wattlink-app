@@ -2,8 +2,9 @@ import {Injectable} from '@angular/core';
 import { ErrorDialogComponent } from './error-dialog/error-dialog.component';
 import {NgbActiveModal, NgbModal, NgbModalRef} from "@ng-bootstrap/ng-bootstrap";
 
-@Injectable()
-
+@Injectable({
+  providedIn: 'root' // ✅ Stellt sicher, dass nur eine Instanz existiert
+})
 export class ErrorDialogService {
   constructor(public modalService: NgbModal) {}
 

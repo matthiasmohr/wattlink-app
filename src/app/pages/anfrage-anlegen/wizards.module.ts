@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule } from '@angular/forms';
-import { NgbTooltipModule } from '@ng-bootstrap/ng-bootstrap';
+import {NgbInputDatepicker, NgbTooltipModule} from '@ng-bootstrap/ng-bootstrap';
 import { VerticalComponent } from './vertical/vertical.component';
 import { WizardsRoutingModule } from './wizards-routing.module';
 import { WizardsComponent } from './wizards.component';
@@ -27,7 +27,8 @@ import { SharedModule } from "../../_metronic/shared/shared.module";
     WizardsRoutingModule,
     ReactiveFormsModule,
     NgbTooltipModule,
-    SharedModule
+    SharedModule,
+    NgbInputDatepicker
   ],
 })
 export class WizardsModule {}

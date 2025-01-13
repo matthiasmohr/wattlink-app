@@ -6,7 +6,7 @@
   </div>
 </div>
 <div [formGroup]="form">
-    <div class="fv-row mb-10">
+    <div class="fv-row mb-5">
         <label class="form-label required">Firma</label>
         <input name="firma" class="form-control form-control-lg form-control-solid" formControlName="firma"/>
         <div class="fv-plugins-message-container invalid-feedback" *ngIf=" form.get('firma')?.hasError('required') && form.get('firma')?.touched">
@@ -14,7 +14,7 @@
         </div>
     </div>
 
-    <div class="fv-row mb-10">
+    <div class="fv-row mb-5">
         <label class="d-flex align-items-center form-label">
             <span class="required">Vorname</span>
         </label>
@@ -22,50 +22,52 @@
         <div class="fv-plugins-message-container invalid-feedback" *ngIf=" form.get('vorname')?.hasError('required') && form.get('vorname')?.touched">
             Vorname ist erforderlich
         </div>
+    </div>
 
-        <div class="fv-row mb-10">
-            <label class="d-flex align-items-center form-label">
-                <span class="required">Nachname</span>
-            </label><input name="vorname" class="form-control form-control-lg form-control-solid" formControlName="nachname"/>
-            <div class="fv-plugins-message-container invalid-feedback" *ngIf=" form.get('nachname')?.hasError('required') && form.get('nachname')?.touched">
-                Nachname ist erforderlich
-            </div>
+    <div class="fv-row mb-5">
+        <label class="d-flex align-items-center form-label">
+            <span class="required">Nachname</span>
+        </label><input name="vorname" class="form-control form-control-lg form-control-solid" formControlName="nachname"/>
+        <div class="fv-plugins-message-container invalid-feedback" *ngIf=" form.get('nachname')?.hasError('required') && form.get('nachname')?.touched">
+            Nachname ist erforderlich
         </div>
+    </div>
 
-        <div class="fv-row mb-0">
-            <label class="fs-6 fw-bold form-label required">Email</label>
-            <input name="email" class="form-control form-control-lg form-control-solid" formControlName="email"/>
-            <div class="fv-plugins-message-container invalid-feedback" *ngIf=" form.get('email')?.hasError('required') && form.get('email')?.touched">
-                Email ist erforderlich
-            </div>
-            <div class="fv-plugins-message-container invalid-feedback" *ngIf=" form.get('email')?.hasError('email') && form.get('email')?.touched">
-                Kein gültiges Email-Format
-            </div>
+    <div class="fv-row mb-5">
+        <label class="fs-6 form-label required">Email</label>
+        <input name="email" class="form-control form-control-lg form-control-solid" formControlName="email"/>
+        <div class="fv-plugins-message-container invalid-feedback" *ngIf=" form.get('email')?.hasError('required') && form.get('email')?.touched">
+            Email ist erforderlich
         </div>
-
-        <div class="fv-row mb-10">
-            <label class="d-flex align-items-center form-label">
-                <span class="">Telefonnummer</span>
-            </label>
-            <input name="telefon" class="form-control form-control-lg form-control-solid" formControlName="telefon"/>
-            <div class="fv-plugins-message-container invalid-feedback" *ngIf=" form.get('telefon')?.hasError('telefonnummer') && form.get('telefon')?.touched">
-                Telefonnummer ist erforderlich
-            </div>
+        <div class="fv-plugins-message-container invalid-feedback" *ngIf=" form.get('email')?.hasError('email') && form.get('email')?.touched">
+            Kein gültiges Email-Format
         </div>
+    </div>
 
-    <div class="fv-row mb-10">
+    <div class="fv-row mb-5">
+        <label class="d-flex align-items-center form-label">
+            <span class="">Telefonnummer</span>
+        </label>
+        <input name="telefon" class="form-control form-control-lg form-control-solid" formControlName="telefon"/>
+        <div class="fv-plugins-message-container invalid-feedback" *ngIf=" form.get('telefon')?.hasError('telefonnummer') && form.get('telefon')?.touched">
+            Telefonnummer ist erforderlich
+        </div>
+    </div>
+
+    <div class="fv-row mb-5">
         <label class="form-label required">Anfragesteller</label>
         <select name="anfragesteller" class="form-select form-select-lg form-select-solid" formControlName="anfragesteller">
-            <option value="1">Einzelunternehmen</option>
-            <option value="1">GbR - Gesellschaft bürgerlichen Rechts</option>
-            <option value="2">OHG - Offene Handelsgesellschaft</option>
-            <option value="3">KG - Kommanditgesellschaft</option>
-            <option value="4">GmbH - Gesellschaft mit beschränkter Haftung</option>
-            <option value="5">UG - Unternehmergesellschaft</option>
-            <option value="6">AG - Aktiengesellschaft</option>
-            <option value="7">Limited</option>
+            <option value="Einzelunternehmen">Einzelunternehmen</option>
+            <option value="GbR">GbR - Gesellschaft bürgerlichen Rechts</option>
+            <option value="OHG">OHG - Offene Handelsgesellschaft</option>
+            <option value="KG">KG - Kommanditgesellschaft</option>
+            <option value="GmbH">GmbH - Gesellschaft mit beschränkter Haftung</option>
+            <option value="UG">UG - Unternehmergesellschaft</option>
+            <option value="AG">AG - Aktiengesellschaft</option>
+            <option value="Limited">Limited</option>
         </select>
     </div>
+
     <div class="fv-row mb-10">
         <label class="form-label">Ergänzende Beschreibung</label>
         <textarea name="anfragestellerBeschreibung" class="form-control form-control-lg form-control-solid" rows="3" formControlName="anfragestellerBeschreibung"></textarea>
