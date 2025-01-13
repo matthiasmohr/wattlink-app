@@ -2,22 +2,48 @@
   <h2 class="fw-bolder text-gray-900">Vielen Dank!</h2>
   <div class="text-gray-500 fw-bold fs-6">
     Ihre Lieferanfrage wurde gestellt. Sie können Sie in der Übersicht Ihrer
-    <a class="link-primary fw-bolder cursor-pointer" routerLink="/anfragen-liste">Lieferanfragen</a> einsehen.
+    <a class="link-primary fw-bolder cursor-pointer" routerLink="/anfragen-liste">
+        Lieferanfragen
+    </a>
+      einsehen.
   </div>
 </div>
 <div class="mb-0">
-  <div class="fs-6 text-gray-600 mb-5">
-    Als nächstes passiert jetzt dies und das. Und ganz bestimmt meldet sich jemand  bei Ihnen. Und wenn nicht, warten Sie einfach etwas weiter.
-  </div>
-  <div class=" notice d-flex bg-light-warning rounded border-warning border border-dashed p-6">
-    <span class="svg-icon fs-2tx text-warning me-4"></span>
-    <div class="d-flex flex-stack flex-grow-1">
-      <div class="fw-bold">
-        <h4 class="text-gray-800 fw-bolder">Wir brauchen Ihre Aufmerksamkeit!</h4>
-        <div class="fs-6 text-gray-600">
-          Nein. Doch nicht.
+    <div class="fs-6 text-gray-600 mb-5">
+        <h4 class="fw-bold">Was sind die nächsten Schritte?</h4>
+        <ol class="ps-3">
+            <li>
+                Wir benötigen noch weitere Details, die Sie entweder alleine oder zusammen mit uns eingeben.
+                Sie erhalten dafür eine E-Mail mit den nächsten Schritten von uns. Es geht um Zählernummer,
+                Verbrauch pro Zählpunkt, etc.
+            </li>
+            <li>
+                Anschließend analysieren wir Ihren aktuellen Vertrag und zeigen Ihnen
+                mögliche Einsparungen sowie weitere Optimierungsmöglichkeiten auf.
+            </li>
+        </ol>
+    </div>
+    <ng-container *ngIf="(partnerprofil$) | async as partnerprofil">
+      <div class=" notice d-flex bg-light-warning rounded border-warning border border-dashed p-6">
+        <span class="svg-icon fs-2tx text-warning me-4"></span>
+        <div class="d-flex flex-stack flex-grow-1">
+          <div class="fw-bold">
+            <h4 class="text-gray-800 fw-bolder">Wir brauchen Ihre Aufmerksamkeit!</h4>
+            <div class="fs-6 text-gray-600">
+                <p>
+                    Um für Sie tätig werden zu können, benötigen wir Ihre Einwilligung.
+                    Klicken Sie <a class="fw-bolder" [routerLink]="['/account/partnerprofil-anlegen/']">
+                    hier
+                </a>, um die Berechtigung zu erteilen.
+                </p>
+                <p class="mt-3">
+                    <strong>Wichtig:</strong> Unser Service wird erst dann kostenpflichtig,
+                    wenn wir für Sie tatsächliche Kosteneinsparungen realisieren.
+                    Sollte keine Einsparung erfolgen, bleibt unser Service für Sie kostenlos.
+                </p>
+            </div>
+          </div>
         </div>
       </div>
-    </div>
-  </div>
+    </ng-container>
 </div>

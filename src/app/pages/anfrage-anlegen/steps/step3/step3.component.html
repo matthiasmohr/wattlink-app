@@ -144,7 +144,7 @@
       <div class="input-group">
           <input class="form-control form-control-lg form-control-solid"
                  formControlName="lieferbeginn"
-                 (dateSelect)="form.get('lieferbeginn')?.setValue($event)"
+                 (dateSelect)="onDateSelect($event)"
                  ngbDatepicker #d="ngbDatepicker"
                  placeholder="TT.MM.JJJJ" />
           <button class="btn btn-outline-secondary" (click)="d.toggle()" type="button">

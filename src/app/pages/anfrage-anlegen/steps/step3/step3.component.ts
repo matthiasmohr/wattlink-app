@@ -1,8 +1,7 @@
-import {Component, Input, OnDestroy, OnInit, SimpleChanges} from '@angular/core';
+import {Component, Input, OnDestroy, OnInit} from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Subscription } from 'rxjs';
 import { Anfrage } from '../../../../shared/Anfrage';
-import {NgbDateStruct} from "@ng-bootstrap/ng-bootstrap";
 
 @Component({
   selector: 'app-step3',
@@ -19,7 +18,7 @@ export class Step3Component implements OnInit, OnDestroy {
   private unsubscribe: Subscription[] = [];
 
   constructor(private fb: FormBuilder) {}
-
+  
   ngOnInit() {
     this.initForm();
     this.updateParentModel({}, this.checkForm());
@@ -48,10 +47,20 @@ export class Step3Component implements OnInit, OnDestroy {
       this.form.get('lieferbeginn')?.hasError('required')
     );
   }
-  
-  // 🛠 Konvertiere NgbDateStruct in YYYY-MM-DD Format
-  onDateSelect(event: any) {
-    this.form.get('lieferbeginn')?.setValue(event);
+
+  formatDate(date: any): string {
+    if (!date) return '';
+    const day = ('0' + date.day).slice(-2); // Zwei-stellig (01, 02, ..., 31)
+    const month = ('0' + date.month).slice(-2); // Zwei-stellig (01, 02, ..., 12)
+    return `${day}.${month}.${date.year}`; // Format: TT.MM.JJJJ
+  }
+
+  onDateSelect(date: any) {
+    if (date) {
+      const formattedDate = this.formatDate(date);
+      this.form.patchValue({ lieferbeginn: formattedDate });
+      this.form.get('lieferbeginn')?.updateValueAndValidity();
+    }
   }
 
   ngOnDestroy() {
