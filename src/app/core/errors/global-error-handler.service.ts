@@ -18,8 +18,14 @@ export class GlobalErrorHandlerService implements ErrorHandler {
         // Check if it's an error from an HTTP response
         if (!(error instanceof HttpErrorResponse)) {
             error = error.rejection; // get the error object
+        } else {
+            errorDialogService.showMessage(
+                error.name || 'Undefined client error',
+                error.message || 'Undefined client error',
+            )
         }
 
+        console.log("MMM: ", (error instanceof HttpErrorResponse))
         if (error instanceof Error) {
             console.error('Error message:', error.message);
             console.error('Stack trace:', error.stack);
