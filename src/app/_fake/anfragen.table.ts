@@ -14,7 +14,6 @@ export class AnfragenTable {
             informationsergaenzung: '2',
             anfrageBezeichnung: 'Testanfrage',
             // Step 3
-            beliefersituation: '2',
             lieferbeginn: '1.10.2025',
             wasIstWichtig: 'Mir ist alles wichtig!',
             // Step 4
@@ -49,7 +48,6 @@ export class AnfragenTable {
             informationsergaenzung: '2',
             anfrageBezeichnung: 'Neue Anfrage',
             // Step 3
-            beliefersituation: '2',
             lieferbeginn: '1.12.2024',
             wasIstWichtig: 'Mir auch!',
             // Step 4
