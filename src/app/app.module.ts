@@ -45,6 +45,7 @@ import {CoreModule} from "./core/core.module";
               redirect_uri: window.location.origin,
               //audience: environment.auth.AUTH0_AUDIENCE,
               audience: environment.auth.AUTH0_AUDIENCE,
+              permissions: 'agent:full',
           },
           httpInterceptor: {
               allowedList: [

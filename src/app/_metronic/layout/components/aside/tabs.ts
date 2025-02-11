@@ -1,5 +1,6 @@
 import { environment } from 'src/environments/environment';
 
+
 type Tab = {
   link:
       | 'endkunden'
@@ -10,6 +11,7 @@ type Tab = {
       | 'Endkunden'
       | 'Versorger'
       | 'Agent';
+  requiredPermission?: string;
 };
 
 let tabs: Array<Tab> = []
@@ -31,8 +33,8 @@ tabs = [
     link: 'agent',
     icon: './assets/media/icons/duotune/abstract/abs027.svg',
     tooltip: 'Agent',
+    requiredPermission: "agent:full",
   },
 ];
-
 
 export { tabs, Tab };

@@ -6,6 +6,7 @@ import { LayoutService } from '../../core/layout.service';
 import { Tab, tabs } from './tabs';
 import { environment } from '../../../../../environments/environment';
 import {AuthService} from "@auth0/auth0-angular";
+import {AuthHelperService} from 'src/app/shared/authHelper.service'
 
 @Component({
   selector: 'app-aside',
