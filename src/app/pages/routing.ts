@@ -6,7 +6,6 @@ import {MesslokationAnlegenComponent} from "./messlokation-anlegen/messlokation-
 import {AccountComponent} from "./account/account.component";
 import {MesslokationLastkurveComponent} from "./messlokation-lastkurve/messlokation-lastkurve.component";
 import {PartnerprofileListeAgentComponent} from "./agent/partnerprofile-liste-agent/partnerprofile-liste-agent.component";
-import {AnfragenListeAgentComponent} from "./agent/anfragen-liste-agent/anfragen-liste-agent.component";
 import {AnfrageAnzeigenAgentComponent} from "./agent/anfrage-anzeigen/anfrage-anzeigen.component";
 import {AnfrageAnzeigenAgentModule} from "./agent/anfrage-anzeigen/anfrage-anzeigen.module";
 import {ImpressumComponent} from "./static/impressum/impressum.component";
@@ -52,10 +51,6 @@ const Routing: Routes = [
   {
     path: 'agent/partnerprofile-liste',
     component: PartnerprofileListeAgentComponent
-  },
-  {
-    path: 'agent/partnerprofil/:id/anfragen-liste',
-    component: AnfragenListeAgentComponent
   },
   {
     path: 'agent/partnerprofil/:partnerprofilid/anfrage-anzeigen/:anfrageid',

@@ -8,6 +8,10 @@ import {Observable, map} from "rxjs";
 export class AuthHelperService {
     constructor(private auth: AuthService) {}
 
+    isAgent(): Observable<boolean> {
+        return this.hasPermission('agent:full');
+    }
+
     hasPermission(permission: string): Observable<boolean> {
         return this.auth.getAccessTokenSilently().pipe(
             map((token: any) => {

@@ -18,19 +18,12 @@ const headers = new HttpHeaders({
     providedIn: 'root',
 })
 export class AnfragenApiService {
-    //anfragenUrl = 'api/anfragen'; // this is for local testing
     anfragenUrl = environment.backendApi + '/v1/anfrage';
 
     constructor(public http: HttpClient) {}
 
-    /*========================================
-      CRUD Methods for consuming RESTful API
-    =========================================*/
-
     getAnfragen(): Observable<Anfrage[]> {
         return this.http.get<any>(this.anfragenUrl, { headers }).pipe(
-            //retry(2),
-            //tap(data => console.log(data)),// eyeball results in the console
             map(response => response['anfragen']),
             catchError(this.handleError)
         );
@@ -38,22 +31,15 @@ export class AnfragenApiService {
 
     getAnfragenAnzahl(): Observable<number> {
         return this.http.get<any>(this.anfragenUrl, { headers }).pipe(
-            //retry(2),
-            //tap(data => console.log(data)),// eyeball results in the console
             map(response => response['anzahl']),
             catchError(this.handleError)
         );
     }
 
-    // Deprecated (soll ersetzt werden durch serverseitige Filterung)
-    getAnfrage(id: any): Observable<Anfrage> {
-        const url = `${this.anfragenUrl}`;
-        return this.http.get<any>(url).pipe(
-            map(response => response['anfragen']),
-            //find(anfrage=> anfrage.anfrageID == "07d3a60c-2f58-4623-8a7e-defe314ceb78"),
-            map(anfragen => anfragen.filter(
-                    (anfrage: any) => anfrage.anfrageID == id
-                )[0]),
+    getAnfrage(anfrageID: any): Observable<Anfrage> {
+        const url = `${this.anfragenUrl}?anfrageID=${anfrageID}`;
+        return this.http.get<any>(url, { headers }).pipe(
+            map(response => response['anfragen'][0]),
             catchError(this.handleError)
         );
     }
@@ -65,8 +51,7 @@ export class AnfragenApiService {
     }
 
     private handleError (error: HttpErrorResponse) {
-        // In a real world app, we might send the error to remote logging infrastructure
-        // and reformat for user consumption
+        // TODO: Remote error handling
         console.error(error); // log to console instead
         return throwError(error);
     }

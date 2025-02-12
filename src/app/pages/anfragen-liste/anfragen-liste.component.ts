@@ -6,7 +6,9 @@ import {Observable, of, tap} from "rxjs";
 import {catchError} from "rxjs/operators";
 import {HttpClient} from "@angular/common/http";
 import {InlineSVGModule} from "ng-inline-svg-2";
-import {RouterLink} from "@angular/router";
+import {ActivatedRoute, RouterLink} from "@angular/router";
+import {AnfragenAgentApiService} from "../../shared/anfrageAgent.service";
+import {AuthHelperService} from "../../shared/authHelper.service";
 
 
 @Component({
@@ -26,7 +28,11 @@ import {RouterLink} from "@angular/router";
 export class AnfragenListeComponent implements OnInit {
   constructor(
       public anfragenApiService: AnfragenApiService,
-      private cdr: ChangeDetectorRef,) {}
+      public anfragenAgentApiService: AnfragenAgentApiService,
+      public authHelperService: AuthHelperService,
+      private route: ActivatedRoute,
+      private cdr: ChangeDetectorRef
+      ) {}
 
   anfragen$: Observable<Anfrage[]>
   anfragenAnzahl: number
@@ -35,15 +41,27 @@ export class AnfragenListeComponent implements OnInit {
   baseLink = '/anfrage-anzeigen/'
 
   ngOnInit() {
-    this.anfragen$ = this.anfragenApiService.getAnfragen()
-
-    this.anfragenApiService.getAnfragenAnzahl().subscribe(res => {
-      this.anfragenAnzahl = res
-      if (res == 0) {
-        this.showEmptyIntro = true
-      }
-      this.cdr.detectChanges();
-    })
+    this.authHelperService.isAgent().subscribe((isAgent: boolean) => {
+      this.route.queryParamMap.subscribe(params => {
+        // Agent-Call
+        if (isAgent && params.get('partnerprofil')) {
+          const partnerprofil = params.get('partnerprofil');
+          this.anfragen$ = this.anfragenAgentApiService.getAnfragen(partnerprofil);
+          this.anfragenAgentApiService.getAnfragenAnzahl(partnerprofil).subscribe(res => {
+            this.anfragenAnzahl = res;
+          });
+        // User-Call
+        } else {
+          this.anfragen$ = this.anfragenApiService.getAnfragen();
+          this.anfragenApiService.getAnfragenAnzahl().subscribe(res => {
+            this.anfragenAnzahl = res;
+            if (res === 0) {
+              this.showEmptyIntro = true;
+            }
+            this.cdr.detectChanges();
+          });
+        }
+      });
+    });
   }
-
 }

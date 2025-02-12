@@ -35,6 +35,15 @@ export class AnfragenAgentApiService {
         );
     }
 
+    getAnfragenAnzahl(partnerprofilID: any): Observable<number> {
+        return this.http.get<any>(this.anfragenAgentUrl + '?partnerprofilID=' + partnerprofilID, { headers }).pipe(
+            //retry(2),
+            //tap(data => console.log(data)), // eyeball results in the console
+            map(response => response['anzahl']),
+            catchError(this.handleError)
+        );
+    }
+
     // Deprecated (soll ersetzt werden durch serverseitige Filterung)
     getAnfrage(partnerprofilID: any, id: any): Observable<Anfrage> {
         const url = `${this.anfragenAgentUrl}`;
