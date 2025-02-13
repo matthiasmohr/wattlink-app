@@ -6,6 +6,8 @@ import { DokumenteComponent } from './dokumente/dokumente.component';
 import { MesslokationenComponent } from './messlokationen/messlokationen.component';
 import { AnfrageAnzeigenComponent } from './anfrage-anzeigen.component';
 import { NachrichtenComponent } from './nachrichten/nachrichten.component';
+import { NachrichtErstellenComponent } from './nachricht-erstellen/nachricht-erstellen.component';
+
 
 const routes: Routes = [
   {
@@ -31,6 +33,10 @@ const routes: Routes = [
       {
         path: 'nachrichten',
         component: NachrichtenComponent,
+      },
+      {
+        path: 'nachricht-erstellen',
+        component: NachrichtErstellenComponent,
       },
       { path: '', redirectTo: 'overview', pathMatch: 'full' },
       { path: '**', redirectTo: 'overview', pathMatch: 'full' },

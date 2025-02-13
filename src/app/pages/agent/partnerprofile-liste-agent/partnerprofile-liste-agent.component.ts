@@ -47,6 +47,17 @@ export class PartnerprofileListeAgentComponent implements OnInit {
       })).subscribe()
   }
 
+  onKategorieChange(event: Event, partnerprofil: Partnerprofil, field: keyof Partnerprofil): void {
+    const input = event.target as HTMLInputElement;
+    (partnerprofil[field] as boolean) = input.checked;
+    this.partnerprofileAgentApiService.editPartnerprofilAgent(partnerprofil).pipe(
+      catchError(error => {
+        console.error('Kategorie Update failed', error);
+        return of(null);
+      })
+    ).subscribe();
+  }
+
   onDelete(partnerprofil: Partnerprofil): void {
     // Remove from server
     this.partnerprofileAgentApiService.deletePartnerprofilAgent(partnerprofil).pipe(

@@ -110,13 +110,13 @@
 
                                         <div class="d-flex">
                                             <label class="form-check form-check-sm form-check-custom form-check-solid me-5">
-                                                <input class="form-check-input" type="checkbox" value="1" />
+                                                <input class="form-check-input" type="checkbox" [checked]="partnerprofil.kunde" (change)="onKategorieChange($event, partnerprofil, 'kunde')" />
                                                 <span class="form-check-label">Kunde</span>
                                             </label>
 
                                             <label class="form-check form-check-sm form-check-custom form-check-solid">
-                                                <input class="form-check-input" type="checkbox" value="2" defaultChecked="{true}"/>
-                                                <span class="form-check-label">Versorger</span>
+                                                <input class="form-check-input" type="checkbox" [checked]="partnerprofil.lieferant" (change)="onKategorieChange($event, partnerprofil, 'lieferant')" />
+                                                <span class="form-check-label">Lieferant</span>
                                             </label>
                                         </div>
                                     </div>

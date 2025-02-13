@@ -8,6 +8,8 @@ import { DokumenteComponent } from './dokumente/dokumente.component';
 import { AnfrageAnzeigenRoutingModule } from './anfrage-anzeigen-routing.module';
 import { AnfrageAnzeigenComponent } from './anfrage-anzeigen.component';
 import { NachrichtenComponent } from './nachrichten/nachrichten.component';
+import { NachrichtErstellenComponent } from './nachricht-erstellen/nachricht-erstellen.component';
+
 import {
   CardsModule,
   DropdownMenusModule,
@@ -15,7 +17,7 @@ import {
 } from '../../_metronic/partials';
 import { SharedModule } from "../../_metronic/shared/shared.module";
 import {LieferstellenCardComponent} from "./messlokationen/messlokationen-card/card.component";
-import {ReactiveFormsModule} from "@angular/forms";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {NgbTooltip} from "@ng-bootstrap/ng-bootstrap";
 import {NgxEchartsDirective} from "ngx-echarts";
 
@@ -28,18 +30,20 @@ import {NgxEchartsDirective} from "ngx-echarts";
     AngeboteComponent,
     DokumenteComponent,
     NachrichtenComponent,
+    NachrichtErstellenComponent
   ],
-    imports: [
-        CommonModule,
-        AnfrageAnzeigenRoutingModule,
-        InlineSVGModule,
-        DropdownMenusModule,
-        WidgetsModule,
-        CardsModule,
-        SharedModule,
-        ReactiveFormsModule,
-        NgbTooltip,
-        NgxEchartsDirective
-    ],
+  imports: [
+    CommonModule,
+    AnfrageAnzeigenRoutingModule,
+    InlineSVGModule,
+    DropdownMenusModule,
+    WidgetsModule,
+    CardsModule,
+    SharedModule,
+    ReactiveFormsModule,
+    NgbTooltip,
+    NgxEchartsDirective,
+    FormsModule
+  ],
 })
 export class AnfrageAnzeigenModule {}

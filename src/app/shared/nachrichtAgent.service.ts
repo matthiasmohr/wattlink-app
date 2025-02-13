@@ -15,28 +15,27 @@ const headers = new HttpHeaders({
 @Injectable({
     providedIn: 'root',
 })
-export class NachrichtenApiService {
-    // Define API
-    //nachrichtenUrl = 'api/nachrichten';
-    nachrichtenUrl = environment.backendApi + '/v1/nachricht';
-
+export class NachrichtenAgentApiService {
     constructor(public http: HttpClient) {}
+    nachrichtenAgentUrl = environment.backendApi + '/agent-v1/nachricht';
 
-    /*========================================
-      CRUD Methods for consuming RESTful API
-    =========================================*/
-
-    getNachrichten(anfrageID?: any): Observable<Nachricht[]> {
-      const url = `${this.nachrichtenUrl}?anfrageID=${anfrageID}`;
+    getNachrichten(partnerprofilID: any, anfrageID?: any): Observable<Nachricht[]> {
+      const url = `${this.nachrichtenAgentUrl}?anfrageID=${anfrageID}&partnerprofilID=${partnerprofilID}`;
       return this.http.get<any>(url, { headers }).pipe(
+            //retry(2),
+            //tap(data => console.log(data)), // eyeball results in the console
             map(response => response['nachricht']),
             catchError(this.handleError)
         );
     }
 
+    createNachricht(nachricht: Nachricht): Observable<Nachricht> {
+        return this.http.post<Nachricht>(this.nachrichtenAgentUrl, nachricht, { headers }).pipe(
+            catchError(this.handleError)
+        )
+    }
+
     private handleError (error: HttpErrorResponse) {
-        // In a real world app, we might send the error to remote logging infrastructure
-        // and reformat for user consumption
         console.error(error); // log to console instead
         return throwError(error);
     }

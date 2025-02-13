@@ -1,0 +1,62 @@
+<ng-container *ngIf="(!this.isLoading) ; else loading">
+<div>
+    <div class="card shadow-none rounded-0">
+        <div class="card-header" id="kt_activities_header">
+            <h3 class="card-title fw-bolder text-gray-900">Nachricht erstellen für Anfrage {{anfrageID}}</h3>
+        </div>
+        <div id="kt_account_profile_details" class="collapse show">
+            <form novalidate="" class="form" #nachrichtForm="ngForm" (ngSubmit)="createNachricht()">
+                <div class="card-body border-top p-9">
+
+                    <div *ngFor="let field of fields" class="row mb-6">
+                        <label class="col-lg-4 col-form-label required fw-bold fs-6">{{ field.label }}</label>
+                        <div class="col-lg-8 fv-row">
+                            <input *ngIf="field.type === 'text'" type="text" class="form-control form-control-lg form-control-solid"
+                                   [placeholder]="field.label" [name]="field.name"
+                                   [(ngModel)]="nachricht[field.name]"
+                                   [required]="checkRequired(field.validations)"
+                                   [minlength]="getMinLength(field.validations)"
+                                   [disabled]="lockForEdit"
+                            />
+                            <ng-container *ngIf="nachrichtForm.controls[field.name] && nachrichtForm.controls[field.name].invalid && (nachrichtForm.controls[field.name].dirty || !nachrichtForm.controls[field.name].untouched)">
+                                <div *ngFor="let validation of field.validations">
+                                    <ng-container *ngIf="nachrichtForm.controls[field.name].errors?.[validation.name]">
+                                        <div class="text-danger">
+                                            {{ validation.message }}
+                                        </div>
+                                    </ng-container>
+                                </div>
+                            </ng-container>
+                        </div>
+                    </div>
+
+                    <div class="row mb-6">
+                        <label class="col-lg-4 col-form-label fw-bold fs-6">Email Requested</label>
+                        <div class="col-lg-8 fv-row">
+                            <input type="checkbox" class="form-check-input" name="emailRequested" [(ngModel)]="nachricht.emailRequested" [disabled]="lockForEdit" />
+                        </div>
+                    </div>
+
+                </div>
+                <div class="card-footer d-flex justify-content-end py-6 px-9">
+                    <button type="button" class="btn btn-light" [disabled]="isLoading" (click)="cancel()">Abbrechen</button>
+                    <button type="submit" class="btn btn-primary" [disabled]="!nachrichtForm.valid || isLoading">
+                        <ng-container *ngIf="!isLoading">Speichern</ng-container>
+                        <ng-container *ngIf="isLoading">
+                            <span clas="indicator-progress" [style.display]="'block'">
+                              Please wait...{{ " " }}
+                                <span
+                                        class="spinner-border spinner-border-sm align-middle ms-2"
+                                ></span>
+                            </span>
+                        </ng-container>
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+</ng-container>
+<ng-template #loading>
+    <div>Loading...</div>
+</ng-template>

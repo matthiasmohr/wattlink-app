@@ -21,10 +21,6 @@ export class PartnerprofileAgentApiService {
     partnerprofilAgentUrl = environment.backendApi + '/agent-v1/partnerprofil';
 
     constructor(public http: HttpClient) {}
-
-    /*========================================
-      AGENT Endpoints
-    =========================================*/
     getPartnerprofileAgent(): Observable<Partnerprofil[]> {
         return this.http.get<any>(this.partnerprofilAgentUrl, { headers }).pipe(
             //retry(2),

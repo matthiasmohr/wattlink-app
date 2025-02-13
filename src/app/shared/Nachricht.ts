@@ -1,5 +1,6 @@
 interface Nachricht {
-    id: number,
+    partnerprofilID: string,
+    anfrageID: string,
     nachrichtTitel: string,
     nachrichtInhalt: string,
     erzeuger: string,
@@ -8,6 +9,7 @@ interface Nachricht {
 
     icon: string,
     stil: string,
+    emailRequested: boolean,
 
     sichtbarKunde: boolean,
     sichtbarVersorger: boolean,
