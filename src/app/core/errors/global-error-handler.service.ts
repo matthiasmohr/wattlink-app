@@ -15,24 +15,18 @@ export class GlobalErrorHandlerService implements ErrorHandler {
         const errorDialogService = this.injector.get(ErrorDialogService)
 
         console.error('Error from global error handler:', error);
+        console.error('Error message:', error.message);
+        console.error('Stack trace:', error.stack);
         // Check if it's an error from an HTTP response
-        if (!(error instanceof HttpErrorResponse)) {
-            error = error.rejection; // get the error object
-        } else {
-            errorDialogService.showMessage(
-                error.name || 'Undefined client error',
-                error.message || 'Undefined client error',
-            )
+        if (error instanceof HttpErrorResponse) {
+            console.error('Backend returned status code:', error.status);
+            console.error('Response body:', error.message);
         }
 
-        console.log("MMM: ", (error instanceof HttpErrorResponse))
-        if (error instanceof Error) {
-            console.error('Error message:', error.message);
-            console.error('Stack trace:', error.stack);
-            errorDialogService.showMessage(
-                error.name || 'Undefined client error',
-                error.message || 'Undefined client error',
-            )
-        }
+        errorDialogService.showMessage(
+            error.name || 'Undefined server error',
+            error.message || 'Undefined server error',
+        )
+
     }
 }

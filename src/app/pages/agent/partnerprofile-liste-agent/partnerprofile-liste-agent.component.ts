@@ -6,6 +6,8 @@ import {RouterLink} from "@angular/router";
 import {PartnerprofileApiService} from "../../../shared/partnerprofil.service";
 import {Partnerprofil} from "../../../shared/Partnerprofil";
 import {PartnerprofileAgentApiService} from "../../../shared/partnerprofilAgent.service";
+import {DropdownMenusModule} from "../../../_metronic/partials";
+import {catchError, map} from "rxjs/operators";
 
 
 @Component({
@@ -16,7 +18,8 @@ import {PartnerprofileAgentApiService} from "../../../shared/partnerprofilAgent.
     InlineSVGModule,
     NgIf,
     RouterLink,
-    AsyncPipe
+    AsyncPipe,
+    DropdownMenusModule
   ],
   templateUrl: './partnerprofile-liste-agent.component.html',
   styleUrl: './partnerprofile-liste-agent.component.scss',
@@ -32,6 +35,29 @@ export class PartnerprofileListeAgentComponent implements OnInit {
 
   ngOnInit() {
     this.partnerprofile$ = this.partnerprofileAgentApiService.getPartnerprofileAgent()
+  }
+
+  onEmailAktiviertChange(event: Event, partnerprofil: any): void {
+    const input = event.target as HTMLInputElement;
+    partnerprofil.emailAktiviert = input.checked;
+    this.partnerprofileAgentApiService.editPartnerprofilAgent(partnerprofil).pipe(
+      catchError(error => {
+        console.error('Email Switch failed', error);
+        return of(null);
+      })).subscribe()
+  }
+
+  onDelete(partnerprofil: Partnerprofil): void {
+    // Remove from server
+    this.partnerprofileAgentApiService.deletePartnerprofilAgent(partnerprofil).pipe(
+      catchError(error => {
+        console.error('Delete failed', error);
+        return of(null);
+      })).subscribe()
+    // Parallel update the UI
+    this.partnerprofile$ = this.partnerprofile$.pipe(
+      map(partnerprofileList => partnerprofileList.filter(p => p.partnerprofilID !== partnerprofil.partnerprofilID))
+    );
   }
 
 }

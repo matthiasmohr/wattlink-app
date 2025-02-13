@@ -34,6 +34,7 @@ export class AnfragenListeComponent implements OnInit {
       private cdr: ChangeDetectorRef
       ) {}
 
+  queryParams: any
   anfragen$: Observable<Anfrage[]>
   anfragenAnzahl: number
   showEmptyIntro = false
@@ -58,10 +59,14 @@ export class AnfragenListeComponent implements OnInit {
             if (res === 0) {
               this.showEmptyIntro = true;
             }
-            this.cdr.detectChanges();
           });
         }
-      });
+        this.cdr.detectChanges();
+      })
+      // Forward query params
+      this.route.queryParams.subscribe(params => {
+        this.queryParams = params;
+      })
     });
   }
 }

@@ -1,6 +1,7 @@
 interface Partnerprofil {
     partnerprofilID: string,
     email: string
+    emailAktiviert: boolean
     vorname: string
     nachname: string
     firma: string

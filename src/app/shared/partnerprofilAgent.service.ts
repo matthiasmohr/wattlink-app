@@ -52,6 +52,15 @@ export class PartnerprofileAgentApiService {
         )
     }
 
+    deletePartnerprofilAgent(partnerprofil: Partnerprofil): Observable<any> {
+        return this.http.request<Partnerprofil>('delete',this.partnerprofilAgentUrl, {
+            body: partnerprofil,
+            headers: headers
+        }).pipe(
+          catchError(this.handleError)
+        )
+    }
+
 
     /*========================================
       HELPERS

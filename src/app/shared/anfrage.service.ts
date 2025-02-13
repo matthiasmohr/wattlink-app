@@ -39,7 +39,8 @@ export class AnfragenApiService {
     getAnfrage(anfrageID: any): Observable<Anfrage> {
         const url = `${this.anfragenUrl}?anfrageID=${anfrageID}`;
         return this.http.get<any>(url, { headers }).pipe(
-            map(response => response['anfragen'][0]),
+            tap(response => console.log('Response:', response)),
+            map(response => response['anfragen'] && response['anfragen'].length > 0 ? response['anfragen'][0] : null),
             catchError(this.handleError)
         );
     }
