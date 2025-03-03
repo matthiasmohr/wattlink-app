@@ -4,7 +4,7 @@
     <h1 class="text-gray-900 fw-bolder my-0 fs-2">
       {{ title }}
       <ng-container *ngIf="description$ | async as description">
-        <ng-container *ngIf="showDescritption">
+          <ng-container *ngIf="showDescritption">
           <small class="text-muted fs-6 fw-normal ms-1">{{description}}</small>
         </ng-container>
       </ng-container>
@@ -12,7 +12,6 @@
     </h1>
     <!-- end::Title -->
   </ng-container>
-
   <ng-container *ngIf="showBC">
     <ng-container *ngIf="bc$ | async as _bc">
       <ng-container *ngIf="_bc.length > 0">

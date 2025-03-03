@@ -20,7 +20,7 @@ export class PageTitleComponent implements OnInit, OnDestroy {
 
   constructor(
     private pageInfo: PageInfoService,
-    private layout: LayoutService
+    private layout: LayoutService,
   ) {}
 
   ngOnInit(): void {

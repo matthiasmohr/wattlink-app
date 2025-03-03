@@ -89,10 +89,14 @@
 
                     <td>
                         <div class="d-flex justify-content-end flex-shrink-0">
-                            <button type="button" class="btn btn-bg-light btn-active-color-primary btn-sm me-1" [routerLink]="['/anfragen-liste']" [queryParams]="{ partnerprofil: partnerprofil.partnerprofilID }">
+                            <a type="button" class="btn btn-bg-light btn-active-color-primary btn-sm me-1" [routerLink]="['/account/partnerprofil-anzeigen']" [queryParams]="{ partnerprofil: partnerprofil.partnerprofilID }">
+                                <span [inlineSVG]=" './assets/media/icons/duotune/general/gen019.svg' " class="svg-icon svg-icon-3"></span>
+                                Partnerprofil
+                            </a>
+                            <a type="button" class="btn btn-bg-light btn-active-color-primary btn-sm me-1" [routerLink]="['/anfragen-liste']" [queryParams]="{ partnerprofil: partnerprofil.partnerprofilID }">
                                 <span [inlineSVG]=" './assets/media/icons/duotune/general/gen019.svg' " class="svg-icon svg-icon-3"></span>
                                 Anfragen
-                            </button>
+                            </a>
                             <div class="me-0">
                                 <button class=" btn btn-sm btn-icon btn-bg-light btn-active-color-primary" data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end" data-kt-menu-flip="top-end">
                                     <i class="bi bi-three-dots fs-3"></i>

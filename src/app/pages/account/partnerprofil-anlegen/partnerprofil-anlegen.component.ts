@@ -49,7 +49,6 @@ export class PartnerprofilAnlegenComponent implements OnInit {
         .subscribe((res) => (this.isLoading = res));
     this.unsubscribe.push(loadingSubscr);
 
-    // TODO: Partnerprofil dynamisch machen
     this.partnerprofileApiService.getPartnerprofil().subscribe(res => {
       this.partnerprofil = res
       this.showForm = true;
@@ -64,7 +63,6 @@ export class PartnerprofilAnlegenComponent implements OnInit {
       this.isLoading$.next(false);
       this.partnerprofil = res;
       this.location.back()
-      location.reload()
     })
   }
 

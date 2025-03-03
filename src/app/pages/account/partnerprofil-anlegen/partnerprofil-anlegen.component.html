@@ -21,64 +21,87 @@
                             </ng-container>
                         </div>
                     </div>
-                    <div class="row mb-6">
-                        <label class="col-lg-4 col-form-label required fw-bold fs-6">Vor- & Nachname</label>
-                        <div class="col-lg-8">
-                            <div class="row">
-                                <div class="col-lg-6 fv-row">
-                                    <input type="text" class=" form-control form-control-lg form-control-solid mb-3 mb-lg-0" placeholder="Vorname" name="vorname" [(ngModel)]="partnerprofil.vorname" required/>
-                                    <ng-container *ngIf="partnerprofilForm.controls.vorname && partnerprofilForm.controls.vorname.invalid && (partnerprofilForm.controls.vorname.dirty || !partnerprofilForm.controls.vorname.untouched)">
-                                        <div *ngIf="partnerprofilForm.controls.vorname.errors?.['required']" class="text-danger">
-                                            Vorname ist erforderlich
-                                        </div>
-                                    </ng-container>
-                                </div>
-                                <div class="col-lg-6 fv-row">
-                                    <input type="text" class="form-control form-control-lg form-control-solid" placeholder="Nachname" name="nachname" [(ngModel)]="partnerprofil.nachname" required/>
-                                    <ng-container *ngIf="partnerprofilForm.controls.nachname && partnerprofilForm.controls.nachname.invalid && (partnerprofilForm.controls.nachname.dirty || !partnerprofilForm.controls.nachname.untouched)">
-                                        <div *ngIf="partnerprofilForm.controls.nachname.errors?.['required']" class="text-danger">
-                                            Nachname ist erforderlich
-                                        </div>
-                                    </ng-container>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                   <div class="row mb-6">
+                       <label class="col-lg-4 col-form-label required fw-bold fs-6">Vor- & Nachname</label>
+                       <div class="col-lg-8">
+                           <div class="row">
+                               <div class="col-lg-6 fv-row">
+                                   <input type="text" class="form-control form-control-lg form-control-solid mb-3 mb-lg-0" placeholder="Vorname" name="vorname" [(ngModel)]="partnerprofil.vorname" required/>
+                                   <ng-container *ngIf="partnerprofilForm.controls.vorname && partnerprofilForm.controls.vorname.invalid && (partnerprofilForm.controls.vorname.dirty || !partnerprofilForm.controls.vorname.untouched)">
+                                       <div *ngIf="partnerprofilForm.controls.vorname.errors?.['required']" class="text-danger">
+                                           Vorname ist erforderlich
+                                       </div>
+                                   </ng-container>
+                               </div>
+                               <div class="col-lg-6 fv-row">
+                                   <input type="text" class="form-control form-control-lg form-control-solid" placeholder="Nachname" name="nachname" [(ngModel)]="partnerprofil.nachname" required/>
+                                   <ng-container *ngIf="partnerprofilForm.controls.nachname && partnerprofilForm.controls.nachname.invalid && (partnerprofilForm.controls.nachname.dirty || !partnerprofilForm.controls.nachname.untouched)">
+                                       <div *ngIf="partnerprofilForm.controls.nachname.errors?.['required']" class="text-danger">
+                                           Nachname ist erforderlich
+                                       </div>
+                                   </ng-container>
+                               </div>
+                           </div>
+                       </div>
+                   </div>
+
+                   <div class="row mb-6">
+                       <label class="col-lg-4 col-form-label required fw-bold fs-6">Strasse & Hausnummer</label>
+                       <div class="col-lg-8">
+                           <div class="row">
+                               <div class="col-lg-6 fv-row">
+                                   <input type="text" class="form-control form-control-lg form-control-solid mb-3 mb-lg-0" placeholder="Strasse" name="strasse" [(ngModel)]="partnerprofil.strasse" required/>
+                                   <ng-container *ngIf="partnerprofilForm.controls.strasse && partnerprofilForm.controls.strasse.invalid && (partnerprofilForm.controls.strasse.dirty || !partnerprofilForm.controls.strasse.untouched)">
+                                       <div *ngIf="partnerprofilForm.controls.strasse.errors?.['required']" class="text-danger">
+                                           Strasse ist erforderlich
+                                       </div>
+                                   </ng-container>
+                               </div>
+                               <div class="col-lg-6 fv-row">
+                                   <input type="text" class="form-control form-control-lg form-control-solid" placeholder="Hausnummer" name="hausnummer" [(ngModel)]="partnerprofil.hausnummer" required/>
+                                   <ng-container *ngIf="partnerprofilForm.controls.hausnummer && partnerprofilForm.controls.hausnummer.invalid && (partnerprofilForm.controls.hausnummer.dirty || !partnerprofilForm.controls.hausnummer.untouched)">
+                                       <div *ngIf="partnerprofilForm.controls.hausnummer.errors?.['required']" class="text-danger">
+                                           Hausnummer ist erforderlich
+                                       </div>
+                                   </ng-container>
+                               </div>
+                           </div>
+                       </div>
+                   </div>
+
+                   <div class="row mb-6">
+                       <label class="col-lg-4 col-form-label required fw-bold fs-6">Plz & Stadt</label>
+                       <div class="col-lg-8">
+                           <div class="row">
+                               <div class="col-lg-6 fv-row">
+                                   <input type="text" class="form-control form-control-lg form-control-solid mb-3 mb-lg-0" placeholder="Plz" name="plz" [(ngModel)]="partnerprofil.plz" required/>
+                                   <ng-container *ngIf="partnerprofilForm.controls.plz && partnerprofilForm.controls.plz.invalid && (partnerprofilForm.controls.plz.dirty || !partnerprofilForm.controls.plz.untouched)">
+                                       <div *ngIf="partnerprofilForm.controls.plz.errors?.['required']" class="text-danger">
+                                           Plz ist erforderlich
+                                       </div>
+                                   </ng-container>
+                               </div>
+                               <div class="col-lg-6 fv-row">
+                                   <input type="text" class="form-control form-control-lg form-control-solid" placeholder="Stadt" name="stadt" [(ngModel)]="partnerprofil.stadt" required/>
+                                   <ng-container *ngIf="partnerprofilForm.controls.stadt && partnerprofilForm.controls.stadt.invalid && (partnerprofilForm.controls.stadt.dirty || !partnerprofilForm.controls.stadt.untouched)">
+                                       <div *ngIf="partnerprofilForm.controls.stadt.errors?.['required']" class="text-danger">
+                                           Stadt ist erforderlich
+                                       </div>
+                                   </ng-container>
+                               </div>
+                           </div>
+                       </div>
+                   </div>
+
 
                     <div class="card-body border-top p-9">
                         <div class="notice d-flex bg-light-warning rounded border-warning border border-dashed p-6">
                             <app-keenicon name="shield-tick" class="fs-2 text-warning me-4"></app-keenicon>
                             <div class="d-flex flex-stack flex-grow-1 flex-wrap flex-md-nowrap">
                                 <div class="mb-3 mb-md-0 fw-bold">
-                                    <h4 class="text-gray-800 fw-bolder">TODO: Interne Notiz</h4>
-                                    Interne Notiz: Weitere Parameter für ein Partnerprofil sind hier noch nicht abgefragt (z.B. Firma, Position, Telefon, ...)
-                                    Die nachfolgenden Parameter sind zur internen Verwendung.
+                                    <h4 class="text-gray-800 fw-bolder">Nächster Schritt</h4>
+                                    Im nächsten Schritt fragen wir nach einer Zustimmung zu unseren AGB.
                                 </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="row mb-0">
-                        <label class="col-lg-4 col-form-label fw-bold fs-6">Kunde</label>
-                        <div class="col-lg-8 d-flex align-items-center">
-                            <div class="form-check form-check-solid form-switch fv-row">
-                                <input class="form-check-input w-45px h-30px" type="checkbox" id="kunde" name="kunde" [(ngModel)]="partnerprofil.kunde" /><label class="form-check-label"></label>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row mb-0">
-                        <label class="col-lg-4 col-form-label fw-bold fs-6">Kunde ist aktiviert</label>
-                        <div class="col-lg-8 d-flex align-items-center">
-                            <div class="form-check form-check-solid form-switch fv-row">
-                                <input class="form-check-input w-45px h-30px" type="checkbox" id="kundeAktiviert" name="kundeAktiviert"  [(ngModel)]="partnerprofil.kundeAktiviert" /><label class="form-check-label"></label>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row mb-0">
-                        <label class="col-lg-4 col-form-label fw-bold fs-6">Lieferant</label>
-                        <div class="col-lg-8 d-flex align-items-center">
-                            <div class="form-check form-check-solid form-switch fv-row">
-                                <input class="form-check-input w-45px h-30px" type="checkbox" id="lieferant" name="lieferant"  [(ngModel)]="partnerprofil.lieferant" /><label class="form-check-label"></label>
                             </div>
                         </div>
                     </div>
@@ -86,7 +109,7 @@
                 <div class="card-footer d-flex justify-content-end py-6 px-9">
                     <button type="button" class="btn btn-light" [disabled]="isLoading" (click)="cancel()">Abbrechen</button>
                     <button type="submit" class="btn btn-primary" [disabled]="!partnerprofilForm.valid || isLoading">
-                        <ng-container *ngIf="!isLoading">Save Changes</ng-container>
+                        <ng-container *ngIf="!isLoading">Speichern</ng-container>
                         <ng-container *ngIf="isLoading">
                             <span clas="indicator-progress" [style.display]="'block'">
                               Please wait...{{ " " }}

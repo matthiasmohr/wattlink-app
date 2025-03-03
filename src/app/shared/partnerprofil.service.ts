@@ -12,14 +12,21 @@ const headers = new HttpHeaders({
         'X-Skip-XSRF-TOKEN': 'true',
 });
 
+interface AktivierenPartnerprofilResponse {
+    partnerprofil: Partnerprofil;
+    signingURL: string;
+}
+
 @Injectable({
     providedIn: 'root',
 })
+
 export class PartnerprofileApiService {
     //partnerprofileUrl = 'api/partnerprofile';
     partnerprofilUrl = environment.backendApi + '/v1/partnerprofil';
 
     constructor(public http: HttpClient) {}
+
 
     /*========================================
       CRUD Methods for consuming RESTful API
@@ -37,6 +44,13 @@ export class PartnerprofileApiService {
         return this.http.post<Partnerprofil>(this.partnerprofilUrl, partnerprofil).pipe(
             catchError(this.handleError)
         )
+    }
+
+
+    aktivierenPartnerprofil(partnerprofil: Partnerprofil): Observable<AktivierenPartnerprofilResponse> {
+        return this.http.post<AktivierenPartnerprofilResponse>(this.partnerprofilUrl + '/aktivieren', partnerprofil, { headers }).pipe(
+          catchError(this.handleError)
+        );
     }
 
     /*========================================

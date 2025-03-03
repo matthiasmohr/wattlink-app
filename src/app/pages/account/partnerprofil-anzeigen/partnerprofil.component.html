@@ -5,26 +5,45 @@
                 <h3 class="fw-bolder m-0">Profil</h3>
             </div>
 
-            <ng-container *ngIf="partnerprofil.kundeAktiviert">
+            <ng-container *ngIf="partnerprofil.nachname">
                 <a routerLink="/account/partnerprofil-anlegen/" class="btn btn-primary align-self-center">
                   Profil bearbeiten
                 </a>
             </ng-container>
         </div>
 
-        <ng-container *ngIf="!partnerprofil.kundeAktiviert">
+        <ng-container *ngIf="!partnerprofil.kundeAktiviert && !partnerprofil.nachname">
             <div class="card-body border-top p-9">
                 <div class="notice d-flex bg-light-warning rounded border-warning border border-dashed p-6">
                     <app-keenicon name="shield-tick" class="fs-2 text-warning me-4"></app-keenicon>
                     <div class="d-flex flex-stack flex-grow-1 flex-wrap flex-md-nowrap">
                         <div class="mb-3 mb-md-0 fw-bold">
-                            <h4 class="text-gray-800 fw-bolder">Aktivierung des Accounts</h4>
+                            <h4 class="text-gray-800 fw-bolder">Bitte ergänzen Sie Informationen</h4>
                             <div class="fs-6 text-gray-600 pe-7">
                                 Um Anfragen abzusenden, müssen Sie ihr Profil aktivieren.
                             </div>
                         </div>
                         <a [routerLink]="['/account/partnerprofil-anlegen/']" class="btn btn-warning px-6 align-self-center text-nowrap cursor-pointer">
-                            Profil aktivieren
+                            Informationen ergänzen
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </ng-container>
+
+        <ng-container *ngIf="!partnerprofil.kundeAktiviert && partnerprofil.nachname">
+            <div class="card-body border-top p-9">
+                <div class="notice d-flex bg-light-warning rounded border-warning border border-dashed p-6">
+                    <app-keenicon name="shield-tick" class="fs-2 text-warning me-4"></app-keenicon>
+                    <div class="d-flex flex-stack flex-grow-1 flex-wrap flex-md-nowrap">
+                        <div class="mb-3 mb-md-0 fw-bold">
+                            <h4 class="text-gray-800 fw-bolder">Rahmenvertrag aktivieren</h4>
+                            <div class="fs-6 text-gray-600 pe-7">
+                                Bitte aktivieren Sie den Rahmenvertrag, um Anfragen abzusenden. Dafür Senden wir Ihnen digital ein Dokument zur Unterschrift.
+                            </div>
+                        </div>
+                        <a class="btn btn-warning px-6 align-self-center text-nowrap cursor-pointer" (click)="triggerSigning()">
+                            Rahmenvertrag aktivieren
                         </a>
                     </div>
                 </div>
@@ -33,18 +52,56 @@
 
         <div class="card-body p-9">
             <ng-container *ngFor="let attribute of attributes">
-                <div class="row mb-7">
-                    <label class="col-lg-4 fw-bold text-muted">{{  attribute }}</label>
+                <div class="row mb-7" *ngIf="partnerprofil[attribute]">
+                    <label class="col-lg-4 fw-bold text-muted">{{ attribute }}</label>
                     <div class="col-lg-8">
                         <span class="fw-bolder fs-6 text-gray-900">{{ partnerprofil[attribute] }}</span>
                     </div>
                 </div>
             </ng-container>
         </div>
-    </div>
 
+        <!-- Agent-only section -->
+        <ng-container *ngIf="(hasPermission$ | async)">
+            <div class="card mb-5 bg-light-warning">
+                <div class="card-header cursor-pointer">
+                    <div class="card-title m-0">
+                        <h3 class="fw-bolder m-0">Agentenbereich</h3>
+                    </div>
+
+                    <a routerLink="/account/partnerprofil-anlegen/" class="btn btn-primary align-self-center">
+                        Profil bearbeiten
+                    </a>
+                </div>
+
+                <div class="card-body ">
+                     <ng-container *ngFor="let attribute of agentattributes">
+                        <div class="row mb-7" *ngIf="partnerprofil[attribute]">
+                            <label class="col-lg-4 fw-bold text-muted">{{ attribute }}</label>
+                            <div class="col-lg-8">
+                                <span class="fw-bolder fs-6 text-gray-900">{{ partnerprofil[attribute] }}</span>
+                            </div>
+                        </div>
+                    </ng-container>
+                </div>
+            </div>
+        </ng-container>
+
+    </div>
 </ng-container>
 
 <ng-template #loading>
-    <div>Loading...</div>
+    <div class="spinner-border" role="status">
+        <span class="sr-only">Loading...</span>
+    </div>
 </ng-template>
+
+<!-- Loading spinner speziell für die Weiterleitung zu DocuSign -->
+<div *ngIf="isLoading" class="loading-overlay">
+    <div class="spinner-border" role="status">
+        <span class="sr-only">Loading...</span>
+    </div>
+    <div class="loading-text">
+        Bitte warten Sie, wir leiten Sie zur Bearbeitung an unseren Partner DocuSign weiter
+    </div>
+</div>

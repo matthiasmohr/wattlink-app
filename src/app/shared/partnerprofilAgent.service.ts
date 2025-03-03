@@ -23,22 +23,15 @@ export class PartnerprofileAgentApiService {
     constructor(public http: HttpClient) {}
     getPartnerprofileAgent(): Observable<Partnerprofil[]> {
         return this.http.get<any>(this.partnerprofilAgentUrl, { headers }).pipe(
-            //retry(2),
-            //tap(data => console.log(data)), // eyeball results in the console
             map(response => response['partnerprofile']),
             catchError(this.handleError)
         );
     }
 
-    // Deprecated (soll ersetzt werden durch serverseitige Filterung)
     getPartnerprofilAgent(partnerprofilID: any): Observable<Partnerprofil> {
-        return this.http.get<any>(this.partnerprofilAgentUrl + '?partnerprofilID=' + partnerprofilID, { headers }).pipe(
-            map(response => response['partnerprofile']),
-            //find(anfrage=> anfrage.anfrageID == "07d3a60c-2f58-4623-8a7e-defe314ceb78"),
-            map(partnerprofile => partnerprofile.filter(
-                (partnerprofil: any) => partnerprofil.partnerprofilID == partnerprofilID
-            )[0]),
-            catchError(this.handleError)
+        return this.http.get<any>(this.partnerprofilAgentUrl + '/abrufen?partnerprofilID=' + partnerprofilID,{ headers }).pipe(
+          map(response => response['partnerprofil']),
+          catchError(this.handleError)
         );
     }
 

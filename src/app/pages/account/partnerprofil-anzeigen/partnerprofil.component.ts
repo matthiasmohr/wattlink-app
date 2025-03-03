@@ -1,41 +1,82 @@
 import { Component, OnInit } from '@angular/core';
 import {Observable} from "rxjs";
 import {PartnerprofileApiService} from "../../../shared/partnerprofil.service";
+import {PartnerprofileAgentApiService} from "../../../shared/partnerprofilAgent.service";
 import {AuthHelperService} from "src/app/shared/authHelper.service"
+import {ActivatedRoute} from "@angular/router";
 
 @Component({
   selector: 'app-settings',
   templateUrl: './partnerprofil.component.html',
+  styleUrl: './partnerprofil.component.scss',
 })
 export class PartnerprofilAnzeigenComponent implements OnInit {
   constructor(
       public partnerprofileApiService: PartnerprofileApiService,
+      public partnerprofileAgentApiService: PartnerprofileAgentApiService,
       public authHelperService: AuthHelperService,
+      private route: ActivatedRoute,
   ) {}
 
+  queryParams: any;
   partnerprofil$: Observable<any>;
+  hasPermission$: Observable<boolean>;
+  isAgent$: Observable<boolean>;
+  isLoading = false;
 
   attributes = [
-    'id',
     'email',
     'vorname',
     'nachname',
     'firma',
+    'plz',
+    'stadt',
+    'strasse',
+    'hausnummer',
     'position',
     'telefon',
-    'kunde',
+  ]
+
+  agentattributes = [
     'kundeAktiviert',
-    'lieferant',
+    'kundeStatus',
+    'docuSignEnvelopeID',
     'erstellt',
-    'bearbeitet'
+    'bearbeitet',
   ]
 
   ngOnInit(): void {
-    //TODO: ID dynamisch machen
-    this.partnerprofil$ = this.partnerprofileApiService.getPartnerprofil();
     this.hasPermission$ = this.authHelperService.hasPermission('agent:full');
+    this.isAgent$ = this.authHelperService.isAgent();
+    this.getPartnerprofil();
   }
 
-  hasPermission$: Observable<boolean>;
+  getPartnerprofil() {
+    this.authHelperService.isAgent().subscribe((isAgent: boolean) => {
+      this.route.queryParamMap.subscribe(params => {
+        // Agent-Call
+        if (isAgent && params.get('partnerprofil')) {
+          const partnerprofil = params.get('partnerprofil');
+          this.partnerprofil$ = this.partnerprofileAgentApiService.getPartnerprofilAgent(partnerprofil);
+          // User-Call
+        } else {
+          this.partnerprofil$ = this.partnerprofileApiService.getPartnerprofil();
+        }
+      })
+      // Forward query params
+      this.route.queryParams.subscribe(params => {
+        this.queryParams = params;
+      })
+    });
+  }
 
+  triggerSigning() {
+    this.isLoading = true;
+    this.partnerprofil$.subscribe(partnerprofil => {
+      this.partnerprofileApiService.aktivierenPartnerprofil(partnerprofil).subscribe(response => {
+        this.isLoading = false;
+        window.location.href = response.signingURL;
+      });
+    });
+  }
 }
