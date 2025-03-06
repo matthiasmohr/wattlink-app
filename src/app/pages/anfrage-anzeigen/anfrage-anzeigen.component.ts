@@ -3,8 +3,8 @@ import { Anfrage } from "../../shared/Anfrage";
 import { AnfragenApiService } from "../../shared/anfrage.service";
 import { AnfragenAgentApiService } from "../../shared/anfrageAgent.service";
 import { ActivatedRoute } from "@angular/router";
-import { Observable } from "rxjs";
-import { tap } from "rxjs/operators";
+import {Observable, of} from "rxjs";
+import {catchError, tap} from "rxjs/operators";
 import { AuthHelperService } from "../../shared/authHelper.service";
 
 @Component({
@@ -16,6 +16,12 @@ export class AnfrageAnzeigenComponent implements OnInit {
   anfrage$: Observable<Anfrage>;
   anfrageNotFound = false;
   isAgent$: Observable<boolean>;
+
+  statusOptions: { value: string, label: string }[] = [
+    { value: 'offen', label: 'Offen' },
+    { value: 'in_bearbeitung', label: 'In Bearbeitung' },
+    { value: 'abgeschlossen', label: 'Abgeschlossen' }
+  ];
 
   constructor(
     public anfragenApiService: AnfragenApiService,
@@ -60,5 +66,27 @@ export class AnfrageAnzeigenComponent implements OnInit {
         );
       }
     });
+  }
+
+  onStatusChange(event: Event, anfrage: any): void {
+    const select = event.target as HTMLSelectElement;
+    anfrage.status = select.value;
+    this.anfragenAgentApiService.editAnfrage(anfrage).pipe(
+      catchError(error => {
+        console.error('Status update failed', error);
+        return of(null);
+      })
+    ).subscribe();
+  }
+
+  onFortschrittChange(event: Event, anfrage: any): void {
+    const input = event.target as HTMLInputElement;
+    anfrage.fortschritt = input.valueAsNumber;
+    this.anfragenAgentApiService.editAnfrage(anfrage).pipe(
+      catchError(error => {
+        console.error('Progress update failed', error);
+        return of(null);
+      })
+    ).subscribe();
   }
 }

@@ -53,6 +53,13 @@ export class AnfragenAgentApiService {
         );
     }
 
+    editAnfrage(anfrage: Anfrage): Observable<Anfrage> {
+        const url = `${this.anfragenAgentUrl}?partnerprofilID=${anfrage.partnerprofilID}`;
+        return this.http.put<Anfrage>(url, anfrage).pipe(
+          catchError(this.handleError)
+        )
+    }
+
     // Deprecated (soll ersetzt werden durch serverseitige Filterung)
     getAnfrage_OLD(partnerprofilID: any, id: any): Observable<Anfrage> {
         const url = `${this.anfragenAgentUrl}`;
