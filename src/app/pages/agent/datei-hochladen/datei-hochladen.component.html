@@ -1,0 +1,14 @@
+<div class="container">
+    <h2>Datei hochladen</h2>
+    <form (ngSubmit)="onSubmit()" #uploadForm="ngForm">
+        <div class="mb-3">
+            <label for="file" class="form-label">Datei auswählen</label>
+            <input type="file" id="file" (change)="onFileSelected($event)" class="form-control" required>
+        </div>
+        <div class="mb-3">
+            <label for="anfrage" class="form-label">Anfrage ID</label>
+            <input type="text" id="anfrage" [(ngModel)]="anfrageId" name="anfrageId" class="form-control" required>
+        </div>
+        <button type="submit" class="btn btn-primary">Hochladen</button>
+    </form>
+</div>

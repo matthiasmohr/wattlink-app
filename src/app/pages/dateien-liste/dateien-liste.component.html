@@ -1,0 +1,27 @@
+<ng-container *ngIf="(!this.isLoading) ; else loading">
+    <div class="d-flex flex-wrap flex-stack mb-6">
+        <h3 class="fw-bolder my-2">
+            Dateien
+        </h3>
+    </div>
+
+    <div class="row g-6 g-xl-9">
+        <ng-container *ngFor="let d of dateien$ | async">
+            <div class="col-md-6 col-xl-4">
+                <app-dateien-card
+                        dateiID={{d.dateiID}}
+                        anfrageID={{d.anfrageID}}
+                        angebotID={{d.angebotID}}
+                        fileNameUser={{d.fileNameUser}}
+                        updatedAt={{d.updatedAt}}
+                        (download)="downloadFile($event, d.fileNameUser)"
+                ></app-dateien-card>
+            </div>
+        </ng-container>
+    </div>
+</ng-container>
+<ng-template #loading>
+    <div class="spinner-border" role="status">
+        <span class="sr-only">Loading...</span>
+    </div>
+</ng-template>

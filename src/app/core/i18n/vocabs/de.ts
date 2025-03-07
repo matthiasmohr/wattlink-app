@@ -16,6 +16,7 @@ export const locale = {
       ANFRAGEN: 'Lieferanfragen',
       MESSLOKATIONEN: 'Messlokationen',
       PARTNERPROFILE: 'Partnerprofile',
+      DATEIEN: 'Dateien',
     },
     AUTH: {
       GENERAL: {

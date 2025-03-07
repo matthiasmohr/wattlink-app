@@ -39,6 +39,17 @@
           </a>
       </div>
 
+      <!-- Dateien -->
+      <div class="menu-item">
+          <a class="menu-link without-sub" routerLink="/dateien-liste" routerLinkActive="active">
+              <span class="menu-icon">
+                <span [inlineSVG]="'./assets/media/icons/duotune/files/fil008.svg'" class="svg-icon svg-icon-2"></span>
+              </span>
+              <span class="menu-title" translate="MENU.DATEIEN"></span>
+          </a>
+      </div>
+
+
       <!-- Hinweis -->
       <ng-container *ngIf="(partnerprofil$) | async as partnerprofil">
           <ng-container *ngIf="!partnerprofil.kundeAktiviert">

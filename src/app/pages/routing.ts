@@ -7,6 +7,7 @@ import {AccountComponent} from "./account/account.component";
 import {MesslokationLastkurveComponent} from "./messlokation-lastkurve/messlokation-lastkurve.component";
 import {PartnerprofileListeAgentComponent} from "./agent/partnerprofile-liste-agent/partnerprofile-liste-agent.component";
 import {ImpressumComponent} from "./static/impressum/impressum.component";
+import {DateienListeComponent} from "./dateien-liste/dateien-liste.component";
 
 const Routing: Routes = [
   {
@@ -44,8 +45,12 @@ const Routing: Routes = [
     path: 'messlokation-lastkurve/:id',
     component: MesslokationLastkurveComponent
   },
+  {
+    path: 'dateien-liste',
+    component: DateienListeComponent
+  },
 
-  // AGENT: TODO: IN MODUL AUSLAGERN
+  // AGENT:
   {
     path: 'agent/partnerprofile-liste',
     component: PartnerprofileListeAgentComponent
