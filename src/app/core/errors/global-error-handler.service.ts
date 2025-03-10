@@ -1,6 +1,7 @@
 import { HttpErrorResponse } from '@angular/common/http';
 import {ErrorHandler, inject, Injectable, Injector, NgZone} from '@angular/core';
 import { ErrorDialogService } from '../../modules/shared/errors/error-dialog.service';
+import * as Sentry from '@sentry/angular';
 
 @Injectable({
     providedIn: 'root'
@@ -27,6 +28,9 @@ export class GlobalErrorHandlerService implements ErrorHandler {
             error.name || 'Undefined server error',
             error.message || 'Undefined server error',
         )
+
+        // Log error to Sentry
+        Sentry.captureException(error);
 
     }
 }

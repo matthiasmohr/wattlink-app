@@ -10,3 +10,5 @@ infrastructure-stromify-stage/.terraform/
 .angular/
 node_modules
 package-lock.json
+# Sentry Config File
+.sentryclirc

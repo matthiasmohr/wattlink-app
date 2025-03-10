@@ -17,6 +17,8 @@ import {SharedModule} from "./modules/shared/shared.module";
 import {GlobalErrorHandlerService} from "./core/errors/global-error-handler.service";
 import {ErrorDialogService} from "./modules/shared/errors/error-dialog.service";
 import {CoreModule} from "./core/core.module";
+import * as Sentry from "@sentry/angular";
+import {Router} from "@angular/router";
 
 
 @NgModule({
@@ -36,6 +38,17 @@ import {CoreModule} from "./core/core.module";
     CoreModule,
   ],
   providers: [
+    // SENTRY
+    {
+      provide: Sentry.TraceService,
+      deps: [Router],
+    },
+    {
+      provide: APP_INITIALIZER,
+      useFactory: () => () => {},
+      deps: [Sentry.TraceService],
+      multi: true,
+    },
       provideHttpClient(withInterceptors([authHttpInterceptorFn])),
       // # Auth0 Auth module
       provideAuth0({
@@ -65,6 +78,7 @@ import {CoreModule} from "./core/core.module";
               : [],
           // #fake-end#
       ]),
+
   ],
   bootstrap: [AppComponent],
 })

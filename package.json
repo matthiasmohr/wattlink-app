@@ -4,13 +4,14 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "build": "ng build",
+    "build": "ng build && npm run sentry:sourcemaps",
     "watch": "ng build --watch --configuration development",
     "rtl": "webpack --config=rtl.config.js",
     "test": "ng test",
     "lint": "ng lint",
     "build:prod": "ng build --configuration production",
-    "test:headless": "ng test --watch=false --browsers=ChromeHeadless"
+    "test:headless": "ng test --watch=false --browsers=ChromeHeadless",
+    "sentry:sourcemaps": "sentry-cli sourcemaps inject --org stromify --project portal-stage ./dist/demo7 && sentry-cli sourcemaps upload --org stromify --project portal-stage ./dist/demo7"
   },
   "private": true,
   "dependencies": {
@@ -30,6 +31,8 @@
     "@ngx-translate/core": "15.0.0",
     "@ngx-translate/http-loader": "8.0.0",
     "@popperjs/core": "2.11.8",
+    "@sentry/angular": "^9.5.0",
+    "@sentry/cli": "^2.42.2",
     "@sweetalert2/ngx-sweetalert2": "^12.2.0",
     "angular-datatables": "^18.0.0",
     "angular-in-memory-web-api": "^0.18.0",
